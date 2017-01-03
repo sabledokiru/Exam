@@ -10,5 +10,6 @@
 </head>
 <body>
 <jsp:include page="/views/catalog.jsp"/>
+<p>${id}  세션</p>
 </body>
 </html>
