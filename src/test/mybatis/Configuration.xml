@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<!-- sql 문을 정의하고 있는 xml 문서 정보 -->
 	<mappers>
-		<mapper resource="test/mybatis/ProdutMapper.xml"/>
+		<mapper resource="test/mybatis/ProductMapper.xml"/>
 		<mapper resource="test/mybatis/MembersMapper.xml"/>
 	</mappers>
 </configuration>
