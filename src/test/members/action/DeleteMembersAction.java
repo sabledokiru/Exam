@@ -15,7 +15,7 @@ public class DeleteMembersAction extends Action{
 		String id=request.getParameter("id");
 		//2. DB에서 삭제하기 
 		MembersDao.getInstance().delete(id);
-		//3. ActionForward 객체 생성해서 리턴해주기 
+		//3. ActionForward 객체 생성해서 리턴해주기 z
 		return new ActionForward("/alert.jsp");
 	}
 	

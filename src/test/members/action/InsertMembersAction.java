@@ -25,7 +25,7 @@ public class InsertMembersAction extends Action{
 		dto.setMemberEmail(memberEmail);
 		dto.setMemberPhone(memberPhone);
 		dto.setMemberAddr(memberAddr);
-		//3. DB 에 저장한다.
+		//3. DB 에 저장한다.z
 		MembersDao.getInstance().insert(dto);
 		//4. redirect 이동 처리
 		return new ActionForward("/alert.jsp");

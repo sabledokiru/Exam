@@ -15,7 +15,7 @@ public class GetDataMembersAction extends Action{
 		String memberId=request.getParameter("id");
 		//2. DB에서 출력한다.
 		MembersDao.getInstance().getData(memberId);
-		//3. forward 객체를 생성해서 이동시켜준다.
+		//3. forward 객체를 생성해서 이동시켜준다.z
 		return new ActionForward("index.jsp");
 	}
 
