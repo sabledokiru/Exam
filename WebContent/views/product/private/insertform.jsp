@@ -11,12 +11,16 @@
 </head>
 <body>
 <h3>상품 등록</h3>
-<form action="productinsert.do" method="post">
+<form action="insert.do" method="post">
 	<label for="writer">작성자</label>
 	<input type="text" id="writer" 
 		value="${MemberId }" disabled="disabled"/><br/>
 	<label for="productName">상품명:</label>
 	<input type="text" name="productName" id="productName"/><br/>
+	<label for="brand">브랜드:</label>
+	<input type="text" name="brand" id="brand" /><br/>
+	<label for="price">가격:</label>
+	<input type="text" name="price" id="price" /><br/>
 	<textarea name="ir1" id="ir1" style="width:766px;height:412px;display:none"></textarea>
 	<div>
 		<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
