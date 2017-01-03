@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<properties resource="test/mybatis/db.properties"/>
 	<!-- Type 별칭 미리 정의하기 -->
 	<typeAliases>
+		<typeAlias type="test.product.dto.ProductDto" alias="productDto"/>
 	</typeAliases>
 	<!-- 환경 설정 -->
 	<environments default="dev">
@@ -23,5 +24,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<!-- sql 문을 정의하고 있는 xml 문서 정보 -->
 	<mappers>
+		<mapper resource="test/mybatis/ProductMapper.xml"/>
 	</mappers>
 </configuration>
