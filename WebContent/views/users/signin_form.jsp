@@ -27,7 +27,7 @@
 			<label class="control-label" for="pwd">비밀번호:</label>
 			<input class="form-control" type="text" id="pwd" name="pwd"/>
 		</div>
-		<button class="btn btn-default" type="submit" id="submitBtn">가입</button>
+		<button class="btn btn-success" type="submit" id="submitBtn">로그인</button>
 		<button class="btn btn-danger" type="button">취소</button>
 	</form>
 </div>
