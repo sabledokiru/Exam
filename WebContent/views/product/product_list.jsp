@@ -10,12 +10,20 @@
 	.product_main{
 		width:100%;
 	}
-	li{
+	.product_main ul li{
 		width:20%;
 		height: 400px;
 		float:left;
 		list-style-type:none;
 		border:1px solid red;
+		background-color:#cecece;
+		margin : 0 auto;
+	}
+	img{
+		width:100%;
+	}
+	.imgBox{
+		width:220px;
 		background-color:#cecece;
 	}
 	
@@ -29,15 +37,20 @@
 	</header>
 	<div class="product_main">
 		<ul>
-			<a href=""><li>여기그림1</li></a>
-			<a href=""><li>여기그림2</li></a>
-			<a href=""><li>여기그림3</li></a>
-			<a href=""><li>여기그림4</li></a>
-			<a href=""><li>여기그림5</li></a>
+			<%-- <c:forEach var="" items="">   여기 for문 돌려서 list 뽑아내는거야 --%>	
+				<li>
+					<div class="imgBox"><img src="" alt="그림1" /></div>
+					<div class="productName"><strong>$ 상품명</strong></div>
+					<div class="brand">$</div>
+					<div class="regdate">$</div>
+					<div class="content"> 여기 내용</div>
+					<div class="price"><strong>$ 여기 가격</strong></div>
+				</li>			
+			<%-- </c:forEach> --%>	
 		</ul>
 	</div>
 	<footer>
-		
+		<jsp:include page="/views/footer.jsp"/>
 	</footer>
 </div>
 </body>
