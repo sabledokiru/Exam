@@ -55,12 +55,12 @@
 /* id 중복 체크 */
 	var isCheck = false;
 	$("#idCheck").click(function(){
+		var id = $("#userId").val();
 		$.ajax({  
 				url: "idCheck.do",
 				type: "POST",
 				data : {"id":id},
 				success: function(data){
-					alert(data.isSuccess);	
 					if(data.isSuccess == true){
 						alert("사용 가능한 아이디 입니다.");
 						isCheck = true;
