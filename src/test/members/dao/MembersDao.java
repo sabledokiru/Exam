@@ -19,9 +19,10 @@ public class MembersDao {
 	}
 	
 	//회원정보를 추가하기
-	public void insert(MembersDto dto){
+	public boolean insert(MembersDto dto){
 		// 세션 객체 생성
 		SqlSession session=factory.openSession();
+		boolean isSeccess = false;
 		try{
 			
 		}catch(Exception e){
@@ -29,6 +30,7 @@ public class MembersDao {
 		}finally{
 			session.close();
 		}
+		return isSeccess;
 	}
 	
 	//회원정보를 삭제하기
