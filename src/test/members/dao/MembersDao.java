@@ -90,7 +90,7 @@ public class MembersDao {
 	
 	//아이디 중복 체크
 	public boolean checkedId(String id){
-		//세션 객체 생성z
+		//세션 객체 생성zz
 		SqlSession session=factory.openSession();
 		boolean isSuccess = true;
 		MembersDto dto=null;
