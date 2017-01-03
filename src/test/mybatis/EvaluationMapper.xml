@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="evaluaion">
+	<insert id="insert" parameterType="evaluationDto">
+		INSERT INTO evaluation(evaNum, productNum, evaTitle, evaWriter, evaContent, regdate)
+		VALUES()
+	</insert>
+	
+	<update id="update" parameterType="evaluationDto">
+	
+	</update>
+	
+	<delete id="delete" parameterType="int">
+	
+	</delete>
+	
+	<select id="getData" parameterType="int" resultType="evaluationDto">
+	
+	</select>
+	
+	<select id="getList" resultType="evaluationDto">
+	
+	</select>
+</mapper>

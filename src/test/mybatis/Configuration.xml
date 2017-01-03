@@ -9,6 +9,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="test.product.dto.ProductDto" alias="productDto"/>
 		<typeAlias type="test.members.dto.MembersDto" alias="membersDto"/>
+		<typeAlias type="test.evaluation.dto.EvaluationDto" alias="evaluationDto"/>
 	</typeAliases>
 	<!-- 환경 설정 -->
 	<environments default="dev">
@@ -27,5 +28,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="test/mybatis/ProductMapper.xml"/>
 		<mapper resource="test/mybatis/MembersMapper.xml"/>
+		<mapper resource="test/mybatis/EvaluationMapper.xml"/>
 	</mappers>
 </configuration>
