@@ -18,13 +18,13 @@
 <body>
 <div class="container">
 	<h3>로그인</h3>
-	<form action="" method="post">
+	<form action="signin.do" method="post">
 		<div class="form-group">
-			<label class="control-label" for="userId">아이디:</label>
+			<label class="control-label" for="id">아이디:</label>
 			<input class="form-control" type="text" id="userId" name="userId"/>
 		</div>
 		<div class="form-group">
-			<label class="control-label" for="userPwd">비밀번호:</label>
+			<label class="control-label" for="pwd">비밀번호:</label>
 			<input class="form-control" type="text" id="userPwd" name="userPwd"/>
 		</div>
 		<button class="btn btn-default" type="submit" id="submitBtn">가입</button>
