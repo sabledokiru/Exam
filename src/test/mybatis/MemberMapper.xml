@@ -4,12 +4,12 @@
 	<insert id="insert" parameterType="membersDto">
 		INSERT INTO members
 		VALUES(
-		#{memberId},
-		#{memberPwd},
-		#{memberEmail},
-		#{memberPhone},
-		#{memberAddr}, 
-		sysdate
+			#{memberId},
+			(PwdEncrypt#{memberPwd}),
+			#{memberEmail},
+			#{memberPhone},
+			#{memberAddr}, 
+			SYSDATE
 		)
 	</insert>
 	
@@ -22,15 +22,39 @@
 	<update id="update" parameterType="membersDto">
 		UPDATE members
 		SET 
-		memberId = #{userId},
-		memberPwd = #{userPwd},
-		memberEmail = #{userEmail},
-		memberPhone = #{userPhone},
-		memberAddr = #{userAddr}
+			memberId = #{memberId},
+			memberPwd = #{memberPwd},
+			memberEmail = #{memberEmail},
+			memberPhone = #{memberPhone},
+			memberAddr = #{memberAddr}
 		WHERE memberId=#{memberId}
 	</update>
 	
-	<select id="getlist">
+	<select id="getList" resultType="membersDto">
+		SELECT 
+			memberId,
+			memberEmail,
+			memberPhone,
+			memberAddr,
+			SYSDATE
+		FROM members
+		ORDER BY memberId DESC
+	</select>
 	
+	<select id="checkedId" parameterType="String">
+		SELECT memberId
+		FROM members
+		WHERE memberId = #{memberId}
+	</select>
+	
+	<select id="getData" parameterType="String">
+		SELECT 
+			memberId,
+			memberEmail,
+			memberPhone,
+			memberAddr,
+			SYSDATE
+		FROM members
+		WHERE memberId = #{memberId}
 	</select>
 </mapper>

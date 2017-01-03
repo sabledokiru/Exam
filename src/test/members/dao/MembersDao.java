@@ -1,5 +1,8 @@
 package test.members.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -34,37 +37,92 @@ public class MembersDao {
 	}
 	
 	//회원정보를 삭제하기
-	public void delete(String id){
+	public boolean delete(String id){
 		//세션 객체 생성
 		SqlSession session=factory.openSession(true);
+		boolean isSuccess = false;
 		try{
 			session.delete("members.delete",id);
+			isSuccess = true;
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			session.close();
 		}
+		return isSuccess;
 	}
 	
 	//회원정보 수정하기
 	public boolean update(MembersDto dto){
 		//세션 객체 생성
 		SqlSession session=factory.openSession(true);
-		boolean isSussecc = false;
+		boolean isSuccess = false;
 		try{
 			session.update("members.update",dto);
-			isSussecc=true;
+			isSuccess=true;
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			session.close();
 		}
-		return isSussecc;
+		return isSuccess;
 	}
 	
 	//회원 리스트 출력하기
-	public boolean getlist(){
-		return false;
+	public List<MembersDto> getList(){
+		//세션 객체 생성
+		SqlSession session=factory.openSession(true);
+		 	List<MembersDto> list = null;
+		try{
+			list = session.selectList("members.getlist");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return list;
 	}
 	
+	//아이디 중복 체크
+	public boolean checkedId(String id){
+		//세션 객체 생성
+		SqlSession session=factory.openSession();
+		boolean isSuccess = true;
+		try{
+			session.selectOne("members.checkedId",id);
+			isSuccess = false;
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return isSuccess;
+	}
+	
+	//한명의 회원정보 출력하기
+	public boolean getData(String id){
+		//세션 객체 생성
+		SqlSession session=factory.openSession();
+		boolean isSuccess = false;
+		try{
+			session.selectOne("members.getData",id);
+			isSuccess = true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return isSuccess;
+	}
 }
+
+
+
+
+
+
+
+
+
+
