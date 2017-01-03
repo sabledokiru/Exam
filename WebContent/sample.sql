@@ -8,7 +8,7 @@ regdate DATE
 
 CREATE SEQUENCE product_seq NOCACHE;
 
-create table User
+create table Members
 (userId VARCHAR2(50) PRIMARY KEY,
 userPwd VARCHAR2(50) NOT NULL,
 userEmail VARCHAR2(50) NOT NULL UNIQUE,
