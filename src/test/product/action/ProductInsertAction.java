@@ -11,7 +11,7 @@ public class ProductInsertAction extends Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		return null;
+		return new ActionForward("");
 	}
 
 }
