@@ -23,7 +23,7 @@
 			<label class="control-label" for="userPwd">비밀번호:</label>
 			<input class="form-control" type="text" 
 				id="userPwd" name="userPwd"/>
-		</div>
+		</div>1
 		<div class="form-group">
 			<label class="control-label" for="userEmail">이메일:</label>
 			<input class="form-control" type="text" 
