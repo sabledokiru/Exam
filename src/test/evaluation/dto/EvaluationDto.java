@@ -2,24 +2,20 @@ package test.evaluation.dto;
 
 public class EvaluationDto {
 	private int evaNum;
-	private int divValue;
 	private int productNum;
 	private String evaTitle;
 	private String evaWriter;
-	private String evacontent;
+	private String evaContent;
 	private String regdate;
 	
-	public EvaluationDto(){}
-
-	public EvaluationDto(int evaNum, int divValue, int productNum, String evaTitle, String evaWriter, String evacontent,
+	public EvaluationDto(int evaNum, int productNum, String evaTitle, String evaWriter, String evaContent,
 			String regdate) {
 		super();
 		this.evaNum = evaNum;
-		this.divValue = divValue;
 		this.productNum = productNum;
 		this.evaTitle = evaTitle;
 		this.evaWriter = evaWriter;
-		this.evacontent = evacontent;
+		this.evaContent = evaContent;
 		this.regdate = regdate;
 	}
 
@@ -29,14 +25,6 @@ public class EvaluationDto {
 
 	public void setEvaNum(int evaNum) {
 		this.evaNum = evaNum;
-	}
-
-	public int getDivValue() {
-		return divValue;
-	}
-
-	public void setDivValue(int divValue) {
-		this.divValue = divValue;
 	}
 
 	public int getProductNum() {
@@ -63,12 +51,12 @@ public class EvaluationDto {
 		this.evaWriter = evaWriter;
 	}
 
-	public String getEvacontent() {
-		return evacontent;
+	public String getEvaContent() {
+		return evaContent;
 	}
 
-	public void setEvacontent(String evacontent) {
-		this.evacontent = evacontent;
+	public void setEvaContent(String evaContent) {
+		this.evaContent = evaContent;
 	}
 
 	public String getRegdate() {

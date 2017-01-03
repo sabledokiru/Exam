@@ -18,19 +18,17 @@ MemberAddr VARCHAR2(100) NOT NULL,
 REGDATE DATE
 );
 
--- 상품평, q&a 리스트 테이블
+-- 상품평 테이블
 CREATE TABLE evalutaion(
 evaNum NUMBER PRIMARY KEY,
-divValue NUMBER NOT NULL,	-- 상품평은 1, q&a 는 2로 구분
-productNum NUMBER NOT NULL,	-- 상품정보와 연결하기 위한 foreign key
+productNum NUMBER NOT NULL,	-- 특정상품에 대한 상품평을 불러오기 위한 칼럼
 evaTitle VARCHAR2(100) NOT NULL,
 evaWriter VARCHAR2(50) NOT NULL,
 evaContent CLOB NOT NULL,
-regdate DATE,
-CONSTRAINT eva_pro_fk FOREIGN KEY (productNum) REFERENCES product(productNum)
+regdate DATE
 );
 
--- 상품평, q&a 댓글 테이블
+-- 상품평 댓글 테이블
 CREATE TABLE evaComment(
 comNum NUMBER PRIMARY KEY,	-- 덧글의 글 번호
 comWriter VARCHAR2(100),
@@ -40,6 +38,5 @@ comRef_group NUMBER,	-- 덧글 그룹(원 글의 num과 같음)
 comComment_group NUMBER,	-- 덧글 내에서의 그룹
 regdate DATE
 );
-
--- 상품평, q&a 시퀀스
+-- 상품평 시퀀스
 CREATE SEQUENCE eva_comment_seq NOCACHE;
