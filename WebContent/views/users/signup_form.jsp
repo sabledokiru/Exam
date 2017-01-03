@@ -15,37 +15,46 @@
 	<form action="" method="post">
 		<div class="form-group has-feedback">
 			<label class="control-label" for="userId">아이디:</label>
-			<input class="form-control" type="text" 
-				id="userId" name="userId"/>
-			<p class="help-block">사용할 수 없는 아이디 입니다.</p>
+			<input class="form-control" type="text" id="userId" name="userId"/>
 			<span class="glyphicon form-control-feedback"></span>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPwd">비밀번호:</label>
-			<input class="form-control" type="text" 
-				id="userPwd" name="userPwd"/>
-		</div>1
+			<input class="form-control" type="text" id="userPwd" name="userPwd"/>
+		</div>
 		<div class="form-group">
 			<label class="control-label" for="userEmail">이메일:</label>
-			<input class="form-control" type="text" 
-				id="userEmail" name="userEmail"/>
+			<input class="form-control" type="text" id="userEmail" name="userEmail"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPhone">전화번호:</label>
-			<input class="form-control" type="text" 
-				id="userPhone" name="userPhone"/>
+			<input class="form-control" type="text" id="userPhone" name="userPhone"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userAddr">주소:</label>
-			<input class="form-control" type="text" 
-				id="userAddr" name="userAddr"/>
+			<input class="form-control" type="text" id="userAddr" name="userAddr"/>
 		</div>
-		
-		<button type="submit">가입</button>
+		<button class="btn btn-default" type="button" id="submitBtn">가입</button>
 	</form>
 </div>
-
-<script src="${pageContext.request.contextPath }/resource/js/jquery-3.1.1.js"></script>
+<script>
+ 	$("#submitBtn").click(function(event){
+ 		var id = $("#userId").val();
+ 		var pwd = $("#userPwd").val();
+ 		var email = $("#userEmail").val();
+ 		var phone = $("#userPhone").val();
+ 		var addr = $("#userAddr").val();
+	
+ 		$.ajax({  
+ 			url: "/sign.do",
+ 			type: "POST",
+ 			data : {"id":id,"pwd":pwd,"email":email,"phone":phone,"addr":addr},
+ 			success: function(data){
+ 				
+ 			}  
+ 		}); 	 
+ 	});
+</script>
 <script>
 	//아이디 입력란에 keyup 이벤트가 발생했을때 실행할 함수 등록 
 	$("#id").on("keyup", function(){

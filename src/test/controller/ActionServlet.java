@@ -24,7 +24,8 @@ public class ActionServlet extends HttpServlet{
 		//순수 요청 경로를 추출 한다.
 		// command => /fortune or /time or /signin 
 		String command=uri.substring(contextName.length(),
-				uri.length()-INCLUDE_EXTENSION_LENGTH);		
+				uri.length()-INCLUDE_EXTENSION_LENGTH);
+		System.out.println(command);
 		//해당 command 를 수행할 Action 객체를 팩토리로 부터 얻어온다.
 		Action action= UserActionFactory.getInstance().action(command);
 	
