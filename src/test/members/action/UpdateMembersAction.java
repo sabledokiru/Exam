@@ -8,27 +8,27 @@ import test.controller.ActionForward;
 import test.members.dao.MembersDao;
 import test.members.dto.MembersDto;
 
-public class InsertMembersAction extends Action{
+public class UpdateMembersAction extends Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		//1. 파라미터로 전달되는 값 불러오기
-		String memberId = request.getParameter("id");
-		String memberPwd = request.getParameter("pwd");
-		String memberEmail = request.getParameter("email");
-		String memberPhone = request.getParameter("phone");
-		String memberAddr = request.getParameter("addr");
-		//2. 아이디 ,비밀번호 ,이메일 ,번호 ,주소을 dto에 담는다.
+		//1. form 전송되는 파라미터 추출
+		String memberId=request.getParameter("id");
+		String memberPwd=request.getParameter("pwd");
+		String memberEmail=request.getParameter("email");
+		String memberPhone=request.getParameter("phone");
+		String memberAddr=request.getParameter("addr");
+		//2. MemberDto 에 파라미터값 담기
 		MembersDto dto=new MembersDto();
 		dto.setMemberId(memberId);
 		dto.setMemberPwd(memberPwd);
 		dto.setMemberEmail(memberEmail);
 		dto.setMemberPhone(memberPhone);
 		dto.setMemberAddr(memberAddr);
-		//3. DB 에 저장한다.z
-		MembersDao.getInstance().insert(dto);
-		//4. redirect 이동 처리
-		return new ActionForward("/",true);
+		//3. DB 에 수정 반영 
+		MembersDao.getInstance().update(dto);
+		//4. ActionForward 객체 리턴해주기zz
+		return new ActionForward("/index.jsp");
 	}
 	
 }

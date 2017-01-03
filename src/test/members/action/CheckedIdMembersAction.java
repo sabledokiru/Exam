@@ -7,16 +7,16 @@ import test.controller.Action;
 import test.controller.ActionForward;
 import test.members.dao.MembersDao;
 
-public class DeleteMembersAction extends Action{
+public class CheckedIdMembersAction extends Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		//1. GET 방식 파라미터로 넘어오는 삭제할 회원의 번호 읽어오기
-		String id=request.getParameter("id");
-		//2. DB에서 삭제하기 
-		MembersDao.getInstance().delete(id);
+		//1. input요소에서의 아이디값을 불러온다.
+		String memberId = request.getParameter("id");
+		//2. DB에서 아이디값들을 불러와 inpt요소의 아이디값과 비교한다.
+		MembersDao.getInstance().checkedId(memberId);
 		//3. ActionForward 객체 생성해서 리턴해주기 z
-		return new ActionForward("/alert.jsp");
+		return new ActionForward("insert.jsp");
 	}
 	
 }
