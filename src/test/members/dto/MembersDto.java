@@ -8,7 +8,7 @@ public class MembersDto {
 	private String memberAddr;
 	private String regdate;
 	
-	public MembersDto(){};
+	public MembersDto(){}
 
 	public MembersDto(String memberId, String memberPwd, String memberEmail, String memberPhone, String memberAddr,
 			String regdate) {
