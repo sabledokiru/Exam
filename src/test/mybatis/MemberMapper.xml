@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="members">
+	<insert id="insert" parameterType="membersDto">
+		INSERT INTO members
+		VALUES(
+		#{memberId},
+		#{memberPwd},
+		#{memberEmail},
+		#{memberPhone},
+		#{memberAddr}, 
+		sysdate
+		)
+	</insert>
+	
+	<delete id="delete" parameterType="String">
+		DELETE 
+		FROM members 
+		WHERE memberId = #{memberId}
+	</delete>
+	
+	<update id="update" parameterType="membersDto">
+		UPDATE members
+		SET 
+		memberId = #{userId},
+		memberPwd = #{userPwd},
+		memberEmail = #{userEmail},
+		memberPhone = #{userPhone},
+		memberAddr = #{userAddr}
+		WHERE memberId=#{memberId}
+	</update>
+	
+	<select id="getlist">
+	
+	</select>
+</mapper>
