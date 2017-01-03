@@ -1,7 +1,10 @@
 package test.product.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+
 
 import test.mybatis.SqlMapConfig;
 import test.product.dto.ProductDto;
@@ -80,4 +83,16 @@ public class ProductDao {
       return dto;
    }
    
+   public List<ProductDto> getList(ProductDto dto){
+		SqlSession session=factory.openSession();
+		List<ProductDto> list=null;
+		try{
+			list=session.selectList("product.getList", dto);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return list;
+	}
 }//전체
