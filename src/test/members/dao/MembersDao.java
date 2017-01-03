@@ -91,7 +91,6 @@ public class MembersDao {
 		boolean isSuccess = true;
 		MembersDto dto=null;
 		try{
-			String a = session.selectOne("members.checkedId",id);
 			dto=session.selectOne("members.checkedId",id);	
 		}catch(Exception e){
 			e.printStackTrace();
@@ -99,9 +98,9 @@ public class MembersDao {
 			session.close();
 		}
 		if(dto!=null){
-			isSuccess=true;
-		}else{
 			isSuccess=false;
+		}else{
+			isSuccess=true;
 		}
 		return isSuccess;
 	}

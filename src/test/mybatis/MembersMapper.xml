@@ -41,7 +41,7 @@
 		ORDER BY memberId DESC
 	</select>
 	
-	<select id="checkedId" parameterType="String">
+	<select id="checkedId" parameterType="String" resultType="membersDto">
 		SELECT memberId
 		FROM members
 		WHERE memberId = #{memberId}
