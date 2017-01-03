@@ -24,10 +24,15 @@ public class MembersDao {
 	//회원정보를 추가하기
 	public boolean insert(MembersDto dto){
 		// 세션 객체 생성
-		SqlSession session=factory.openSession(true);
+		System.out.println("위");
+		SqlSession session= factory.openSession(true);
+		System.out.println("아래");
 		boolean isSeccess = false;
 		try{
+			System.out.println("try 문 안쪽");
 			session.insert("members.insert",dto);
+			System.out.println("try 바깥쪽");
+			isSeccess = true;
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{

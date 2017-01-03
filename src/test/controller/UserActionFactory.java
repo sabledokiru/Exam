@@ -3,6 +3,7 @@ package test.controller;
 import test.action.MainAction;
 import test.action.SignInFormAction;
 import test.action.SignUpFormAction;
+import test.members.action.InsertMembersAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -26,6 +27,9 @@ public class UserActionFactory {
 		}
 		else if(command.equals("/users/signup_form")){
 			action = new SignUpFormAction();
+		}
+		else if(command.equals("/views/users/sign")){
+			action = new InsertMembersAction();
 		}
 		return action;
 	}

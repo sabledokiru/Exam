@@ -46,7 +46,7 @@
  		var addr = $("#userAddr").val();
 	
  		$.ajax({  
- 			url: "/sign.do",
+ 			url: "sign.do",
  			type: "POST",
  			data : {"id":id,"pwd":pwd,"email":email,"phone":phone,"addr":addr},
  			success: function(data){
