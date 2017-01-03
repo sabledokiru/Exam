@@ -29,7 +29,7 @@ public class InsertMembersAction extends Action{
 		boolean isSuccess = MembersDao.getInstance().insert(dto);
 		//4. redirect 이동 처리
 		request.setAttribute("isSuccess",isSuccess);
-		return new ActionForward("/views/users/signup_result.jsp");
+		return new ActionForward("/views/users/result.jsp");
 	}
 	
 }
