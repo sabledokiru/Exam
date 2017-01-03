@@ -3,22 +3,29 @@
 <mapper namespace="evaluaion">
 	<insert id="insert" parameterType="evaluationDto">
 		INSERT INTO evaluation(evaNum, productNum, evaTitle, evaWriter, evaContent, regdate)
-		VALUES()
+		VALUES(#{evaNum}, #{productNum}, #{evaTitle}, #{evaWriter}, #{evaContent}, SYSDATE)
 	</insert>
 	
 	<update id="update" parameterType="evaluationDto">
-	
+		UPDATE evaluation
+		SET evaTitle = #{evaTitle}, evaContent = #{evaContent}
+		WHERE evaNum = #{num}
 	</update>
 	
 	<delete id="delete" parameterType="int">
-	
+		DELETE FROM evaluation
+		WHERE evaNum = #{num}
 	</delete>
 	
 	<select id="getData" parameterType="int" resultType="evaluationDto">
-	
+		SELECT evaNum, evaTitle, evaWriter, evaContent, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
+		FROM evaluation
+		WHERE evaNum = #{num}
 	</select>
 	
 	<select id="getList" resultType="evaluationDto">
-	
+		SELECT evaNum, evaTitle, evaWriter, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
+		FROM evaluation
+		ORDER BY regdate DESC
 	</select>
 </mapper>
