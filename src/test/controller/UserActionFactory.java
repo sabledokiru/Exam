@@ -29,6 +29,8 @@ public class UserActionFactory {
 			action = new MainAction();
 		}else if(command.equals("/users/signin_form")){
 			action = new SignInFormAction();
+		}else if(command.equals("/views/users/idCheck")){
+			action = new CheckedIdMembersAction();
 		}else if(command.equals("/users/signup_form")){
 			action = new SignUpFormAction();
 		}else if(command.equals("/views/users/sign")){
