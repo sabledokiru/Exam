@@ -5,11 +5,13 @@
 <jsp:include page="resource.jsp"/>
 <html>
 <head>
-<meta charset=UTF-8">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <jsp:include page="catalog.jsp"/>
-테스트중입니다
+
+
+
 </body>
 </html>
