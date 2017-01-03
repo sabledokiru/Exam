@@ -3,6 +3,13 @@ package test.controller;
 import test.action.MainAction;
 import test.action.SignInFormAction;
 import test.action.SignUpFormAction;
+import test.evaluation.action.EvaluationDeleteAction;
+import test.evaluation.action.EvaluationDetailAction;
+import test.evaluation.action.EvaluationInsertAction;
+import test.evaluation.action.EvaluationInsertformAction;
+import test.evaluation.action.EvaluationListAction;
+import test.evaluation.action.EvaluationUpdateAction;
+import test.evaluation.action.EvaluationUpdateformAction;
 import test.members.action.CheckedIdMembersAction;
 import test.members.action.InsertMembersAction;
 import test.members.action.SigninAction;
@@ -40,6 +47,28 @@ public class UserActionFactory {
 			action = new SigninAction();
 		}else if(command.equals("/views/product/private/insertform")){
 			action = new ProductInsertformAction();
+		}
+		
+//		else if(command.equals("/views/evaluation/private/insertform")){
+//			action = new EvaluationInsertformAction();
+//		}
+//		else if(command.equals("/views/evaluation/insert")){
+//			action = new EvaluationInsertAction();
+//		}
+//		else if(command.equals("/views/evaluation/private/updateform")){
+//			action = new EvaluationUpdateformAction();
+//		}
+//		else if(command.equals("/views/evaluation/update")){
+//			action = new EvaluationUpdateAction();
+//		}
+		else if(command.equals("/views/evaluation/delete")){
+			action = new EvaluationDeleteAction();
+		}
+		else if(command.equals("/views/evaluation/detail")){
+			action = new EvaluationDetailAction();
+		}
+		else if(command.equals("/views/evaluation/list")){
+			action = new EvaluationListAction();
 		}
 		return action;
 	}
