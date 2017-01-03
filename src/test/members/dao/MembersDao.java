@@ -124,13 +124,19 @@ public class MembersDao {
 		//세션 객체 생성
 		SqlSession session=factory.openSession();
 		boolean isSuccess = false;
+		MembersDto list=null;
 		try{
-			session.selectOne("members.signin" , dto);
+			list=session.selectOne("members.signin" , dto);
 			isSuccess=true;
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			session.close();
+		}
+		if(list!=null){
+			isSuccess=true;
+		}else{
+			isSuccess=false;
 		}
 		return isSuccess;
 	}

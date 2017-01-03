@@ -21,11 +21,11 @@
 	<form action="signin.do" method="post">
 		<div class="form-group">
 			<label class="control-label" for="id">아이디:</label>
-			<input class="form-control" type="text" id="userId" name="userId"/>
+			<input class="form-control" type="text" id="id" name="id"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="pwd">비밀번호:</label>
-			<input class="form-control" type="text" id="userPwd" name="userPwd"/>
+			<input class="form-control" type="text" id="pwd" name="pwd"/>
 		</div>
 		<button class="btn btn-default" type="submit" id="submitBtn">가입</button>
 		<button class="btn btn-danger" type="button">취소</button>

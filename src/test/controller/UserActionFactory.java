@@ -5,6 +5,7 @@ import test.action.SignInFormAction;
 import test.action.SignUpFormAction;
 import test.members.action.CheckedIdMembersAction;
 import test.members.action.InsertMembersAction;
+import test.members.action.SigninAction;
 import test.product.action.ProductInsertformAction;
 
 public class UserActionFactory {
@@ -29,14 +30,14 @@ public class UserActionFactory {
 			action = new MainAction();
 		}else if(command.equals("/users/signin_form")){
 			action = new SignInFormAction();
-		}else if(command.equals("/views/users/idCheck")){
-			action = new CheckedIdMembersAction();
 		}else if(command.equals("/users/signup_form")){
 			action = new SignUpFormAction();
 		}else if(command.equals("/views/users/sign")){
 			action = new InsertMembersAction();
 		}else if(command.equals("/views/users/idCheck")){
-			action = new CheckedIdMembersAction();
+			action = new CheckedIdMembersAction();	
+		}else if(command.equals("/views/users/signin")){
+			action = new SigninAction();
 		}else if(command.equals("/views/product/private/insertform")){
 			action = new ProductInsertformAction();
 		}
