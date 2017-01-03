@@ -2,7 +2,8 @@ CREATE TABLE product(
 productNum NUMBER PRIMARY KEY,
 productName VARCHAR2(50) not null,
 brand VARCHAR2(30) not null,
-delivery VARCHAR2(20) not null,
+content CLOB,
+price NUMBER,
 regdate DATE
 );
 
