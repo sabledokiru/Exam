@@ -8,6 +8,10 @@
 	.container{
 		width:30%;
 	}
+	#idCheck{
+		float:right;
+		margin:5px 0;
+	}
 </style>
 <head>
 <meta charset="UTF-8"/>
@@ -18,10 +22,11 @@
 <div class="container">
 	<h3>회원가입</h3>
 	<form action="" method="post">
-		<div class="form-group has-feedback">
+		<div class="form-group">
 			<label class="control-label" for="userId">아이디:</label>
+			
 			<input class="form-control" type="text" id="userId" name="userId"/>
-			<span class="glyphicon form-control-feedback"></span>
+			<button class="btn btn-default" id="idCheck" type="button">중복 확인</button>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPwd">비밀번호:</label>
@@ -40,12 +45,33 @@
 			<input class="form-control" type="text" id="userAddr" name="userAddr"/>
 		</div>
 		<button class="btn btn-default" type="submit" id="submitBtn">가입</button>
+		<button class="btn btn-danger" type="button">취소</button>
 	</form>
 </div>
 </body>
 </html>
 
 <script>
+/* id 중복 체크 */
+	var isCheck = false;
+	$("#idCheck").click(function(){
+		$.ajax({  
+				url: "idCheck.do",
+				type: "POST",
+				data : {"id":id},
+				success: function(data){
+					alert(data.isSuccess);	
+					if(data.isSuccess == true){
+						alert("사용 가능한 아이디 입니다.");
+						isCheck = true;
+					}
+					else{
+						alert("중복된 아이디 입니다.");
+					}
+				}  
+			});
+	});
+    /* 회원가입  */
  	$("#submitBtn").click(function(event){
  		var id = $("#userId").val();
  		var pwd = $("#userPwd").val();
@@ -55,6 +81,9 @@
 		if($("#userId").val() == ""){
  			event.preventDefault();
 			alert("아이디를 입력해 주세요.");
+		}else if(isCheck == false){
+			event.preventDefault();
+			alert("아이디를 증복 확인을 해주세요.");
 		}else if($("#userPwd").val() == ""){
 			event.preventDefault();
 			alert("비밀번호를 입력해 주세요.");
@@ -74,7 +103,7 @@
 	 			type: "POST",
 	 			data : {"id":id,"pwd":pwd,"email":email,"phone":phone,"addr":addr},
 	 			success: function(data){
-	 				if(data.isSuccess =='true'){
+	 				if(data.isSuccess == true){
 	 					alert("회원 가입 되었습니다.");
 	 				}
 	 				else{
@@ -84,4 +113,5 @@
 	 		});
  		}	 
  	});
+
 </script>
