@@ -93,14 +93,18 @@ public class MembersDao {
 		//세션 객체 생성
 		SqlSession session=factory.openSession();
 		boolean isSuccess = true;
+		MembersDto dto=null;
 		try{
-			session.selectOne("members.checkedId",id);
-			isSuccess = false;
-			
+			dto=session.selectOne("members.checkedId",id);	
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			session.close();
+		}
+		if(dto!=null){
+			isSuccess=true;
+		}else{
+			isSuccess=false;
 		}
 		return isSuccess;
 	}
@@ -113,6 +117,20 @@ public class MembersDao {
 		try{
 			session.selectOne("members.getData",id);
 			isSuccess = true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return isSuccess;
+	}
+	public boolean isValid(MembersDto dto){
+		//세션 객체 생성
+		SqlSession session=factory.openSession();
+		boolean isSuccess = false;
+		try{
+			session.selectOne("members.signin" , dto);
+			isSuccess=true;
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
