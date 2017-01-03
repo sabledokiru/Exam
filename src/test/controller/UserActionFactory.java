@@ -4,6 +4,7 @@ import test.action.MainAction;
 import test.action.SignInFormAction;
 import test.action.SignUpFormAction;
 import test.members.action.InsertMembersAction;
+import test.product.action.ProductInsertformAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -30,6 +31,8 @@ public class UserActionFactory {
 		}
 		else if(command.equals("/views/users/sign")){
 			action = new InsertMembersAction();
+		}else if(command.equals("/views/product/private/insertform")){
+			action = new ProductInsertformAction();
 		}
 		return action;
 	}

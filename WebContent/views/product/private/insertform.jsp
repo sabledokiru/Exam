@@ -11,7 +11,7 @@
 </head>
 <body>
 <h3>상품 등록</h3>
-<form action="productinsert.do" method="post">
+<form action="insert.do" method="post">
 	<label for="writer">작성자</label>
 	<input type="text" id="writer" 
 		value="${MemberId }" disabled="disabled"/><br/>
