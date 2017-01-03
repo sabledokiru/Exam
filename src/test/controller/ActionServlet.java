@@ -24,11 +24,9 @@ public class ActionServlet extends HttpServlet{
 		//순수 요청 경로를 추출 한다.
 		// command => /fortune or /time or /signin 
 		String command=uri.substring(contextName.length(),
-				uri.length()-INCLUDE_EXTENSION_LENGTH);
-			System.out.println(command);
-		//해당 command 를 수행할 Action 객체를 팩토리로 부터 얻어온다. 
-		Action action=
-				UserActionFactory.getInstance().action(command);
+				uri.length()-INCLUDE_EXTENSION_LENGTH);		
+		//해당 command 를 수행할 Action 객체를 팩토리로 부터 얻어온다.
+		Action action= UserActionFactory.getInstance().action(command);
 	
 		if(action != null){//처리 가능한 command 라면 
 			ActionForward af=null;
@@ -42,6 +40,7 @@ public class ActionServlet extends HttpServlet{
 				//redirect 이동 시킨다.
 				response.sendRedirect(contextName+af.getPath());
 			}else{//forward 이동해야 한다면 
+				System.out.println(af.getPath());
 				RequestDispatcher rd=
 						request.getRequestDispatcher(af.getPath());
 				rd.forward(request, response);

@@ -1,5 +1,7 @@
 package test.controller;
 
+import test.action.MainAction;
+
 public class UserActionFactory {
 	private static UserActionFactory factory;
 	private UserActionFactory(){}
@@ -14,7 +16,9 @@ public class UserActionFactory {
 	//리턴해주는 메소드
 	public Action action(String command){
 		Action action=null;
-		
+		if(command.equals("/main")){
+			action = new MainAction();
+		}
 		return action;
 	}
 }

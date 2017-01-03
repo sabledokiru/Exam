@@ -42,14 +42,7 @@ public class EncodingFilter implements Filter{
 	public void init(FilterConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		System.out.println("init()");
-		/*  아래와 같은 web.xml 문서의 내용중에서 utf-8 문자열
-		 *  읽어내기 
-		 * 	<init-param>
-				<param-name>myEncoding</param-name>
-				<param-value>utf-8</param-value>
-			</init-param>
-		 */
-		//읽어온 문자열을 맴버필드에 저장한다. 
+
 		myEncoding=config.getInitParameter("myEncoding");
 	}
 	
