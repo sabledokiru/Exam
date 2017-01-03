@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<jsp:include page="/views/resource.jsp"/>
 <html>
 <head>
 <meta charset="UTF-8"/>
-
+<jsp:include page="/views/catalog.jsp"/>
 <title>회원가입 페이지</title>
 </head>
 <body>

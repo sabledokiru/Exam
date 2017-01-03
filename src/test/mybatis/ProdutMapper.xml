@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="product">
-	<insert id="insert" parameterType="productDto">
-	
-	</insert>
+   <sql id="dateFormat">
+      TO_CHAR(regdate,'YYYY"년"MM"월"DD"일" HH24:MI') regdate
+   </sql>
+   
+   <insert id="insert" parameterType="productDto"  >
+      INSERT INTO product (
+      productNum ,
+      productName,
+      brand ,
+      delivery,
+      regdate)
+      VALUES (
+      product_seq.NEXTVAL,
+      #{productNum},
+      #{productName},
+      #{brand},
+      #{delivery},
+      SYSDATE)
+   </insert>
+   
+   <delete id="delete" parameterType="productDto" >
+      DELETE FROM product
+      WHERE productNum = #{productNum}
+   </delete>
+   
+   <update id="update" parameterType="productDto" >
+      UPDATE product
+      SET 
+      productName=#{productName},
+      brand=#{brand},
+      delivery=#{delivery}
+      WHERE productNum = #{productNum}
+   </update>
+   
+   <select id="getData" parameterType="int" resultType="productDto">
+      SELECT productNum,productName,brand,delivery,<include refid="dateFormat"></include>
+      FROM product
+      WHERE productNum = #{productNum}
+   </select>
+   
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
