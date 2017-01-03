@@ -50,7 +50,7 @@
  			type: "POST",
  			data : {"id":id,"pwd":pwd,"email":email,"phone":phone,"addr":addr},
  			success: function(data){
- 				
+ 				alert(data);
  			}  
  		}); 	 
  	});

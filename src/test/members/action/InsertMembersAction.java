@@ -28,7 +28,7 @@ public class InsertMembersAction extends Action{
 		//3. DB 에 저장한다.
 		MembersDao.getInstance().insert(dto);
 		//4. redirect 이동 처리
-		return new ActionForward("/alert.jsp");
+		return new ActionForward("/",true);
 	}
 	
 }
