@@ -41,6 +41,8 @@
       brand=#{brand},
       content=#{content},
       price=#{price}
+      saveFileName =#{saveFileName}
+      fileSize = #{fileSize}
       WHERE productNum = #{productNum}
    </update>
    
@@ -48,7 +50,8 @@
      
       SELECT result1.*
       FROM 
-         (SELECT productNum,productName,brand,content,,price,<include refid="dateFormat"></include>, 
+         (SELECT productNum,productName,brand,content,price,<include refid="dateFormat"></include>, 
+         saveFileName,
          LAG(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS prevNum,
          LEAD(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS nextNum
          FROM product
@@ -66,7 +69,8 @@
          SELECT *
       FROM
          (SELECT result1.*, ROWNUM rnum
-         FROM (productNum,productName,brand,content,price,<include refid="dateFormat"></include>
+         FROM (productNum,productName,brand,content,price,<include refid="dateFormat"></include>,
+              saveFileName
               FROM product
               ORDER BY productNum DESC
               ) result1

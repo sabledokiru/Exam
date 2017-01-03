@@ -58,7 +58,7 @@ public class ProductInsertAction extends Action{
 	      //FileDao 객체를 이용해서 파일의 정보를 DB 에 저장한다.
 	      ProductDao.getInstance().insert(dto);
 
-		return new ActionForward("");
+		return new ActionForward("/product/private/product_list.do");
 	}
 
 }
