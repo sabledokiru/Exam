@@ -11,9 +11,6 @@ public class SignUpFormAction extends Action  {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		
-		System.out.println("signUp");
 		return new ActionForward("/views/users/signup_form.jsp",true);
 	}
-
 }
