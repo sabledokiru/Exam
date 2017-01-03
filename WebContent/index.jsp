@@ -7,6 +7,5 @@
 <c:redirect url="main.do"/>
 </head>
 <body>
-테스트zzzz
 </body>
 </html>

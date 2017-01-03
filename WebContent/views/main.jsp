@@ -10,8 +10,5 @@
 </head>
 <body>
 <jsp:include page="catalog.jsp"/>
-
-
-
 </body>
 </html>

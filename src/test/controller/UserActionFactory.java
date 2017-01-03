@@ -1,6 +1,8 @@
 package test.controller;
 
 import test.action.MainAction;
+import test.action.SignInFormAction;
+import test.action.SignUpFormAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -18,6 +20,12 @@ public class UserActionFactory {
 		Action action=null;
 		if(command.equals("/main")){
 			action = new MainAction();
+		}
+		else if(command.equals("/users/signin_form")){
+			action = new SignInFormAction();
+		}
+		else if(command.equals("/users/signup_form")){
+			action = new SignUpFormAction();
 		}
 		return action;
 	}
