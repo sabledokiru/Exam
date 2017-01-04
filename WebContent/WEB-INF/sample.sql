@@ -22,7 +22,7 @@ REGDATE DATE
 );
 
 -- 상품평 테이블
-CREATE TABLE evalutaion(
+CREATE TABLE evaluation(
 evaNum NUMBER PRIMARY KEY,
 productNum NUMBER NOT NULL,	-- 특정상품에 대한 상품평을 불러오기 위한 칼럼
 evaTitle VARCHAR2(100) NOT NULL,

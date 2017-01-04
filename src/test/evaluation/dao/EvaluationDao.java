@@ -12,6 +12,8 @@ public class EvaluationDao {
 	private static EvaluationDao dao;
 	private static SqlSessionFactory factory;
 	
+	public EvaluationDao(){}
+	
 	public static EvaluationDao getInstance(){
 		if(dao == null){
 			dao = new EvaluationDao();

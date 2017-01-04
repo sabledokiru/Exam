@@ -8,6 +8,8 @@ public class EvaluationDto {
 	private String evaContent;
 	private String regdate;
 	
+	public EvaluationDto(){}
+	
 	public EvaluationDto(int evaNum, int productNum, String evaTitle, String evaWriter, String evaContent,
 			String regdate) {
 		super();
