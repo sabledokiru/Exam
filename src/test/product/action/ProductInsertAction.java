@@ -54,6 +54,7 @@ public class ProductInsertAction extends Action{
 	      dto.setPrice(price);
 	      dto.setContent(content);
 	      dto.setSaveFileName(saveFileName);
+	     
 	      dto.setFileSize(fileSize);
 	      //FileDao 객체를 이용해서 파일의 정보를 DB 에 저장한다.
 	      ProductDao.getInstance().insert(dto);

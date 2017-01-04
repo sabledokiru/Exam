@@ -17,6 +17,11 @@ import test.members.action.SignOutMemberAction;
 import test.members.action.SigninAction;
 import test.members.action.UpdateMembersAction;
 import test.product.action.ProductInsertformAction;
+import test.product.action.ProductListAction;
+import test.product.action.ProductUpdateAction;
+import test.product.action.productDeleteAction;
+import test.product.action.productUpdateFormAction;
+import test.question.answer.action.QAInsertAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -77,9 +82,10 @@ public class UserActionFactory {
 		}
 		else if(command.equals("/views/evaluation/detail")){
 			action = new EvaluationDetailAction();
-		}
-		else if(command.equals("/views/evaluation/list")){
+		}else if(command.equals("/views/evaluation/list")){
 			action = new EvaluationListAction();
+		}else if(command.equals("/views/question/insert")){
+			action = new QAInsertAction();
 		}
 		return action;
 	}
