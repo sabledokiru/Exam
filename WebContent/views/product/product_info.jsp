@@ -11,15 +11,21 @@
 <title>상품정보</title>
 <style>
 	.imgBox{
-		float:left;	
+		float:left;
+		width:400px;
+	}
+	img{
+		width:100%;
 	}
 	.contentBox{
 		float:left;
 		margin-left:10%;
-		margin-top:70px;
+		margin-top:30px;
 	}
 	.content{
 		clear:both;
+		margin-top:20px;
+		border-top:1px thin grey;
 	}
 	.glyphicon-triangle-top{
 		position:relative;
@@ -39,20 +45,20 @@
 </style>
 </head>
 <body>
+<header>
+	<jsp:include page="/views/catalog.jsp"/>
+</header>
 <div class="container">
-	<header>
-		<jsp:include page="/views/catalog.jsp"/>
-	</header>
 	<div class="product_main">
 		<hr/>
-		<div class="productName"><strong>$ 상품명</strong></div>
+		<div class="productName"><strong style="font-size:20px;">상품명: (${dto.brand}) ${dto.productName }</strong></div>
 		<hr/>
 		<div class="imgBox">
-			<img src="${pageContext.request.contextPath }/upload/test1.jpg" alt="그림1" />
+			<img src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
 		</div>
 		<div class="contentBox">
-			<div class="brand">브랜드 : 브랜드 나올곳</div></br>
-			<div class="regdate">등록 일자 : 나올곳</div></br>
+			<div class="brand">브랜드 : ${dto.brand}</div></br>
+			<div class="regdate">등록 일자 : ${dto.regdate}</div></br>
 			<p>배송정보 : 무료배송 | 퀵서비스 | 직접수령 | VIP배송</p></br>
 			<div class="count">
 				<p>주문수량 :
@@ -61,19 +67,18 @@
 					<span class="glyphicon glyphicon-triangle-bottom" id="countDown"></span>
 				</p>
 			</div>
-			<div class="price"><strong>가 격 :$ 여기 가격</strong></div>
+			<div class="price"><strong>가 격 : ${dto.price}</strong></div>
 			<hr/>
-			<span>총 가격 : <span id="totalPrice"> 계산 가격</span></span>
+			<span>총 가격 : <span id="totalPrice">${dto.price}</span></span>
 			<button class="btn btn-success buyBtn">구매하기</button>
 		</div>
-		<hr/>	
-		<div class="content">네이버 툴 나올곳 모야..</div>	
 	</div>
+	<div class="content">${dto.content}</div>
 	</center>
-	<footer>
-		<jsp:include page="/views/footer.jsp"/>
-	</footer>
 </div>
+<footer>
+		<jsp:include page="/views/footer.jsp"/>
+</footer>
 </body>
 </html>
 <script>
@@ -81,7 +86,7 @@
 		var count = $("#count").val();
 		count ++;
 		$("#count").val(count);
-		$("#totalPrice").text(count*1000);
+		$("#totalPrice").text(count*${dto.price});
 	});
 	$("#countDown").click(function(){
 		var count = $("#count").val();
@@ -90,6 +95,6 @@
 		}
 		count --;
 		$("#count").val(count);
-		$("#totalPrice").text(count*1000);
+		$("#totalPrice").text(count*${dto.price});
 	});
 </script>

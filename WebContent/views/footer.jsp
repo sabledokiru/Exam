@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <style>
 	.bottom_box{
-		margin-top:850px;
+		float:left;
+		width:100%;
+		margin-top:80px;
 	}
 </style>
 <div class="bottom_box"><!--Bottom 알림-->

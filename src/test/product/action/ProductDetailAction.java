@@ -23,10 +23,7 @@ public class ProductDetailAction extends Action{
 			ProductDto dto=ProductDao.getInstance().getData(num);
 			//4. request 에 글정보를 담는다.
 			request.setAttribute("dto", dto);
-			//5. 뷰페이지로 forward 이동해서 글정보를 응답한다.
-			
-		
+			//5. 뷰페이지로 forward 이동해서 글정보를 응답한다.		
 			return new ActionForward("/views/product/product_info.jsp");
 	}
-
 }

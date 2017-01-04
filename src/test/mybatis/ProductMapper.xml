@@ -55,14 +55,6 @@
          LAG(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS prevNum,
          LEAD(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS nextNum
          FROM product
-         <where>
-				  	<if test="productName != null">
-				  		OR productName LIKE '%'||#{productName}||'%'
-				  	</if>
-				  	<if test="brand != null">
-				  		OR brand LIKE '%'||#{brand}||'%'
-				  	</if>
-				  </where>
          ORDER BY productNum DESC) result1
          WHERE productNum=#{num}
    </select>

@@ -16,7 +16,7 @@ public class ProductListAction extends Action{
 	
 	
 	//한 페이지에 나타낼 로우의 갯수
-			private static final int PAGE_ROW_COUNT=6;
+			private static final int PAGE_ROW_COUNT=9;
 			//하단 디스플레이 페이지 갯수
 			private static final int PAGE_DISPLAY_COUNT=5;
 			
@@ -85,9 +85,7 @@ request.setAttribute("list", list);
 		request.setAttribute("totalPageCount", totalPageCount);
 		
 //3. 뷰페이지로 forward 이동 해서 글 목록 출력하기
-return new ActionForward("/views/product/product_list.jsp");
-
-		
+return new ActionForward("/views/product/product_list.jsp");		
 	}
 
 }
