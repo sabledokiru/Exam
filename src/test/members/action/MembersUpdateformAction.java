@@ -14,8 +14,9 @@ public class MembersUpdateformAction extends Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		//1. 파라미터로 전달되는 수정할 id 읽어오기
 		String memberId=(String)request.getSession().getAttribute("id");
-		//3. request 에 dto 를 담고z
-		request.setAttribute("id",memberId);
+		//3. request 에 dto 를 담고
+		MembersDto dto = MembersDao.getInstance().getData(memberId);
+		request.setAttribute("dto",dto);
 		//4. forward 이동으로 경로 이동해준다.
 		return new ActionForward("/views/users/private/user_modify_form.jsp");
 	}

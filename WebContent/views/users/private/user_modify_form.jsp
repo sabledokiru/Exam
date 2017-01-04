@@ -28,19 +28,19 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPwd">비밀번호:</label>
-			<input class="form-control" type="password" id="userPwd" name="userPwd" value=""/>
+			<input class="form-control" type="password" id="userPwd" name="userPwd" value="${dto.memberPwd}"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userEmail">이메일:</label>
-			<input class="form-control" type="text" id="userEmail" name="userEmail" value=""/>
+			<input class="form-control" type="text" id="userEmail" name="userEmail" value="${dto.memberEmail }"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPhone">전화번호:</label>
-			<input class="form-control" type="text" id="userPhone" name="userPhone" value=""/>
+			<input class="form-control" type="text" id="userPhone" name="userPhone" value="${dto.memberPhone }"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userAddr">주소:</label>
-			<input class="form-control" type="text" id="userAddr" name="userAddr" value=""/>
+			<input class="form-control" type="text" id="userAddr" name="userAddr" value="${dto.memberAddr }"/>
 		</div>
 		<button class="btn btn-warning" type="button" id="submitBtn">수정</button>
 		<button class="btn btn-danger" type="button">취소</button>
@@ -77,11 +77,11 @@
 	 			data : {"id":id,"pwd":pwd,"email":email,"phone":phone,"addr":addr},
 	 			success: function(data){
 	 				if(data.isSuccess == true){
-	 					alert("회원 가입 되었습니다.");
+	 					alert("수정 되었습니다.");
 	 					location.href="${pageContext.request.contextPath}/index.jsp"
 	 				}
 	 				else{
-	 					alert("회원 가입에 실패 하였습니다.");
+	 					alert("수정에 실패 하였습니다.");
 	 				}
 	 			}  
 	 		});
