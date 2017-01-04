@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="test.evaluation.dto.EvaluationDto" alias="evaluationDto"/>
 		<typeAlias type="test.evaluation.dto.EvaluationCommentDto" alias="evaluationCommentDto"/>
 		<typeAlias type="test.question.answer.dto.QAWriterDto" alias="qawriterDto"/>
+		<typeAlias type="test.question.answer.dto.QAAnswerDto" alias="qaanswerDto"/>
 	</typeAliases>
 	<!-- 환경 설정 -->
 	<environments default="dev">

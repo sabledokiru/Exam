@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="QAMapper">
+<mapper namespace="qamapper">
+	<!-- 새 질문 저장하기 -->
 	<insert id="insert" parameterType="qawriterDto">
-		INSERT INTO 
+		INSERT INTO QA_writer
+		(num, mainquestion, detailquestion, writer, secret, regdate)
+		values(#(num), #(mainquestion), #(detailquestion), #(writer), 
+		#(secret), regdate)
 	</insert>
+	
+	<!-- 질문들 모두 출력하기 -->
+	<select id="getlist" resultType="qawriterDto">
+		SELECT 
+			qa_seq.NEXTVAL, mainquestion, detailquestion, writer, secret, regdate
+		FROM QA_writer
+		ORDER BY num DESC
+	</select>
+	
+	<!-- 관리자의 답변글 저장하기 -->
+	<select id="ainsert" parameterType="test.question.answer.dto.QAAnswerDto">
+		
+	</select>
 </mapper>

@@ -5,11 +5,7 @@ import test.action.SignInFormAction;
 import test.action.SignUpFormAction;
 import test.evaluation.action.EvaluationDeleteAction;
 import test.evaluation.action.EvaluationDetailAction;
-import test.evaluation.action.EvaluationInsertAction;
-import test.evaluation.action.EvaluationInsertformAction;
 import test.evaluation.action.EvaluationListAction;
-import test.evaluation.action.EvaluationUpdateAction;
-import test.evaluation.action.EvaluationUpdateformAction;
 import test.members.action.CheckedIdMembersAction;
 import test.members.action.InsertMembersAction;
 import test.members.action.MembersUpdateformAction;
@@ -19,10 +15,7 @@ import test.members.action.UpdateMembersAction;
 import test.product.action.ProductInsertAction;
 import test.product.action.ProductInsertformAction;
 import test.product.action.ProductListAction;
-import test.product.action.ProductUpdateAction;
-import test.product.action.productDeleteAction;
-import test.product.action.productUpdateFormAction;
-import test.question.answer.action.QAInsertAction;
+import test.question.answer.action.QuestionAInsertAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -90,7 +83,7 @@ public class UserActionFactory {
 		}else if(command.equals("/views/evaluation/list")){
 			action = new EvaluationListAction();
 		}else if(command.equals("/views/question/insert")){
-			action = new QAInsertAction();
+			action = new QuestionAInsertAction();
 		}
 		return action;
 	}
