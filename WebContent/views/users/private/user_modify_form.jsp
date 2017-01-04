@@ -50,7 +50,7 @@
 </html>
 
 <script>
-    /* 회원가입  */
+    /* 회원가입 z */
  	$("#submitBtn").click(function(){
  		var id = $("#userId").val();
  		var pwd = $("#userPwd").val();
