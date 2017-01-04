@@ -26,9 +26,10 @@ public class UpdateMembersAction extends Action{
 		dto.setMemberPhone(memberPhone);
 		dto.setMemberAddr(memberAddr);
 		//3. DB 에 수정 반영 
-		MembersDao.getInstance().update(dto);
-		//4. ActionForward 객체 리턴해주기zz
-		return new ActionForward("/index.jsp");
+		boolean isSuccess = MembersDao.getInstance().update(dto);
+		//4. ActionForward 객체 리턴해주기
+		request.setAttribute("isSuccess", isSuccess);
+		return new ActionForward("/views/users/result.jsp");
 	}
 	
 }
