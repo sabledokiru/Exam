@@ -97,11 +97,9 @@ public class ProductDao {
 	}
    
    public int getCount(){
-	   System.out.println("getcount 바로앞");
+	  
 		SqlSession session=factory.openSession();
-		System.out.println("getcount 안쪽");
 		int count=session.selectOne("product.getCount");
-		System.out.println("getcount 샐랙트원 실행후");
 		session.close();
 		return count;
 	}
