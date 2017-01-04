@@ -49,6 +49,7 @@
 	<header>
 		<jsp:include page="/views/catalog.jsp"/>
 	</header>
+	<button class="btn btn-default writeBtn">글쓰기</button>
 	<div class="product_main">
 		<ul>
 			<%-- <c:forEach var="" items="">   여기 for문 돌려서 list 뽑아내는거야 --%>	
@@ -166,4 +167,9 @@
 	</footer>
 </div>
 </body>
+<script>
+$(".writeBtn").click(function(){
+	location.href="${pageContext.request.contextPath}/views/product/private/insertform.do";
+});
+</script>
 </html>
