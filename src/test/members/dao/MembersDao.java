@@ -106,19 +106,19 @@ public class MembersDao {
 	}
 	
 	//한명의 회원정보 출력하기
-	public boolean getData(String id){
+	public MembersDto getData(String id){
 		//세션 객체 생성
 		SqlSession session=factory.openSession();
-		boolean isSuccess = false;
+		MembersDto dto=null;
 		try{
-			session.selectOne("members.getData",id);
-			isSuccess = true;
+			dto=session.selectOne("members.getData",id);
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			session.close();
 		}
-		return isSuccess;
+		return dto;
 	}
 	public boolean isValid(MembersDto dto){
 		//세션 객체 생성

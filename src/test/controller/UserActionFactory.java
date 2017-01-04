@@ -14,6 +14,7 @@ import test.members.action.CheckedIdMembersAction;
 import test.members.action.InsertMembersAction;
 import test.members.action.SignOutMemberAction;
 import test.members.action.SigninAction;
+import test.members.action.UpdateMembersAction;
 import test.product.action.ProductInsertformAction;
 
 public class UserActionFactory {
@@ -38,19 +39,20 @@ public class UserActionFactory {
 			action = new MainAction();
 		}else if(command.equals("/views/main")){
 			action = new MainAction();
-		}
-		else if(command.equals("/views/users/signin_form")){
+		}else if(command.equals("/views/users/signin_form")){
 			action = new SignInFormAction();
+		}else if(command.equals("/views/users/signin")){
+			action = new SigninAction();
 		}else if(command.equals("/views/users/signup_form")){
 			action = new SignUpFormAction();
 		}else if(command.equals("/views/users/signup")){
 			action = new InsertMembersAction();
+		}else if(command.equals("/views/users/private/update")){
+			action = new UpdateMembersAction();
 		}else if(command.equals("/views/users/idCheck")){
 			action = new CheckedIdMembersAction();	
 		}else if(command.equals("/views/users/logout")){
 			action = new SignOutMemberAction();
-		}else if(command.equals("/views/users/signin")){
-			action = new SigninAction();
 		}else if(command.equals("/views/product/private/insertform")){
 			action = new ProductInsertformAction();
 		}
