@@ -45,4 +45,18 @@ public class QAWriterDao {
 		}
 		return list;
 	}
+	
+	//질문글(Question 글) 하나 출력하기
+	public List<QAWriterDto> getdata(int num){
+		SqlSession session=factory.openSession();
+		List<QAWriterDto> list=null;
+		try{
+			list=session.selectOne("qamapper.getdata",num);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return list;
+	}
 }

@@ -36,7 +36,7 @@ public class QAAnswerDao {
 	//답변글 모두 출력하기
 	public List<QAAnswerDto> getList(){
 		SqlSession session=factory.openSession();
-			List<QAAnswerDto> list=null;
+		List<QAAnswerDto> list=null;
 		try{
 			list=session.selectList("qamapper.agetlist");
 		}catch(Exception e){
@@ -46,4 +46,25 @@ public class QAAnswerDao {
 		}
 		return list;
 	}
+	
+	//답변글 하나 출력하기
+	public List<QAAnswerDto> getdata(int num){
+		SqlSession session=factory.openSession();
+		List<QAAnswerDto> list=null;
+		try{
+			list=session.selectOne("qamapper.agetdata",num);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return list;
+	}
 }
+
+
+
+
+
+
+

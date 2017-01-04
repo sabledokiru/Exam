@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import test.controller.Action;
 import test.controller.ActionForward;
 import test.members.dao.MembersDao;
+import test.members.dto.MembersDto;
 
 public class GetDataMembersAction extends Action{
 
@@ -14,7 +15,8 @@ public class GetDataMembersAction extends Action{
 		//1. 출력할 id의 파라미터 값을 가지고온다.
 		String memberId=request.getParameter("id");
 		//2. DB에서 출력한다.
-		MembersDao.getInstance().getData(memberId);
+		MembersDto dto=MembersDao.getInstance().getData(memberId);
+		request.setAttribute("dto", dto);
 		//3. forward 객체를 생성해서 이동시켜준다.z
 		return new ActionForward("index.jsp");
 	}
