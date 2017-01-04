@@ -10,6 +10,11 @@
 <jsp:include page="/views/resource.jsp"/>
 <title>상품정보</title>
 <style>
+	.product_main{
+		margin-bottom:50px;
+		height:500px;
+		border-bottom: 1px solid black; 
+	}
 	.imgBox{
 		float:left;
 		width:400px;
@@ -24,8 +29,6 @@
 	}
 	.content{
 		clear:both;
-		margin-top:20px;
-		border-top:1px thin grey;
 	}
 	.glyphicon-triangle-top{
 		position:relative;
@@ -74,7 +77,6 @@
 		</div>
 	</div>
 	<div class="content">${dto.content}</div>
-	</center>
 </div>
 <footer>
 		<jsp:include page="/views/footer.jsp"/>
