@@ -14,7 +14,7 @@
 			<a class="navbar-brand" href="${pageContext.request.contextPath}/views/users/signin_form.do?uri=${pageContext.request.requestURI}">로그인</a>
 		</c:when>
 		<c:otherwise>
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/views/users/">로그아웃</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/views/users/logout.do">로그아웃</a>
 		</c:otherwise>
 	</c:choose>   
 		<a class="navbar-brand" href="${pageContext.request.contextPath}/views/users/signup_form.do">회원가입</a>

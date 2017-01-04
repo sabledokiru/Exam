@@ -12,6 +12,7 @@ import test.evaluation.action.EvaluationUpdateAction;
 import test.evaluation.action.EvaluationUpdateformAction;
 import test.members.action.CheckedIdMembersAction;
 import test.members.action.InsertMembersAction;
+import test.members.action.SignOutMemberAction;
 import test.members.action.SigninAction;
 import test.product.action.ProductInsertformAction;
 
@@ -46,6 +47,8 @@ public class UserActionFactory {
 			action = new InsertMembersAction();
 		}else if(command.equals("/views/users/idCheck")){
 			action = new CheckedIdMembersAction();	
+		}else if(command.equals("/views/users/logout")){
+			action = new SignOutMemberAction();
 		}else if(command.equals("/views/users/signin")){
 			action = new SigninAction();
 		}else if(command.equals("/views/product/private/insertform")){
