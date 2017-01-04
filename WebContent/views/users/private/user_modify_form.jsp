@@ -52,11 +52,16 @@
 <script>
     /* 회원가입  */
  	$("#submitBtn").click(function(){
+ 		var id = $("#userId").val();
  		var pwd = $("#userPwd").val();
  		var email = $("#userEmail").val();
  		var phone = $("#userPhone").val();
  		var addr = $("#userAddr").val();
-		if($("#userPwd").val() == ""){	
+		if($("#userId").val() == ""){
+			alert("아이디를 입력해 주세요.");
+		}else if(isCheck == false){	
+			alert("아이디를 증복 확인을 해주세요.");
+		}else if($("#userPwd").val() == ""){	
 			alert("비밀번호를 입력해 주세요.");
 		}else if($("#userEmail").val() == ""){		
 			alert("이메일을 입력해 주세요.");
@@ -67,9 +72,9 @@
 		}
  		else{
 	 		$.ajax({  
-	 			url: "update.do",
+	 			url: "signup.do",
 	 			type: "POST",
-	 			data : {"pwd":pwd,"email":email,"phone":phone,"addr":addr},
+	 			data : {"id":id,"pwd":pwd,"email":email,"phone":phone,"addr":addr},
 	 			success: function(data){
 	 				if(data.isSuccess == true){
 	 					alert("수정 되었습니다.");
