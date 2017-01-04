@@ -18,7 +18,7 @@ public class MembersUpdateformAction extends Action{
 		MembersDto dto=MembersDao.getInstance().getData(memberId);
 		//3. request 에 dto 를 담고
 		request.setAttribute("dto", dto);
-		//4. 수정할 글의 정보 출력해 주기
+		//4. forward 이동으로 경로 이동해준다.
 		return new ActionForward("/views/users/private/user_modify_form.jsp");
 	}
 
