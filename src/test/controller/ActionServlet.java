@@ -40,7 +40,6 @@ public class ActionServlet extends HttpServlet{
 				//redirect 이동 시킨다.
 				response.sendRedirect(contextName+af.getPath());
 			}else{//forward 이동해야 한다면 
-				System.out.println(af.getPath());
 				RequestDispatcher rd=
 						request.getRequestDispatcher(af.getPath());
 				rd.forward(request, response);

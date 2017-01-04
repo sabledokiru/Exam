@@ -22,7 +22,6 @@
 	<update id="update" parameterType="membersDto">
 		UPDATE members
 		SET 
-			memberId = #{memberId},
 			memberPwd = #{memberPwd},
 			memberEmail = #{memberEmail},
 			memberPhone = #{memberPhone},

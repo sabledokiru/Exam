@@ -74,7 +74,7 @@
 	 			success: function(data){
 	 				if(data.isSuccess == true){
 	 					alert("수정 되었습니다.");
-	 					location.href="${pageContext.request.contextPath}/index.jsp"
+	 					location.href="${pageContext.request.contextPath}/index.jsp";
 	 				}
 	 				else{
 	 					alert("수정에 실패 하였습니다.");
