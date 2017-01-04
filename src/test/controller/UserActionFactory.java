@@ -73,7 +73,7 @@ public class UserActionFactory {
 			action = new productUpdateFormAction();
 		}else if(command.equals("/views/product/private/delete")){
 			action = new productDeleteAction();
-		}
+		}.getClass().
 		
 //		else if(command.equals("/views/evaluation/private/insertform")){
 //			action = new EvaluationInsertformAction();
