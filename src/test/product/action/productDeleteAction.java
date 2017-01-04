@@ -18,7 +18,7 @@ public class productDeleteAction extends Action{
 		//어플리케이션 객체 얻어오기
 		ServletContext application = request.getServletContext();
 		
-		int num=Integer.parseInt(request.getParameter("num"));
+		int num=Integer.parseInt(request.getParameter("productNum"));
 		
 		//삭제할 파일의 저장된 파일명(saveFileName)을 읽어온다.
 		String saveFileName=

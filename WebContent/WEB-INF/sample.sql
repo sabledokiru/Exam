@@ -4,7 +4,10 @@ productName VARCHAR2(50) not null,
 brand VARCHAR2(30) not null,
 content CLOB,
 price NUMBER,
-regdate DATE
+viewCount NUMBER,
+regdate DATE,
+saveFileName VARCHAR2(100) NOT NULL,
+fileSize NUMBER NOT NULL
 );
 
 CREATE SEQUENCE product_seq NOCACHE;
