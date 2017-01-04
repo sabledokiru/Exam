@@ -63,6 +63,8 @@ public class UserActionFactory {
 			action = new SignOutMemberAction();
 		}else if(command.equals("/views/product/private/insertform")){
 			action = new ProductInsertformAction();
+		}else if(command.equals("/views/product/list")){
+			action = new ProductListAction();
 		}
 		
 //		else if(command.equals("/views/evaluation/private/insertform")){
