@@ -16,7 +16,7 @@
 		</c:when>
 		<c:otherwise>
 			<a class="navbar-brand" href="${pageContext.request.contextPath}/views/users/logout.do">로그아웃</a>
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/views/users/">정보수정</a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/views/users/private/update_form.do">정보수정</a>
 		</c:otherwise>
 	</c:choose>   
 	</div>

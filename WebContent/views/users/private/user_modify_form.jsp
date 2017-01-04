@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="container">
-	<h3>회원가입</h3>
+	<h3>정보수정</h3>
 	<form action="" method="post">
 		<div class="form-group">
 			<label class="control-label" for="userId">아이디:</label>
@@ -28,21 +28,21 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPwd">비밀번호:</label>
-			<input class="form-control" type="text" id="userPwd" name="userPwd" value=/>
+			<input class="form-control" type="password" id="userPwd" name="userPwd" value=""/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userEmail">이메일:</label>
-			<input class="form-control" type="text" id="userEmail" name="userEmail"/>
+			<input class="form-control" type="text" id="userEmail" name="userEmail" value=""/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPhone">전화번호:</label>
-			<input class="form-control" type="text" id="userPhone" name="userPhone"/>
+			<input class="form-control" type="text" id="userPhone" name="userPhone" value=""/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userAddr">주소:</label>
-			<input class="form-control" type="text" id="userAddr" name="userAddr"/>
+			<input class="form-control" type="text" id="userAddr" name="userAddr" value=""/>
 		</div>
-		<button class="btn btn-success" type="button" id="submitBtn">가입</button>
+		<button class="btn btn-warning" type="button" id="submitBtn">수정</button>
 		<button class="btn btn-danger" type="button">취소</button>
 	</form>
 </div>
