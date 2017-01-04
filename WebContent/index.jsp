@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta  charset="UTF-8">
-<c:redirect url="main.do"/>
+<% response.sendRedirect("main.do"); %>
 </head>
 <body>
 </body>
