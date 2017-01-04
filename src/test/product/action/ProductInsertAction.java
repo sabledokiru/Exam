@@ -39,8 +39,8 @@ public class ProductInsertAction extends Action{
 	         e.printStackTrace();
 	      }//파일명 겹치지 않도록 
 	      //업로드된 파일에 대한 정보는 mr 객체를 통해서 얻어온다.
-	      String writer=mr.getParameter("writer");
-	      String title=mr.getParameter("title");
+	     
+	    
 	      String productName = mr.getParameter("productName");
 	      String brand = mr.getParameter("brand");
 	      int price = Integer.parseInt(mr.getParameter("price"));
