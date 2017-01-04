@@ -14,9 +14,8 @@ public class EvaluationListAction extends Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		List<EvaluationDto> list = EvaluationDao.getInstance().getList();
-		
+		System.out.println("오류전");
 		request.setAttribute("list", list);
-		
-		return new ActionForward("/views/evaluation/list.jsp", true);
+		return new ActionForward("/views/product/evel_result.jsp");
 	}
 }

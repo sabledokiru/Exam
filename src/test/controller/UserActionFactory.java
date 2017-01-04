@@ -16,12 +16,7 @@ import test.members.action.MembersUpdateformAction;
 import test.members.action.SignOutMemberAction;
 import test.members.action.SigninAction;
 import test.members.action.UpdateMembersAction;
-import test.product.action.ProductInsertAction;
 import test.product.action.ProductInsertformAction;
-import test.product.action.ProductListAction;
-import test.product.action.ProductUpdateAction;
-import test.product.action.productDeleteAction;
-import test.product.action.productUpdateFormAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -63,16 +58,6 @@ public class UserActionFactory {
 			action = new SignOutMemberAction();
 		}else if(command.equals("/views/product/private/insertform")){
 			action = new ProductInsertformAction();
-		}else if(command.equals("/views/product/list")){
-			action = new ProductListAction();
-		}else if(command.equals("/views/product/private/insert")){
-			action = new ProductInsertAction();
-		}else if(command.equals("/views/product/private/update")){
-			action = new ProductUpdateAction();
-		}else if(command.equals("/views/product/private/updateform")){
-			action = new productUpdateFormAction();
-		}else if(command.equals("/views/product/private/delete")){
-			action = new productDeleteAction();
 		}
 		
 //		else if(command.equals("/views/evaluation/private/insertform")){
