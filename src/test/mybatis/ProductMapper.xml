@@ -67,16 +67,17 @@
    
    <select id="getList" parameterType="productDto" resultType="productDto">
          SELECT *
-      FROM
+    	  FROM
          (SELECT result1.*, ROWNUM rnum
-         FROM (productNum,productName,brand,content,price,<include refid="dateFormat"></include>,
-              saveFileName
+         FROM (SELECT productNum,productName,brand,content,price,viewCount,<include refid="dateFormat"></include>,
+              saveFileName,fileSize
               FROM product
               ORDER BY productNum DESC
               ) result1
                  )
       WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
    </select>
+   	
    
    <select id="getCount" resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)
