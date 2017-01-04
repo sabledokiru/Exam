@@ -44,3 +44,24 @@ regdate DATE
 
 -- 상품평 시퀀스
 CREATE SEQUENCE eva_comment_seq NOCACHE;
+
+
+-- 큐엔에이 테이블 and 시퀀스
+CREATE sequence QA_seq nocache;
+
+CREATE sequence QAnswer_seq nocache;
+
+CREATE TABLE QA_writer(
+num number primary key,
+mainquestion varchar2(100),
+detailquestion varchar2(500),
+writer varchar2(50),
+secret varchar2(10),
+regdate date);
+
+CREATE TABLE QA_answer(
+num number primary key,
+writer varchar2(50),
+content varchar2(500),
+ref_num number,
+regdate date);
