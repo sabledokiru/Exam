@@ -29,13 +29,11 @@ public class ProductListAction extends Action{
 		//BoardDto 객체를 생성해서
 		ProductDto dto=new ProductDto();
 		if(keyword != null){ //검색어가 전달된 경우
-			if(condition.equals("titlecontent")){ //제목+내용 검색
+			if(condition.equals("productName")){ //상품명 검색
 				dto.setProductName(keyword);
-				dto.setContent(keyword);
-			}else if(condition.equals("title")){//제목 검색
-				dto.setProductName(keyword);
-			}else if(condition.equals("writer")){//작성자 검색
-				dto.setContent(keyword);
+		
+			}else if(condition.equals("brand")){//제조사 검색
+				dto.setBrand(keyword);
 			}
 			// list.jsp 뷰페이지에서 필요한 내용을 request 에 담는다.
 			request.setAttribute("condition", condition);

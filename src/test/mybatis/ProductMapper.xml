@@ -56,14 +56,11 @@
          LEAD(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS nextNum
          FROM product
          <where>
-				  	<if test="writer != null">
-				  		OR writer LIKE '%'||#{writer}||'%'
+				  	<if test="productName != null">
+				  		OR productName LIKE '%'||#{productName}||'%'
 				  	</if>
-				  	<if test="title != null">
-				  		OR title LIKE '%'||#{title}||'%'
-				  	</if>
-				  	<if test="content != null">
-				  		OR content LIKE '%'||#{content}||'%'
+				  	<if test="brand != null">
+				  		OR brand LIKE '%'||#{brand}||'%'
 				  	</if>
 				  </where>
          ORDER BY productNum DESC) result1
@@ -84,14 +81,11 @@
               saveFileName,fileSize
               FROM product
               <where>
-				  	<if test="writer != null">
-				  		OR writer LIKE '%'||#{writer}||'%'
+				  	<if test="productName != null">
+				  		OR productName LIKE '%'||#{productName}||'%'
 				  	</if>
-				  	<if test="title != null">
-				  		OR title LIKE '%'||#{title}||'%'
-				  	</if>
-				  	<if test="content != null">
-				  		OR content LIKE '%'||#{content}||'%'
+				  	<if test="brand != null">
+				  		OR brand LIKE '%'||#{brand}||'%'
 				  	</if>
 				  </where>
               ORDER BY productNum DESC
@@ -105,14 +99,11 @@
 		SELECT NVL(MAX(ROWNUM), 0)
 		FROM product
 		<where>
-				  	<if test="writer != null">
-				  		OR writer LIKE '%'||#{writer}||'%'
+				  	<if test="productName != null">
+				  		OR productName LIKE '%'||#{productName}||'%'
 				  	</if>
-				  	<if test="title != null">
-				  		OR title LIKE '%'||#{title}||'%'
-				  	</if>
-				  	<if test="content != null">
-				  		OR content LIKE '%'||#{content}||'%'
+				  	<if test="brand != null">
+				  		OR brand LIKE '%'||#{brand}||'%'
 				  	</if>
 				  </where>
 	</select>
