@@ -5,3 +5,4 @@
 <script src="${pageContext.request.contextPath}/resource/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath}/resource/js/bootstrap.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/bootstrap.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/footer.css"/>

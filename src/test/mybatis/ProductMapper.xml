@@ -10,15 +10,23 @@
       productNum ,
       productName,
       brand ,
-      delivery,
-      regdate)
+      content,
+      price,
+      viewCount,
+      regdate,
+      saveFileName,
+      fileSize)
       VALUES (
       product_seq.NEXTVAL,
-      #{productNum},
       #{productName},
       #{brand},
-      #{delivery},
-      SYSDATE)
+      #{content},
+      #{price},
+      #{viewCount},
+      SYSDATE,
+      #{saveFileName},
+      #{fileSize}
+      )
    </insert>
    
    <delete id="delete" parameterType="productDto" >
@@ -31,14 +39,42 @@
       SET 
       productName=#{productName},
       brand=#{brand},
-      delivery=#{delivery}
+      content=#{content},
+      price=#{price}
+      saveFileName =#{saveFileName}
+      fileSize = #{fileSize}
       WHERE productNum = #{productNum}
    </update>
    
    <select id="getData" parameterType="int" resultType="productDto">
-      SELECT productNum,productName,brand,delivery,<include refid="dateFormat"></include>
-      FROM product
-      WHERE productNum = #{productNum}
+     
+      SELECT result1.*
+      FROM 
+         (SELECT productNum,productName,brand,content,price,<include refid="dateFormat"></include>, 
+         saveFileName,
+         LAG(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS prevNum,
+         LEAD(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS nextNum
+         FROM product
+         ORDER BY productNum DESC) result1
+         WHERE productNum=#{productNum}
    </select>
+  
+   <update id="increaseViewCount" parameterType="int">
+      UPDATE product
+      SET viewCount = viewCount+1
+      WHERE productNum=#{productNum}
+   </update>
    
+   <select id="getList" parameterType="productDto" resultType="productDto">
+         SELECT *
+      FROM
+         (SELECT result1.*, ROWNUM rnum
+         FROM (productNum,productName,brand,content,price,<include refid="dateFormat"></include>,
+              saveFileName
+              FROM product
+              ORDER BY productNum DESC
+              ) result1
+                 )
+      WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+   </select>
 </mapper>

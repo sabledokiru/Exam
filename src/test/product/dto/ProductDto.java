@@ -7,6 +7,10 @@ public class ProductDto {
 	private String content;
 	private int price;
 	private String regdate;
+	
+	private String saveFileName;	//파일 시스템에 저장된 파일명
+	private long fileSize;			//파일의 크기 byte
+	
 	private int startRowNum; //시작 row 번호
 	private int endRowNum;   //끝 row 번호
 	private int prevNum;     //이전 글의 글번호
@@ -17,7 +21,7 @@ public class ProductDto {
 
 
 	public ProductDto(int productNum, String productName, String brand, String content, int price, String regdate,
-			int startRowNum, int endRowNum, int prevNum, int nextNum) {
+			String saveFileName, long fileSize, int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.productNum = productNum;
 		this.productName = productName;
@@ -25,6 +29,8 @@ public class ProductDto {
 		this.content = content;
 		this.price = price;
 		this.regdate = regdate;
+		this.saveFileName = saveFileName;
+		this.fileSize = fileSize;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
 		this.prevNum = prevNum;
@@ -92,6 +98,26 @@ public class ProductDto {
 	}
 
 
+	public String getSaveFileName() {
+		return saveFileName;
+	}
+
+
+	public void setSaveFileName(String saveFileName) {
+		this.saveFileName = saveFileName;
+	}
+
+
+	public long getFileSize() {
+		return fileSize;
+	}
+
+
+	public void setFileSize(long fileSize) {
+		this.fileSize = fileSize;
+	}
+
+
 	public int getStartRowNum() {
 		return startRowNum;
 	}
@@ -132,5 +158,6 @@ public class ProductDto {
 	}
 
 
+	
 }
 	
