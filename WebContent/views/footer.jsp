@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<style>
+	.bottom_box{
+		margin-top:850px;
+	}
+</style>
 <div class="bottom_box"><!--Bottom 알림-->
        <div id="footer_text">
             <div class="footer_box">
