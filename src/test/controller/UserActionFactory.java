@@ -16,6 +16,7 @@ import test.members.action.MembersUpdateformAction;
 import test.members.action.SignOutMemberAction;
 import test.members.action.SigninAction;
 import test.members.action.UpdateMembersAction;
+import test.product.action.ProductInsertAction;
 import test.product.action.ProductInsertformAction;
 import test.product.action.ProductListAction;
 import test.product.action.ProductUpdateAction;
@@ -65,6 +66,8 @@ public class UserActionFactory {
 			action = new ProductInsertformAction();
 		}else if(command.equals("/views/product/list")){
 			action = new ProductListAction();
+		}else if(command.equals("/views/product/private/insert")){
+			action = new ProductInsertAction();
 		}
 		
 //		else if(command.equals("/views/evaluation/private/insertform")){
