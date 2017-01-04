@@ -18,8 +18,8 @@ public class SignInFormAction extends Action {
 		//순수 요청 경로를 추출 한다.
 		// command => /fortune or /time or /signin 
 		String command=uri.substring(contextName.length(),
-				uri.length());
-		request.getSession().setAttribute("uri", command);
-		return new ActionForward("/views/users/signin_form.jsp",true);
+				uri.length()-4);
+		request.setAttribute("uri", command);
+		return new ActionForward("/views/users/signin_form.jsp");
 	}
 }

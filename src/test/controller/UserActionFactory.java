@@ -35,7 +35,10 @@ public class UserActionFactory {
 		Action action=null;
 		if(command.equals("/main")){
 			action = new MainAction();
-		}else if(command.equals("/views/users/signin_form")){
+		}else if(command.equals("/views/main")){
+			action = new MainAction();
+		}
+		else if(command.equals("/views/users/signin_form")){
 			action = new SignInFormAction();
 		}else if(command.equals("/views/users/signup_form")){
 			action = new SignUpFormAction();

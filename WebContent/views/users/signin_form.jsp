@@ -19,6 +19,7 @@
 <div class="container">
 	<h3>로그인</h3>
 	<form action="signin.do" method="post">
+		<input type="hidden" name="uri" value="${uri}" />
 		<div class="form-group">
 			<label class="control-label" for="id">아이디:</label>
 			<input class="form-control" type="text" id="id" name="id"/>
@@ -27,7 +28,7 @@
 			<label class="control-label" for="pwd">비밀번호:</label>
 			<input class="form-control" type="text" id="pwd" name="pwd"/>
 		</div>
-		<button class="btn btn-success" type="submit" id="submitBtn">로그인</button>
+		<button class="btn btn-success" type="submit">로그인</button>
 		<button class="btn btn-danger" type="button">취소</button>
 	</form>
 </div>
