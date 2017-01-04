@@ -41,5 +41,6 @@ comRef_group NUMBER,	-- 덧글 그룹(원 글의 num과 같음)
 comComment_group NUMBER,	-- 덧글 내에서의 그룹
 regdate DATE
 );
+
 -- 상품평 시퀀스
 CREATE SEQUENCE eva_comment_seq NOCACHE;
