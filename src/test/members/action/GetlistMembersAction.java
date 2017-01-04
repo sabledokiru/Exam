@@ -18,7 +18,7 @@ public class GetlistMembersAction extends Action{
 		List<MembersDto> list = MembersDao.getInstance().getList();
 		//2. request 에 Model 을 담는다.
 		request.setAttribute("list",list);
-		//3. ActionForward 객체 리턴해주기 z
+		//3. ActionForward 객체 리턴해주기 
 		return new ActionForward("list.jsp");
 	}
 	

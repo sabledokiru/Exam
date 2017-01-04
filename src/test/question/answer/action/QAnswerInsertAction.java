@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import test.controller.Action;
 import test.controller.ActionForward;
+import test.question.answer.dao.QAAnswerDao;
 import test.question.answer.dto.QAAnswerDto;
 
 public class QAnswerInsertAction extends Action{
@@ -21,9 +22,7 @@ public class QAnswerInsertAction extends Action{
 		dto.setAnswerRefnum(ref_num);
 		
 		//3. QAAnswerDao 메소드 이용해서 DB에 저장하기
-		
-		
-		//4. 경로 이동시키기
+		QAAnswerDao.getInstance().insert(dto);
 		return new ActionForward("/");
 	}
 

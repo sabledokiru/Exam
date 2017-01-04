@@ -5,20 +5,29 @@
 	<insert id="insert" parameterType="qawriterDto">
 		INSERT INTO QA_writer
 		(num, mainquestion, detailquestion, writer, secret, regdate)
-		values(#(num), #(mainquestion), #(detailquestion), #(writer), 
+		values(QA_seq.NEXTVAL, #(mainquestion), #(detailquestion), #(writer), 
 		#(secret), regdate)
 	</insert>
 	
 	<!-- 질문들 모두 출력하기 -->
 	<select id="getlist" resultType="qawriterDto">
 		SELECT 
-			qa_seq.NEXTVAL, mainquestion, detailquestion, writer, secret, regdate
+			num, mainquestion, detailquestion, writer, secret, regdate
 		FROM QA_writer
-		ORDER BY num DESC
 	</select>
 	
+	
 	<!-- 관리자의 답변글 저장하기 -->
-	<select id="ainsert" parameterType="test.question.answer.dto.QAAnswerDto">
-		
+	<insert id="ainsert" parameterType="qaanswerDto">
+		INSERT INTO QA_answer
+		(num, writer, content, ref_num, regdate)
+		values( QAnswer_seq.NEXTVAL, writer, #(content), #(ref_num),  regdate)
+	</insert>
+	
+	<!-- 답변글 모두 출력하기 -->
+	<select id="agetlist" resultType="qaanswerDto">
+		SELECT
+			num, content, regdate
+		FROM QA_answer
 	</select>
 </mapper>

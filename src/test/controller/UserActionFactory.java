@@ -15,6 +15,9 @@ import test.members.action.UpdateMembersAction;
 import test.product.action.ProductInsertAction;
 import test.product.action.ProductInsertformAction;
 import test.product.action.ProductListAction;
+import test.question.answer.action.QAnswerGetlistAction;
+import test.question.answer.action.QAnswerInsertAction;
+import test.question.answer.action.QuestionAGetlistAction;
 import test.question.answer.action.QuestionAInsertAction;
 
 public class UserActionFactory {
@@ -84,6 +87,12 @@ public class UserActionFactory {
 			action = new EvaluationListAction();
 		}else if(command.equals("/views/question/insert")){
 			action = new QuestionAInsertAction();
+		}else if(command.equals("/views/question/getlist")){
+			action = new QuestionAGetlistAction();
+		}else if(command.equals("/views/answer/insert")){
+			action = new QAnswerInsertAction();
+		}else if(command.equals("/views/answer/getlist")){
+			action = new QAnswerGetlistAction();
 		}
 		return action;
 	}
