@@ -55,6 +55,17 @@
          LAG(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS prevNum,
          LEAD(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS nextNum
          FROM product
+         <where>
+				  	<if test="writer != null">
+				  		OR writer LIKE '%'||#{writer}||'%'
+				  	</if>
+				  	<if test="title != null">
+				  		OR title LIKE '%'||#{title}||'%'
+				  	</if>
+				  	<if test="content != null">
+				  		OR content LIKE '%'||#{content}||'%'
+				  	</if>
+				  </where>
          ORDER BY productNum DESC) result1
          WHERE productNum=#{num}
    </select>
@@ -72,6 +83,17 @@
          FROM (SELECT productNum,productName,brand,content,price,viewCount,<include refid="dateFormat"></include>,
               saveFileName,fileSize
               FROM product
+              <where>
+				  	<if test="writer != null">
+				  		OR writer LIKE '%'||#{writer}||'%'
+				  	</if>
+				  	<if test="title != null">
+				  		OR title LIKE '%'||#{title}||'%'
+				  	</if>
+				  	<if test="content != null">
+				  		OR content LIKE '%'||#{content}||'%'
+				  	</if>
+				  </where>
               ORDER BY productNum DESC
               ) result1
                  )
@@ -82,6 +104,17 @@
    <select id="getCount" resultType="int">
 		SELECT NVL(MAX(ROWNUM), 0)
 		FROM product
+		<where>
+				  	<if test="writer != null">
+				  		OR writer LIKE '%'||#{writer}||'%'
+				  	</if>
+				  	<if test="title != null">
+				  		OR title LIKE '%'||#{title}||'%'
+				  	</if>
+				  	<if test="content != null">
+				  		OR content LIKE '%'||#{content}||'%'
+				  	</if>
+				  </where>
 	</select>
 	
 </mapper>

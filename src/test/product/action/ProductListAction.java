@@ -12,6 +12,9 @@ import test.product.dao.ProductDao;
 import test.product.dto.ProductDto;
 
 public class ProductListAction extends Action{
+	
+	
+	
 	//한 페이지에 나타낼 로우의 갯수
 			private static final int PAGE_ROW_COUNT=6;
 			//하단 디스플레이 페이지 갯수
@@ -19,6 +22,26 @@ public class ProductListAction extends Action{
 			
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		
+		String keyword=request.getParameter("keyword");
+		String condition=request.getParameter("condition");
+		
+		//BoardDto 객체를 생성해서
+		ProductDto dto=new ProductDto();
+		if(keyword != null){ //검색어가 전달된 경우
+			if(condition.equals("titlecontent")){ //제목+내용 검색
+				dto.setProductName(keyword);
+				dto.setContent(keyword);
+			}else if(condition.equals("title")){//제목 검색
+				dto.setProductName(keyword);
+			}else if(condition.equals("writer")){//작성자 검색
+				dto.setContent(keyword);
+			}
+			// list.jsp 뷰페이지에서 필요한 내용을 request 에 담는다.
+			request.setAttribute("condition", condition);
+			request.setAttribute("keyword", keyword);
+		}
+		
 		//보여줄 페이지의 번호
 		int pageNum=1;
 		//보여줄 페이지의 번호가 파라미터로 전달되는지 읽어온다.
@@ -47,7 +70,7 @@ public class ProductListAction extends Action{
 		}
 		
 		//시작 row 번호와 끝 row 번호를 dto 에 담는다. 
-		ProductDto dto=new ProductDto();
+		
 		dto.setStartRowNum(startRowNum);
 		dto.setEndRowNum(endRowNum);
 
