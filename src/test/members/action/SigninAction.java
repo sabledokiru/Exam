@@ -15,25 +15,25 @@ public class SigninAction extends Action{
 		
 		String memberId=request.getParameter("id");
 		String memberPwd=request.getParameter("pwd");
-		String uri = request.getParameter("uri");
-		String moveUri = null;
+		String uri = (String)request.getSession().getAttribute("uri");
+		String goUri;
+		System.out.println(memberId + memberPwd);
 		// 2. 아이디 비밀번호를 MembersDto 에 담는다.
 		MembersDto dto= new MembersDto();
 		dto.setMemberId(memberId);
 		dto.setMemberPwd(memberPwd);
 		// 3. 유효한 정보인지 확인
 		boolean isSuccess=MembersDao.getInstance().isValid(dto);
+		System.out.println(isSuccess);
 		if(isSuccess){
-			//세션 생성
-			moveUri = uri+".do";
-			System.out.println("signin  :" +moveUri);
+			goUri = uri;
+			System.out.println(goUri);
 			request.getSession().setAttribute("id",memberId);
 		}else{
-			request.setAttribute("uri",uri);
-			moveUri = "/views/users/signin_form.jsp";
+			goUri = "/views/users/signin_form.do?uri=/"+uri;
+			System.out.println(goUri);
 		}
-		return new ActionForward(moveUri);
+		return new ActionForward(goUri,true);
 	}
 
 }
-

@@ -24,13 +24,11 @@
 	<form action="" method="post">
 		<div class="form-group">
 			<label class="control-label" for="userId">아이디:</label>
-			
-			<input class="form-control" type="text" id="userId" name="userId"/>
-			<button class="btn btn-default" id="idCheck" type="button">중복 확인</button>
+			<input class="form-control" type="text" id="userId" value="${id}" disabled="disabled"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userPwd">비밀번호:</label>
-			<input class="form-control" type="text" id="userPwd" name="userPwd"/>
+			<input class="form-control" type="text" id="userPwd" name="userPwd" value=/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="userEmail">이메일:</label>
@@ -52,31 +50,6 @@
 </html>
 
 <script>
-	
-/* id 중복 체크 */
-	var isCheck = false;
-	//중복 체크후 바꿀시 다시 중복체크 !!
-	$("#userId").change(function(){
-		isCheck = false;
-	});
-	$("#idCheck").click(function(){
-	 	var id = $("#userId").val();
-		$.ajax({  
-				url: "idCheck.do",
-				type: "POST",
-				data : {"id":id},
-				success: function(data){
-					if(data.isSuccess == true){
-						alert("사용 가능한 아이디 입니다.");
-						isCheck = true;
-					}
-					else{
-						alert("중복된 아이디 입니다.");
-					}
-				}  
-			});
-			
-	});
     /* 회원가입  */
  	$("#submitBtn").click(function(){
  		var id = $("#userId").val();
