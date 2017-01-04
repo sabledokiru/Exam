@@ -102,4 +102,17 @@ public class ProductDao {
 		session.close();
 		return count;
 	}
+   
+ //조회수를 1 증가 시키는 메소드
+ 	public void increaseViewCount(int num){
+ 		//auto commit 되는 SqlSession 객체의 참조값 얻어오기 
+ 		SqlSession session = factory.openSession(true);
+ 		try{
+ 			session.update("product.increaseViewCount", num);
+ 		}catch(Exception e){
+ 			e.printStackTrace();
+ 		}finally{
+ 			session.close();
+ 		}
+ 	}
 }//전체

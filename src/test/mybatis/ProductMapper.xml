@@ -31,7 +31,7 @@
    
    <delete id="delete" parameterType="productDto" >
       DELETE FROM product
-      WHERE productNum = #{productNum}
+      WHERE productNum = #{num}
    </delete>
    
    <update id="update" parameterType="productDto" >
@@ -43,7 +43,7 @@
       price=#{price}
       saveFileName =#{saveFileName}
       fileSize = #{fileSize}
-      WHERE productNum = #{productNum}
+      WHERE productNum = #{num}
    </update>
    
    <select id="getData" parameterType="int" resultType="productDto">
@@ -56,13 +56,13 @@
          LEAD(productNum, 1, 0) OVER(ORDER BY productNum DESC) AS nextNum
          FROM product
          ORDER BY productNum DESC) result1
-         WHERE productNum=#{productNum}
+         WHERE productNum=#{num}
    </select>
   
    <update id="increaseViewCount" parameterType="int">
       UPDATE product
       SET viewCount = viewCount+1
-      WHERE productNum=#{productNum}
+      WHERE productNum=#{num}
    </update>
    
    <select id="getList" parameterType="productDto" resultType="productDto">
@@ -83,4 +83,9 @@
 		FROM product
 	</select>
 	
+	<update id="increaseViewCount" parameterType="int">
+		UPDATE product
+		SET viewCount = viewCount+1
+		WHERE productNum=#{num}
+	</update>
 </mapper>
