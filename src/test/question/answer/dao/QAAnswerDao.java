@@ -60,6 +60,30 @@ public class QAAnswerDao {
 		}
 		return list;
 	}
+	
+	//답변글 하나 삭제하기
+	public void delete(int num){
+		SqlSession session=factory.openSession();
+		try{
+			session.delete("qamapper.adelete",num);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+	}
+	
+	//답변글 하나 수정하기
+	public void update(QAAnswerDto dto){
+		SqlSession session=factory.openSession(true);
+		try{
+			session.update("qamapper.aupdate",dto);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+	}
 }
 
 
