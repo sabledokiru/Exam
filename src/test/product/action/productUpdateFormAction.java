@@ -14,7 +14,7 @@ public class productUpdateFormAction extends Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		//1. 파라미터로 전달되는 수정할 글번호 읽어오기
-			int num=Integer.parseInt(request.getParameter("num"));
+			int num=Integer.parseInt(request.getParameter("productNum"));
 			//2. 수정할 글의 정보 얻어오기
 			ProductDto dto=ProductDao.getInstance().getData(num);
 			//3. request 에 dto 를 담고

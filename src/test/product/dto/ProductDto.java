@@ -6,6 +6,7 @@ public class ProductDto {
 	private String brand;
 	private String content;
 	private int price;
+	private int viewCount;
 	private String regdate;
 	
 	private String saveFileName;	//파일 시스템에 저장된 파일명
@@ -20,14 +21,16 @@ public class ProductDto {
 	public ProductDto(){}
 
 
-	public ProductDto(int productNum, String productName, String brand, String content, int price, String regdate,
-			String saveFileName, long fileSize, int startRowNum, int endRowNum, int prevNum, int nextNum) {
+	public ProductDto(int productNum, String productName, String brand, String content, int price, int viewCount,
+			String regdate, String saveFileName, long fileSize, int startRowNum, int endRowNum, int prevNum,
+			int nextNum) {
 		super();
 		this.productNum = productNum;
 		this.productName = productName;
 		this.brand = brand;
 		this.content = content;
 		this.price = price;
+		this.viewCount = viewCount;
 		this.regdate = regdate;
 		this.saveFileName = saveFileName;
 		this.fileSize = fileSize;
@@ -85,6 +88,16 @@ public class ProductDto {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+
+	public int getViewCount() {
+		return viewCount;
+	}
+
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
 	}
 
 
