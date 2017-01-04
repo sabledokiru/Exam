@@ -32,5 +32,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="test/mybatis/MembersMapper.xml"/>
 		<mapper resource="test/mybatis/EvaluationMapper.xml"/>
 		<mapper resource="test/mybatis/EvaluationCommentMapper.xml"/>
+		<mapper resource="test/mybatis/QAMapper.xml"/>
 	</mappers>
 </configuration>
