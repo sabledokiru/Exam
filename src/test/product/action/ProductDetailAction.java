@@ -26,7 +26,7 @@ public class ProductDetailAction extends Action{
 			//5. 뷰페이지로 forward 이동해서 글정보를 응답한다.
 			
 		
-			return new ActionForward("/views/product/detail.jsp");
+			return new ActionForward("/views/product/product_info.jsp");
 	}
 
 }
