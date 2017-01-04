@@ -13,7 +13,7 @@ public class UpdateMembersAction extends Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		//1. form 전송되는 파라미터 추출
-		String memberId=request.getParameter("id");
+		String memberId=(String)request.getSession().getAttribute("id");
 		String memberPwd=request.getParameter("pwd");
 		String memberEmail=request.getParameter("email");
 		String memberPhone=request.getParameter("phone");
