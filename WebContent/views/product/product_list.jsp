@@ -18,7 +18,7 @@
 		list-style-type:none;
 		border:1px solid red;
 		margin : 0 auto;
-		text-align: center
+		text-align: center;
 	}
 	img{
 		width:100%;
@@ -32,6 +32,13 @@
 	}
 	.productName{
 		font-size:25px;
+	}
+	.search_form form{
+		text-align:center;
+	}
+	#condition{
+		height:25px;
+		top:5px;
 	}
 	
 </style>
@@ -137,6 +144,21 @@
 			</c:otherwise>
 		</c:choose>
 		</ul>
+	</div>
+	<!-- 검색기능 -->
+	<!-- 검색어 관련 form -->
+	<div class="search_form">
+		<form action="" method="post" id="keywordForm">
+			<label for="condition"></label>
+			<select name="condition" id="condition">
+				<option value="" <c:if test="${condition eq '비교' }">selected</c:if>>제목+상품</option>
+				<option value="" <c:if test="${condition eq '비교' }">selected</c:if>>상품</option>
+				<option value="" <c:if test="${condition eq '비교' }">selected</c:if>>작성자</option>
+			</select>
+			<input type="text" name="keyword" placeholder="검색어" 
+				value="${keyword }"/>
+			<button type="submit">검색</button>
+		</form>
 	</div>
 	</center>
 	<footer>
