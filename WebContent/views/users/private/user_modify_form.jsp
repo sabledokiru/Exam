@@ -72,9 +72,9 @@
 		}
  		else{
 	 		$.ajax({  
-	 			url: "signup.do",
+	 			url: "update.do",
 	 			type: "POST",
-	 			data : {"id":id,"pwd":pwd,"email":email,"phone":phone,"addr":addr},
+	 			data : {"pwd":pwd,"email":email,"phone":phone,"addr":addr},
 	 			success: function(data){
 	 				if(data.isSuccess == true){
 	 					alert("수정 되었습니다.");
