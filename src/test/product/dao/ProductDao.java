@@ -95,4 +95,11 @@ public class ProductDao {
 		}
 		return list;
 	}
+   
+   public int getCount(){
+		SqlSession session=factory.openSession();
+		int count=session.selectOne("product.getCount");
+		session.close();
+		return count;
+	}
 }//전체

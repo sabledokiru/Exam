@@ -77,4 +77,10 @@
                  )
       WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
    </select>
+   
+   <select id="getCount" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM product
+	</select>
+	
 </mapper>
