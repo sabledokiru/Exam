@@ -17,6 +17,7 @@ import test.members.action.SignOutMemberAction;
 import test.members.action.SigninAction;
 import test.members.action.UpdateMembersAction;
 import test.product.action.ProductInsertformAction;
+import test.product.action.ProductListAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -80,6 +81,8 @@ public class UserActionFactory {
 		}
 		else if(command.equals("/views/evaluation/list")){
 			action = new EvaluationListAction();
+		}else if(command.equals("/views/product/list")){
+			action = new ProductListAction();
 		}
 		return action;
 	}
