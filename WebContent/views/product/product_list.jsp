@@ -52,69 +52,19 @@
 	<button class="btn btn-default writeBtn">글쓰기</button>
 	<div class="product_main">
 		<ul>
-			<%-- <c:forEach var="" items="">   여기 for문 돌려서 list 뽑아내는거야 --%>	
+			<c:forEach var="tmp" items="${list}">
 				<li>
-					<div class="imgBox"><img src="${pageContext.request.contextPath }/upload/test1.jpg" alt="그림1" /></div>
-					<div class="productName"><strong>$ 상품명</strong></div>
-					<div class="brand">$</div>
-					<div class="regdate">$</div>
-					<div class="content">Lorem numquam quritatis commodi odit sint doloremque ad reiciendis consequatur alias!</div>	
-					<div class="price"><strong>$ 여기 가격</strong></div>
+					<div class="imgBox"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}" alt="그림1" /></div>
+					<div class="productName"><strong>${tmp.productName }바뀌어라</strong></div>
+					<div class="brand">${tmp.brand}</div>
+					<div class="regdate">${tmp.regdate}</div>
+					<div class="price"><strong>${tmp.price}</strong></div>
 				</li>			
-			<%-- </c:forEach> --%>	
+			</c:forEach>
 		</ul>
-		<ul>
-			<%-- <c:forEach var="" items="">   여기 for문 돌려서 list 뽑아내는거야 --%>	
-				<li>
-					<div class="imgBox"><img src="" alt="그림1" /></div>
-					<div class="productName"><strong>$ 상품명</strong></div>
-					<div class="brand">$</div>
-					<div class="regdate">$</div>
-					<div class="content"> 여기 내용</div>
-					<div class="price"><strong>$ 여기 가격</strong></div>
-				</li>			
-			<%-- </c:forEach> --%>	
-		</ul>
-		<ul>
-			<%-- <c:forEach var="" items="">   여기 for문 돌려서 list 뽑아내는거야 --%>	
-				<li>
-					<div class="imgBox"><img src="" alt="그림1" /></div>
-					<div class="productName"><strong>$ 상품명</strong></div>
-					<div class="brand">$</div>
-					<div class="regdate">$</div>
-					<div class="content"> 여기 내용</div>
-					<div class="price"><strong>$ 여기 가격</strong></div>
-				</li>			
-			<%-- </c:forEach> --%>	
-		</ul>
-		<ul>
-			<%-- <c:forEach var="" items="">   여기 for문 돌려서 list 뽑아내는거야 --%>	
-				<li>
-					<div class="imgBox"><img src="" alt="그림1" /></div>
-					<div class="productName"><strong>$ 상품명</strong></div>
-					<div class="brand">$</div>
-					<div class="regdate">$</div>
-					<div class="content"> 여기 내용</div>
-					<div class="price"><strong>$ 여기 가격</strong></div>
-				</li>			
-			<%-- </c:forEach> --%>	
-		</ul>
-		<ul>
-			<%-- <c:forEach var="" items="">   여기 for문 돌려서 list 뽑아내는거야 --%>	
-				<li>
-					<div class="imgBox"><img src="" alt="그림1" /></div>
-					<div class="productName"><strong>$ 상품명</strong></div>
-					<div class="brand">$</div>
-					<div class="regdate">$</div>
-					<div class="content"> 여기 내용</div>
-					<div class="price"><strong>$ 여기 가격</strong></div>
-				</li>			
-			<%-- </c:forEach> --%>	
-		</ul>
-		
 	</div>
-	<!-- pagination 요기요기 -->
 	
+	<!-- pagination 요기요기 -->
 	<div class="page_display">
 	<center>
 		<ul class="pagination">
