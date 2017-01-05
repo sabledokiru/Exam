@@ -40,13 +40,13 @@
 	<insert id="ainsert" parameterType="qaanswerDto">
 		INSERT INTO QA_answer
 		(answerNum, answerWriter, answerContent, answerRef_num, regdate)
-		values( QAnswer_seq.NEXTVAL, "관리자", #(answerContent), #(answerRef_num),  sysdate)
+		values( QAnswer_seq.NEXTVAL, '관리자', #{answerContent}, #{answerRef_num},  sysdate)
 	</insert>
 	
 	<!-- 답변글 모두 출력하기 -->
 	<select id="agetlist" resultType="qaanswerDto">
 		SELECT
-			answerNum, answerContent, regdate
+			answerRef_num, answerContent, regdate
 		FROM QA_answer
 	</select>
 	
