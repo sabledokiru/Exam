@@ -17,7 +17,7 @@ public class QAnswerGetlistAction extends Action{
 		//1. 목록을 얻어온다.
 		List<QAAnswerDto> list = QAAnswerDao.getInstance().getList();
 		//2. request 에 Model 을 담는다.
-		request.setAttribute("alist", list);
+		request.setAttribute("list", list);
 		//3. ActionForward 객체 리턴해주기
 		return new ActionForward("/");
 	}

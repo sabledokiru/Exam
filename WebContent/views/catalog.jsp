@@ -9,7 +9,7 @@
 <div class="navbar navbar-inverse">
 	<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">Main</a>
 	<a class="navbar-brand" href="${pageContext.request.contextPath}/views/product/list.do">컴퓨터</a>
-	<a href="${pageContext.request.contextPath}/views/product/qna_list.do"></a>
+	<a href="${pageContext.request.contextPath}/views/product/qna_list.do">sdf</a>
 	<div class="right">
 	<c:choose>
 		<c:when test="${empty id}">

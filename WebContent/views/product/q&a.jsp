@@ -44,7 +44,7 @@
 			<c:forEach var="tmp" items="${list}">  
 			<tr class="qnaTitle warning">
 				<td>${tmp.writerMainquestion }</td>
-				<td>${tmp.writerWriter }</td>
+				<td>${tmp.writerWriter } 테스트 <p>${tmp.writerWriter }</p></td>
 				<td>${tmp.regdate }</td>
 			</tr>
 			<tr class="qnaBox">
@@ -67,7 +67,7 @@
 					</div>
 				</td>
 			</tr>
-			</c:forEach> 
+			</c:forEach>
 		</tbody>
 	</table>
 	
