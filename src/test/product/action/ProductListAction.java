@@ -77,6 +77,9 @@ List<ProductDto> list=ProductDao.getInstance().getList(dto);
 //2. request 에 담는다
 request.setAttribute("list", list);
 
+//2. 조회수가 가장많은 아이템5개의 리스트를 가져옴
+List<ProductDto> list2 = ProductDao.getInstance().getRankedViewCount();
+request.setAttribute("list2", list2);
 // 현재 페이지 번호 
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("startPageNum", startPageNum);
