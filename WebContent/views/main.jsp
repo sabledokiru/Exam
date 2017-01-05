@@ -10,6 +10,17 @@
 </head>
 <body>
 <jsp:include page="/views/catalog.jsp"/>
+
+<jsp:include page="/views/test.jsp"/>
+
 <jsp:include page="/views/footer.jsp"/>
 </body>
 </html>
+
+
+
+<script>
+$(function(){
+	alert("hi");
+});
+</script>
