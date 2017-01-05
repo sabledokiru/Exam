@@ -85,17 +85,4 @@ public class EvaluationCommentDao {
 		}
 		return num;
 	}
-	
-	public int getCurSequence(){
-		SqlSession session = factory.openSession();
-		int num = 0;
-		try{
-			num = session.selectOne("evaluationComment.getCurSequence");
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			session.close();
-		}
-		return num;
-	}
 }

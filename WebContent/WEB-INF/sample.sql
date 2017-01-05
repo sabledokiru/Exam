@@ -56,7 +56,6 @@ writerNum number primary key,
 writerMainquestion varchar2(100),
 writerDetailquestion varchar2(500),
 writerWriter varchar2(50),
-writerSecret varchar2(10),
 regdate date);
 
 CREATE TABLE QA_answer(
