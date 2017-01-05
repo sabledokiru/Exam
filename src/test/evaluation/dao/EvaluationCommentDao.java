@@ -46,6 +46,18 @@ public class EvaluationCommentDao {
 		}
 	}
 	
+	// 댓글을 삭제하는 메소드
+	public void delete(int num){
+		SqlSession session = factory.openSession(true);
+		try{
+			session.delete("evaluationComment.delete", num);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+	}
+	
 	// 댓글 목록을 리턴하는 메소드
 	public List<EvaluationCommentDto> getList(int ref_group){
 		SqlSession session = factory.openSession();

@@ -23,6 +23,11 @@
 		WHERE comNum = #{comNum}
 	</update>
 	
+	<delete id="delete" parameterType="int">
+		DELETE FROM evacomment
+		WHERE comNum = #{num}
+	</delete>
+	
 	<select id="getList" parameterType="int" resultType="evaluationCommentDto">
 		SELECT comNum, comWriter, comContent, comTarget_id, comRef_group, comComment_group, regdate
 		FROM evacomment
