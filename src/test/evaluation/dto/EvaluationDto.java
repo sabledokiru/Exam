@@ -8,10 +8,15 @@ public class EvaluationDto {
 	private String evaContent;
 	private String regdate;
 	
-	public EvaluationDto(){}
+	private int startRowNum;	// 시작 row 번호
+	private int endRowNum;		// 끝 row 번호
+	private int prevNum;		// 이전 글의 글 번호
+	private int nextNum;		// 다음 글의 글 번호
 	
+	public EvaluationDto(){}
+
 	public EvaluationDto(int evaNum, int productNum, String evaTitle, String evaWriter, String evaContent,
-			String regdate) {
+			String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.evaNum = evaNum;
 		this.productNum = productNum;
@@ -19,6 +24,10 @@ public class EvaluationDto {
 		this.evaWriter = evaWriter;
 		this.evaContent = evaContent;
 		this.regdate = regdate;
+		this.startRowNum = startRowNum;
+		this.endRowNum = endRowNum;
+		this.prevNum = prevNum;
+		this.nextNum = nextNum;
 	}
 
 	public int getEvaNum() {
@@ -68,6 +77,38 @@ public class EvaluationDto {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	
+
+	public int getStartRowNum() {
+		return startRowNum;
+	}
+
+	public void setStartRowNum(int startRowNum) {
+		this.startRowNum = startRowNum;
+	}
+
+	public int getEndRowNum() {
+		return endRowNum;
+	}
+
+	public void setEndRowNum(int endRowNum) {
+		this.endRowNum = endRowNum;
+	}
+
+	public int getPrevNum() {
+		return prevNum;
+	}
+
+	public void setPrevNum(int prevNum) {
+		this.prevNum = prevNum;
+	}
+
+	public int getNextNum() {
+		return nextNum;
+	}
+
+	public void setNextNum(int nextNum) {
+		this.nextNum = nextNum;
+	}
+
 	
 }

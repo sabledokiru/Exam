@@ -94,4 +94,18 @@ public class EvaluationDao {
 		}
 		return list;
 	}
+	
+	// 전체 글의 갯수를 리컨해주는 메소드
+	public int getCount(){
+		SqlSession session = factory.openSession();
+		int count = 0;
+		try{
+			count = session.selectOne("evaluation.getCount");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return count;
+	}
 }

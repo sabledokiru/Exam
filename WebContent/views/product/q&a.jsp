@@ -54,7 +54,15 @@
 				<td colspan="3">
 					<div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>${tmp.writerDetailquestion}</div><br/>
 					<div class="adminWrite">
+<<<<<<< HEAD
 						<form action="a_insert.do?writerNum=${tmp.writerNum}" method="post">
+=======
+
+						<form action="insert.do?num=${tmp.writerNum }&" method="post">
+
+						<form action="a_insert.do?num=${writerNum}" method="post">
+
+>>>>>>> branch 'master' of https://github.com/lcjltj/Exam.git
 							<span class="glyphicon glyphicon-text-color"></span>
 							<div class="onefuck">
 								<form action="">

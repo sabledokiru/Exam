@@ -2,6 +2,7 @@ package test.product.action;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -80,6 +81,10 @@ request.setAttribute("list", list);
 //2. 조회수가 가장많은 아이템5개의 리스트를 가져옴
 List<ProductDto> list2 = ProductDao.getInstance().getRankedViewCount();
 request.setAttribute("list2", list2);
+
+//3.쿠키 가져오기
+ Cookie[] ck = request.getCookies();
+
 // 현재 페이지 번호 
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("startPageNum", startPageNum);
