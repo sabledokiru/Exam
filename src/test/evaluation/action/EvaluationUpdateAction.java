@@ -14,7 +14,7 @@ public class EvaluationUpdateAction extends Action{
 		// 1. 폼 전송된 수정할 글의 정보얻어오기
 		int num = Integer.parseInt(request.getParameter("num"));
 		String title = request.getParameter("title");
-		String content = request.getParameter("ir1");
+		String content = request.getParameter("content");
 		
 		// 2. DB에 수정 반영
 		EvaluationDto dto = new EvaluationDto();

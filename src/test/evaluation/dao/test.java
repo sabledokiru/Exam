@@ -2,6 +2,7 @@ package test.evaluation.dao;
 
 import java.util.List;
 
+import test.evaluation.dto.EvaluationCommentDto;
 import test.evaluation.dto.EvaluationDto;
 
 public class test {
@@ -25,21 +26,27 @@ public class test {
 		
 //		EvaluationDao.getInstance().delete(1);
 		
-		List<EvaluationDto> list = EvaluationDao.getInstance().getList();
+//		List<EvaluationDto> list = EvaluationDao.getInstance().getList();
+//		
+//		for(EvaluationDto tmp : list){
+//			System.out.print(tmp.getEvaNum());
+//			System.out.print("//");
+//			System.out.print(tmp.getProductNum());
+//			System.out.print("//");
+//			System.out.print(tmp.getEvaTitle());
+//			System.out.print("//");
+//			System.out.print(tmp.getEvaWriter());
+//			System.out.print("//");
+//			System.out.print(tmp.getEvaContent());
+//			System.out.print("//");
+//			System.out.println(tmp.getRegdate());
+//			System.out.println();
+//		}
 		
-		for(EvaluationDto tmp : list){
-			System.out.print(tmp.getEvaNum());
-			System.out.print("//");
-			System.out.print(tmp.getProductNum());
-			System.out.print("//");
-			System.out.print(tmp.getEvaTitle());
-			System.out.print("//");
-			System.out.print(tmp.getEvaWriter());
-			System.out.print("//");
-			System.out.print(tmp.getEvaContent());
-			System.out.print("//");
-			System.out.println(tmp.getRegdate());
-			System.out.println();
-		}
+		EvaluationCommentDto dto = 
+				new EvaluationCommentDto(1, "슈레기", "뭐 이딴 쓰레기를 파냐!!", "hehe", 10, 1, "2017-01-02 15:47:55.0");
+		EvaluationCommentDao.getInstance().update(dto);
+		
+		
 	}
 }
