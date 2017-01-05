@@ -28,20 +28,25 @@
 </style>
 <div class="container">
    <table class="table table-hover">
+      <p><strong style="font-size:30px">상품평 등록</strong></p>
       <thead>
          <tr>
-            <th style="font-size:30px"><strong>상품평 등록</strong></th>
-            <th><strong>작성자</strong></th>
+         	<th style="width:10%">글 번호</th>
+            <th style="width:50%">제목</th>
+            <th style="width:20%"><strong>작성자</strong></th>
             <th>등록일</th>
          </tr>
       </thead>
       <tbody>
          <c:forEach var="tmp" items="${list}">
          <tr class="qnaTitle warning">
+         	<td>${tmp.evaNum}</td>
             <td>${tmp.evaTitle }</td>
             <td>${tmp.evaWriter }</td>
-         <%--    <td>${tmp.regdate }</td> --%>
-            <td>${tmp.productNum}</td>
+            <td>${tmp.regdate }</td>
+         </tr>
+         <tr>
+         	<td colspan="4"><span>내용 :</span> ${tmp.evaContent} 왜안떠..</td>
          </tr>
          <tr class="qnaBox">
             <td colspan="3">
@@ -50,9 +55,9 @@
                   <form action="" method="post">
                      <span class="glyphicon glyphicon-text-color"></span>
                      <input type="hidden" value="" />
-                     <textarea name="" id="" cols="100" rows="10"></textarea>
-                     <c:choose>
-                        <c:when test="${id == admin }">
+                     <textarea name="" id="" cols="100" rows="10"></textarea> 
+                    <c:choose>
+                        <c:when test="${id eq admin }">
                            <button class="btn btn-default" id="qnaBtn" type="submit">등록</button>
                         </c:when>
                         <c:otherwise>
@@ -60,8 +65,6 @@
                      </c:choose>
                   </form>
                </div>
-            </td>
-         </tr>
          </c:forEach>
       </tbody>
    </table>

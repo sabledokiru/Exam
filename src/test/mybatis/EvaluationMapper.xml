@@ -24,7 +24,7 @@
 	</select>
 	
 	<select id="getList" parameterType="int" resultType="evaluationDto">
-		SELECT evaNum, evaTitle, evaWriter, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
+		SELECT evaNum, evaTitle, evaWriter,evaContent, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
 		FROM evaluation
 		WHERE productNum = #{productNum}
 		ORDER BY regdate DESC

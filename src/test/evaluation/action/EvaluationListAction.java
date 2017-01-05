@@ -16,6 +16,11 @@ public class EvaluationListAction extends Action{
 		int productNum = Integer.parseInt(request.getParameter("num"));
 		List<EvaluationDto> list = EvaluationDao.getInstance().getList(productNum);
 		request.setAttribute("list", list);
+		for(EvaluationDto tmp : list){
+			System.out.println(tmp.getRegdate());
+			System.out.println(tmp.getEvaTitle());
+			System.out.println(tmp.getEvaContent());
+		}
 		request.setAttribute("productNum",productNum);
 		return new ActionForward("/views/evaluation/evaluation.jsp");
 	}
