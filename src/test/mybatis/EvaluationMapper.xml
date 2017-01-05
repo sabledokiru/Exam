@@ -32,6 +32,6 @@
 	
 	<select id="getCount" resultType="int">
 		SELECT NVL(MAX(ROWNUM),0)
-		FROM board_guest
+		FROM evaluation
 	</select>
 </mapper>
