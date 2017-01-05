@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="qamapper">
-	<!-- 새 질문 저장하기 -->
+	<!--1. 새 질문 저장하기 -->
 	<insert id="insert" parameterType="qawriterDto">
 		INSERT INTO QA_writer
 		(num, mainquestion, detailquestion, writer, secret, regdate)
@@ -9,14 +9,14 @@
 		#(secret), regdate)
 	</insert>
 	
-	<!-- 질문들 모두 출력하기 -->
+	<!--2. 질문들 모두 출력하기 -->
 	<select id="getlist" resultType="qawriterDto">
 		SELECT 
 			num, mainquestion, detailquestion, writer, secret, regdate
 		FROM QA_writer
 	</select>
 	
-	<!-- 질문 하나만 출력하기 -->
+	<!--3. 질문 하나만 출력하기 -->
 	<select id="getdata" parameterType="int" resultType="qawriterDto">
 		SELECT 
 			num, mainquestion, detailquestion, writer, secret, regdate
@@ -24,54 +24,27 @@
 		WHERE num=#{num}
 	</select>
 	
-	<!-- 질문 하나 삭제하기 -->
-	<delete id="delete" parameterType="int">
-		DELETE 
-		FROM QA_writer
-		WHERE num=#{num}		
-	</delete>
 	
-	<!-- 질문 하나 수정하기 -->
-	<update id="aupdate" parameterType="qawriterDto">
-		UPDATE QA_writer
-		SET mainquestion=#{mainquestion}, detailquestion=#{detailquestion}
-		WHERE num=#{num}
-	</update>
-	
-	<!-- 답변글 저장하기 -->
+	<!--4. 관리자의 답변글 저장하기 -->
 	<insert id="ainsert" parameterType="qaanswerDto">
 		INSERT INTO QA_answer
 		(num, writer, content, ref_num, regdate)
 		values( QAnswer_seq.NEXTVAL, writer, #(content), #(ref_num),  regdate)
 	</insert>
 	
-	<!-- 답변글 모두 출력하기 -->
+	<!--5. 답변글 모두 출력하기 -->
 	<select id="agetlist" resultType="qaanswerDto">
 		SELECT
 			num, content, regdate
 		FROM QA_answer
 	</select>
 	
-	<!-- 답변글 하나만 출력하기 -->
+	<!--6. 답변글 하나만 출력하기 -->
 	<select id="agetdata" parameterType="int" resultType="qaanswerDto">
 		SELECT
 			num, content, regdate
 		FROM QA_answer
 		WHERE num=#{num}
 	</select>
-	
-	<!-- 답변글 하나 삭제하기 -->
-	<delete id="adelete" parameterType="int">
-		DELETE 
-		FROM QA_answer
-		WHERE num=#{num}		
-	</delete>
-	
-	<!-- 답변글 하나 수정하기 -->
-	<update id="aupdate" parameterType="qaanswerDto">
-		UPDATE QA_answer
-		SET content=#{content}
-		WHERE num=#{num}
-	</update>
 	
 </mapper>

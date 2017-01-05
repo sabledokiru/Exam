@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import test.mybatis.SqlMapConfig;
-import test.question.answer.dto.QAAnswerDto;
 import test.question.answer.dto.QAWriterDto;
 
 public class QAWriterDao {
@@ -60,28 +59,4 @@ public class QAWriterDao {
 		}
 		return list;
 	}
-	
-	//질문글 하나 삭제하기
-	public void delete(int num){
-		SqlSession session=factory.openSession();
-		try{
-			session.delete("qamapper.delete",num);
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			session.close();
-		}
-	}
-	//질문글 하나 수정하기
-		public void update(QAWriterDto dto){
-			SqlSession session=factory.openSession(true);
-			try{
-				session.update("qamapper.update",dto);
-			}catch(Exception e){
-				e.printStackTrace();
-			}finally{
-				session.close();
-			}
-		}
-		
 }
