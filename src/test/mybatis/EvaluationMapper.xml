@@ -29,4 +29,9 @@
 		WHERE productNum = #{productNum}
 		ORDER BY regdate DESC
 	</select>
+	
+	<select id="getCount" resultType="int">
+		SELECT NVL(MAX(ROWNUM),0)
+		FROM board_guest
+	</select>
 </mapper>
