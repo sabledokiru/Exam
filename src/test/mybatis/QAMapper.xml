@@ -4,9 +4,8 @@
 	<!-- 새 질문 저장하기 -->
 	<insert id="insert" parameterType="qawriterDto">
 		INSERT INTO QA_writer
-		(num, mainquestion, detailquestion, writer, secret, regdate)
-		values(QA_seq.NEXTVAL, #(mainquestion), #(detailquestion), #(writer), 
-		#(secret), regdate)
+		(num, mainquestion, detailquestion, writer, regdate)
+		values(QA_seq.NEXTVAL, #{writerMainquestion}, #{writerDetailquestion}, #{writerWriter}, sysdate)
 	</insert>
 	
 	<!-- 질문들 모두 출력하기 -->

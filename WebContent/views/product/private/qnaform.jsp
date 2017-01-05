@@ -10,9 +10,8 @@
 <h3>Q&A 등록폼</h3>
 <form action="qna_insert.do" method="post">
 	<input type="hidden" name="writerNum" id="writerNum" />
-	<input type="hidden" name="writerWriter" id="writerWriter"/>
-	<label for="writerWriter">작성자</label>
-	<input type="text" id="writerWriter" 
+	<label for="${id }">작성자</label>
+	<input type="text" id="${id }" 
 		value="${id }" disabled="disabled"/><br/>
 	<label for="writerMainquestion">제목:</label>
 	<input type="text" name="writerMainquestion" id="writerMainquestion"/><br/>

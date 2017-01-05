@@ -5,7 +5,6 @@ public class QAWriterDto {
 	private String writerMainquestion;
 	private String writerDetailquestion;
 	private String writerWriter;
-	private String writerSecret;
 	private String regdate;
 	
 	private int startRowNum;	// 시작 row 번호
@@ -16,13 +15,12 @@ public class QAWriterDto {
 	public QAWriterDto(){}
 
 	public QAWriterDto(int writerNum, String writerMainquestion, String writerDetailquestion, String writerWriter,
-			String writerSecret, String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum) {
+			String regdate, int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.writerNum = writerNum;
 		this.writerMainquestion = writerMainquestion;
 		this.writerDetailquestion = writerDetailquestion;
 		this.writerWriter = writerWriter;
-		this.writerSecret = writerSecret;
 		this.regdate = regdate;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
@@ -60,14 +58,6 @@ public class QAWriterDto {
 
 	public void setWriterWriter(String writerWriter) {
 		this.writerWriter = writerWriter;
-	}
-
-	public String getWriterSecret() {
-		return writerSecret;
-	}
-
-	public void setWriterSecret(String writerSecret) {
-		this.writerSecret = writerSecret;
 	}
 
 	public String getRegdate() {
@@ -110,7 +100,6 @@ public class QAWriterDto {
 		this.nextNum = nextNum;
 	}
 
-	
 	
 	
 	

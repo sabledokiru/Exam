@@ -41,7 +41,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%--<c:forEach var="tmp" items="${list}">        지금 for문 null이라 주석으로 달아놨음  --%>
+			<c:forEach var="tmp" items="${list}">  
 			<tr class="qnaTitle warning">
 				<td>${tmp.writerMainquestion }</td>
 				<td>${tmp.writerWriter }</td>
@@ -67,7 +67,7 @@
 					</div>
 				</td>
 			</tr>
-			<%-- </c:forEach> --%>
+			</c:forEach> 
 		</tbody>
 	</table>
 	

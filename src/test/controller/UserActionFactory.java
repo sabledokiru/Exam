@@ -115,8 +115,10 @@ public class UserActionFactory {
 
 		else if(command.equals("/views/product/qna_insertform")){
 			action = new QuestionAInsertFormAction();
-		}else if(command.equals("/views/product/private/qna_insert")){
+		}else if(command.equals("/views/product/qna_insert")){
 			action = new QuestionAInsertAction();
+		}else if(command.equals("/views/product/qna_list")){
+			action = new QuestionAGetlistAction();
 		}
 		return action;
 	}
