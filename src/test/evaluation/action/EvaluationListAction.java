@@ -13,6 +13,8 @@ import test.evaluation.dto.EvaluationDto;
 public class EvaluationListAction extends Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		int productNum = Integer.parseInt(request.getParameter("num"));
+		System.out.println(productNum);
 		List<EvaluationDto> list = EvaluationDao.getInstance().getList();
 		System.out.println("오류전");
 		request.setAttribute("list", list);

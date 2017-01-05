@@ -21,6 +21,10 @@
       font-size:25px;
       color:#73FAFF;
    }
+   .writeBox{
+   	width: 50%;
+   	margin-left:25%;
+   }
 </style>
 <div class="container">
    <table class="table table-hover">
@@ -36,7 +40,8 @@
          <tr class="qnaTitle warning">
             <td>${tmp.evaTitle }</td>
             <td>${tmp.evaWriter }</td>
-            <td>${tmp.regdate }</td>
+         <%--    <td>${tmp.regdate }</td> --%>
+            <td>${tmp.productNum}</td>
          </tr>
          <tr class="qnaBox">
             <td colspan="3">
@@ -60,11 +65,20 @@
          </c:forEach>
       </tbody>
    </table>
-   
-   <form action="${pageContext.request.contextPath}/views/evaluation/private/insertform.do" method="get">
-      <button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
-   </form>
-   
+	<button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
+	<div class="writeBox form-group">
+		<form action="insert.do" method="post">
+		<div class="form-group">
+			<input type="text" value="\${num}" />
+			<label class="control-label" for="title">제목:</label>
+			<input class="form-control" type="text" name="title" id="title"/>
+		<div class="form-group">
+			<label class="control-label" for="writerDetailquestion">후기:</label>
+			<textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
+		</div>
+			<button class="btn btn-default" type="submit">작성</button>
+		</form>
+	</div>
 <!--pagenation  시작-->
    <div class="page_display">
    <center>

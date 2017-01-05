@@ -82,8 +82,10 @@
 <footer>
 		<jsp:include page="/views/footer.jsp"/>
 </footer>
+<p>하이 ${num}</p>
 </body>
 </html>
+
 <script>
 $("#countUp").click(function(){
 	var count = $("#count").val();
@@ -103,7 +105,7 @@ $("#countDown").click(function(){
 
 $(function(){
 	$.ajax({
-		url:"${pageContext.request.contextPath}/views/evaluation/list.do",
+		url:"${pageContext.request.contextPath}/views/evaluation/list.do?num=${num}",
 		method:"GET",
 		success: function(data){
 			$(".evaluation").after(data);
