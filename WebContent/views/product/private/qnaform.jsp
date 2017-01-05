@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>Q&A 등록폼</h3>
-<form action="qna_insert.do" method="post">
+<form action="insert.do" method="post">
 	<input type="hidden" name="writerNum" id="writerNum" />
 	<input type="hidden" name="writerWriter" id="writerWriter"/>
 	<label for="writerWriter">작성자</label>
