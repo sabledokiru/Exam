@@ -39,8 +39,8 @@
 	<!-- 답변글 저장하기 -->
 	<insert id="ainsert" parameterType="qaanswerDto">
 		INSERT INTO QA_answer
-		(answerNum, answerWriter, answerContent, answerRefnum, regdate)
-		values( QAnswer_seq.NEXTVAL, "관리자", #(answerContent), #(answerRefnum),  sysdate)
+		(answerNum, answerWriter, answerContent, answerRef_num, regdate)
+		values( QAnswer_seq.NEXTVAL, "관리자", #(answerContent), #(answerRef_num),  sysdate)
 	</insert>
 	
 	<!-- 답변글 모두 출력하기 -->
@@ -50,12 +50,12 @@
 		FROM QA_answer
 	</select>
 	
-	<!-- 답변글 하나만 출력하기 -->
+	<!-- 답변글 하나만 출력하기     오류 났을거같아 조심 -->
 	<select id="agetdata" parameterType="int" resultType="qaanswerDto">
 		SELECT
 			answerNum, answerContent, regdate
 		FROM QA_answer
-		WHERE answerNum=#{writerNum}
+		WHERE answerRef_Num=#{writerNum}
 	</select>
 	
 	<!-- 답변글 하나 삭제하기 -->

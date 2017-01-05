@@ -119,6 +119,8 @@ public class UserActionFactory {
 			action = new QuestionAInsertAction();
 		}else if(command.equals("/views/product/qna_list")){
 			action = new QuestionAGetlistAction();
+		}else if(command.equals("/views/product/a_insert")){
+			action = new QAnswerInsertAction();
 		}
 		return action;
 	}
