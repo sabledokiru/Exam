@@ -51,7 +51,7 @@
 				<td colspan="3">
 					<div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>${tmp.writerDetailquestion}</div><br/>
 					<div class="adminWrite">
-						<form action="" method="post">
+						<form action="insert.do?num=${tmp.writerNum }&" method="post">
 							<span class="glyphicon glyphicon-text-color"></span>
 							<div></div>
 							<input type="hidden" value="" />
