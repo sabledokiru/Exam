@@ -30,6 +30,9 @@
 		font-size:25px;
 		color:#73FAFF;
 	}
+	.onefuck{
+		float:right;
+	}
 </style>
 <body>
 	<table class="table">
@@ -41,7 +44,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="tmp" items="${list}">  
+			<c:forEach var="tmp" items="${list}">
 			<tr class="qnaTitle warning">
 				<td>${tmp.writerMainquestion }</td>
 				<td>${tmp.writerWriter }</td>
@@ -51,13 +54,26 @@
 				<td colspan="3">
 					<div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>${tmp.writerDetailquestion}</div><br/>
 					<div class="adminWrite">
-						<form action="a_insert.do?num=${writerNum}" method="post">
+						<form action="a_insert.do?writerNum=${tmp.writerNum}" method="post">
 							<span class="glyphicon glyphicon-text-color"></span>
+							<div class="onefuck">
+								<form action="">
+									<button>수정</button>
+								</form>
+								<form action="adelete.do?num=${tmp.writerNum}">
+									<button>삭제</button>
+								</form>
+							</div>
 							<div></div>
 							<input type="hidden" value="" />
-							<textarea name="answerContent" id="" cols="100" rows="10"></textarea>
+							<c:forEach var="tmp2" items="${list2}">  
+								<c:if test="${tmp.writerNum eq tmp2.answerRef_num}">
+									<p>${tmp2.answerContent}</p>
+								</c:if>
+							</c:forEach>
+							<textarea name="answerContent" id="" cols="100" rows="10">${tmp2.answerContent}</textarea>
 							<c:choose>
-								<c:when test="${id ne admin}">
+								<c:when test="${id ne 'admin'}">
 									<button class="btn btn-default" id="qnaBtn" type="submit" disabled="disabled">등록</button>
 								</c:when>
 								<c:otherwise>
@@ -68,6 +84,7 @@
 					</div>
 				</td>
 			</tr>
+			
 			</c:forEach>
 		</tbody>
 	</table>

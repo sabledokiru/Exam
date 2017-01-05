@@ -5,10 +5,11 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import test.controller.Action;
 import test.controller.ActionForward;
+import test.question.answer.dao.QAAnswerDao;
 import test.question.answer.dao.QAWriterDao;
+import test.question.answer.dto.QAAnswerDto;
 import test.question.answer.dto.QAWriterDto;
 
 public class QuestionAGetlistAction extends Action{
@@ -22,12 +23,18 @@ public class QuestionAGetlistAction extends Action{
 
 		//1. 목록을 얻어온다.
 		List<QAWriterDto> list = QAWriterDao.getInstance().getList();
+		List<QAAnswerDto> list2 = QAAnswerDao.getInstance().getList();
 		//2. request 에 Model 을 담는다.
 		request.setAttribute("list", list);
+		request.setAttribute("list2", list2);
 		//3. ActionForward 객체 리턴해주기
-		for(QAWriterDto tmp : list){
-		System.out.println(tmp.getWriterWriter());
+		for(QAAnswerDto tmp : list2){
+		System.out.println(tmp.getAnswerContent());
+		System.out.println(tmp.getAnswerWriter());
+		System.out.println(tmp.getRegdate());
+		System.out.println(tmp.getAnswerRef_num());
 		}
+		
 		return new ActionForward("/views/product/q&a.jsp");
 	}
 
