@@ -128,6 +128,11 @@
 		<jsp:include page="/views/footer.jsp"/>
 	</div>
 	</center>
+<%-- 	<div>
+	<c:forEach var="tmp" items="${list2}">
+		<p>${tmp.saveFilenName}</p>
+	</c:forEach>
+	</div>	 --%>
 </body>
 <script>
 	$(".writeBtn").click(function(){
