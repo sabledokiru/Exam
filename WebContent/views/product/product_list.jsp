@@ -136,6 +136,12 @@
 	</c:forEach>
 	</div>
 	
+	<div>
+		<c:forEach var="tmp" items="${recentNums}" begin="0" end="3">
+			${tmp }
+		</c:forEach>
+	</div>
+	
 	
 </body>
 <script>

@@ -1,5 +1,6 @@
 package test.product.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
@@ -83,7 +84,18 @@ List<ProductDto> list2 = ProductDao.getInstance().getRankedViewCount();
 request.setAttribute("list2", list2);
 
 //3.쿠키 가져오기
- Cookie[] ck = request.getCookies();
+List<Integer> recentNums=null;
+if(recentNums==null){
+	recentNums=new ArrayList<Integer>();
+	//request.getSession().setAttribute("recentNums",num1);
+}else{
+	int re =Integer.parseInt((String) request.getSession().getAttribute("num1"));
+	//(List<Integer>)request.getSession().getAttribute("num1");
+	recentNums.add(re);
+	System.out.println(recentNums.get(0));
+}
+
+
 
 // 현재 페이지 번호 
 		request.setAttribute("pageNum", pageNum);
