@@ -6,11 +6,22 @@
 		FROM DUAL
 	</select>
 	
+	<select id="getCurSequence" resultType="int">
+		SELECT eva_comment_seq.CURRVAL
+		FROM DUAL
+	</select>
+	
 	<insert id="insert" parameterType="evaluationCommentDto">
 		INSERT INTO evacomment
 		(comNum, comWriter, comContent, comTarget_id, comRef_group, comComment_group, regdate)
 		VALUES(#{comNum}, #{comWriter}, #{comContent}, #{comTarget_id}, #{comRef_group}, #{comComment_group}, SYSDATE)
 	</insert>
+	
+	<update id="update" parameterType="evaluationCommentDto">
+		UPDATE evacomment
+		SET comContent = #{comContent}
+		WHERE comNum = #{comNum}
+	</update>
 	
 	<select id="getList" parameterType="int" resultType="evaluationCommentDto">
 		SELECT comNum, comWriter, comContent, comTarget_id, comRef_group, comComment_group, regdate
@@ -18,4 +29,6 @@
 		WHERE comRef_group = #{num}
 		ORDER BY comComment_group ASC, comNum ASC
 	</select>
+	
+	
 </mapper>

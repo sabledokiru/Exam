@@ -116,4 +116,18 @@ public class ProductDao {
  			session.close();
  		}
  	}
+ 	
+ 	public List<ProductDto> getRankedViewCount(){
+ 		SqlSession session=factory.openSession();
+		List<ProductDto> list=null;
+		try{
+			list=session.selectList("product.getRankedViewCount");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return list;
+	}
+ 	
 }//전체
