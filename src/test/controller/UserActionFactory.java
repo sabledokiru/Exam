@@ -121,6 +121,8 @@ public class UserActionFactory {
 			action = new QuestionAGetlistAction();
 		}else if(command.equals("/views/product/a_insert")){
 			action = new QAnswerInsertAction();
+		}else if(){
+			asdfaweawe
 		}
 		return action;
 	}
