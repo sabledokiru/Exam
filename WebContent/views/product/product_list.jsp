@@ -131,6 +131,8 @@
 	<div>
 	<c:forEach var="tmp" items="${list2}" begin="1" end="5">
 		<div class="imgBox" onclick="detailView(${tmp.productNum})"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"/></div>
+		<div class="productName"><strong>상품명: (${tmp.brand}) ${tmp.productName } </strong></div>
+		<div class="price"><strong>가격 :<span><fmt:formatNumber value="${tmp.price}" type="number"/>원</span></strong></div>
 	</c:forEach>
 	</div>
 </body>
