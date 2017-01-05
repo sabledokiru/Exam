@@ -67,9 +67,9 @@
    </table>
 	<button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
 	<div class="writeBox form-group">
-		<form action="insert.do" method="post">
+		<form action="${pageContext.request.contextPath}/views/evaluation/insert.do" method="post">
 		<div class="form-group">
-			<input type="text" value="\${num}" />
+			<input type="hidden" name="productNum" value="${productNum}"/>
 			<label class="control-label" for="title">제목:</label>
 			<input class="form-control" type="text" name="title" id="title"/>
 		<div class="form-group">
@@ -79,6 +79,7 @@
 			<button class="btn btn-default" type="submit">작성</button>
 		</form>
 	</div>
+
 <!--pagenation  시작-->
    <div class="page_display">
    <center>
