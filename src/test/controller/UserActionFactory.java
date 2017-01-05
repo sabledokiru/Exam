@@ -79,7 +79,6 @@ public class UserActionFactory {
 		}else if(command.equals("/views/product/product_info")){
 			action = new ProductDetailAction();
 		}
-		
 		else if(command.equals("/views/evaluation/private/insertform")){
 			action = new EvaluationInsertformAction();
 		}else if(command.equals("/views/evaluation/insert")){

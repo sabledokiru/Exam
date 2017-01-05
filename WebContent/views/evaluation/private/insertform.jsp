@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Q&A 등록폼</title>
+<title>후기 작성</title>
 </head>
 <body>
-<h3>Q&A 등록폼</h3>
-<form action="qna_insert.do" method="post">
+<h3>후기 작성</h3>
+<form action="insert.do" method="post">
 	<input type="hidden" name="writerNum" id="writerNum" />
 	<input type="hidden" name="writerWriter" id="writerWriter"/>
 	<label for="writerWriter">작성자</label>

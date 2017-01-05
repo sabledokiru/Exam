@@ -61,7 +61,7 @@
       </tbody>
    </table>
    
-   <form action="" method="post">
+   <form action="${pageContext.request.contextPath}/views/evaluation/private/insertform.do" method="get">
       <button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
    </form>
    
