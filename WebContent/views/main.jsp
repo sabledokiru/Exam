@@ -11,6 +11,8 @@
 <body>
 <jsp:include page="/views/catalog.jsp"/>
 
+<jsp:include page="/views/test.jsp"/>
+
 <jsp:include page="/views/footer.jsp"/>
 </body>
 </html>
@@ -19,14 +21,6 @@
 
 <script>
 $(function(){
-	$.ajax({
-		url:"evaluation/list.do",
-		method:"GET",
-		success: function(data){
-			alert("hi");
-			alert(data);
-			
-		}
-	});
+	alert("hi");
 });
 </script>
