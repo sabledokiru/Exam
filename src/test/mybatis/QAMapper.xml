@@ -11,37 +11,37 @@
 	<!-- 질문들 모두 출력하기 -->
 	<select id="getlist" resultType="qawriterDto">
 		SELECT 
-			num, mainquestion, detailquestion, writer, secret, regdate
+			num, mainquestion, detailquestion, writer, regdate
 		FROM QA_writer
 	</select>
 	
 	<!-- 질문 하나만 출력하기 -->
 	<select id="getdata" parameterType="int" resultType="qawriterDto">
 		SELECT 
-			num, mainquestion, detailquestion, writer, secret, regdate
+			num, mainquestion, detailquestion, writer, regdate
 		FROM QA_writer
-		WHERE num=#{num}
+		WHERE num=#{writerNum}
 	</select>
 	
 	<!-- 질문 하나 삭제하기 -->
 	<delete id="delete" parameterType="int">
 		DELETE 
 		FROM QA_writer
-		WHERE num=#{num}		
+		WHERE num=#{writerNum}		
 	</delete>
 	
 	<!-- 질문 하나 수정하기 -->
 	<update id="update" parameterType="qawriterDto">
 		UPDATE QA_writer
-		SET mainquestion=#{mainquestion}, detailquestion=#{detailquestion}
-		WHERE num=#{num}
+		SET mainquestion=#{writerMainquestion}, detailquestion=#{writerDetailquestion}
+		WHERE num=#{writerNum}
 	</update>
 	
 	<!-- 답변글 저장하기 -->
 	<insert id="ainsert" parameterType="qaanswerDto">
 		INSERT INTO QA_answer
 		(num, writer, content, ref_num, regdate)
-		values( QAnswer_seq.NEXTVAL, writer, #(content), #(ref_num),  regdate)
+		values( QAnswer_seq.NEXTVAL, "관리자", #(answerContent), #(answerRefnum),  sysdate)
 	</insert>
 	
 	<!-- 답변글 모두 출력하기 -->
@@ -56,21 +56,21 @@
 		SELECT
 			num, content, regdate
 		FROM QA_answer
-		WHERE num=#{num}
+		WHERE num=#{writerNum}
 	</select>
 	
 	<!-- 답변글 하나 삭제하기 -->
 	<delete id="adelete" parameterType="int">
 		DELETE 
 		FROM QA_answer
-		WHERE num=#{num}		
+		WHERE num=#{answerNum}		
 	</delete>
 	
 	<!-- 답변글 하나 수정하기 -->
 	<update id="aupdate" parameterType="qaanswerDto">
 		UPDATE QA_answer
-		SET content=#{content}
-		WHERE num=#{num}
+		SET content=#{answerContent}
+		WHERE num=#{answerNum}
 	</update>
 	
 	<select id="getCount" resultType="int">
