@@ -65,3 +65,8 @@ writer varchar2(50),
 content varchar2(500),
 ref_num number,
 regdate date);
+
+
+
+
+

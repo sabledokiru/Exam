@@ -28,6 +28,7 @@ import test.question.answer.action.QAnswerGetlistAction;
 import test.question.answer.action.QAnswerInsertAction;
 import test.question.answer.action.QuestionAGetlistAction;
 import test.question.answer.action.QuestionAInsertAction;
+import test.question.answer.action.QuestionAInsertFormAction;
 
 public class UserActionFactory {
 	private static UserActionFactory factory;
@@ -112,9 +113,10 @@ public class UserActionFactory {
 			action = new QAnswerGetlistAction();
 		}
 
-		else if(command.equals("/views/product/qna_insert")){
-			
-
+		else if(command.equals("/views/product/qna_insertform")){
+			action = new QuestionAInsertFormAction();
+		}else if(command.equals("/views/product/private/qna_insert")){
+			action = new QuestionAInsertAction();
 		}
 		return action;
 	}

@@ -11,7 +11,7 @@ public class QuestionAInsertFormAction extends Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		return new ActionForward("/private/qnaform.jsp");
+		return new ActionForward("/views/product/private/qnaform.jsp");
 	}
 
 }

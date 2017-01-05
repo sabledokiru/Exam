@@ -71,43 +71,43 @@
 		</tbody>
 	</table>
 	
-	<form action="/private/qna_insertform.do" method="post">
+	<form action="qna_insertform.do" method="post">
 		<button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
 	</form>
 	<br/>
 	<br/>
-	<div class="page_display">
-	<center>
-		<ul class="pagination">
+<div class="page_display">
+<center>
+	<ul class="pagination">
+	<c:choose>
+		<c:when test="${startPageNum ne 1 }">
+			<li><a href="list.do?pageNum=${startPageNum-1 }">&laquo;</a></li>
+		</c:when>
+		<c:otherwise>
+			<li class="disabled"><a class="muted" href="javascript:">&laquo;</a></li>
+		</c:otherwise>
+	</c:choose>
+	<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
 		<c:choose>
-			<c:when test="">
-				<li><a href="">&laquo;</a></li>
+			<c:when test="${i eq pageNum }">
+				<li class="active"><a href="list.do?pageNum=${i }">${i }</a></li>	
 			</c:when>
 			<c:otherwise>
-				<li class="disabled"><a class="muted" href="javascript:">&laquo;</a></li>
+				<li><a href="list.do?pageNum=${i }&&list_num=${listNum}">${i }</a></li>
 			</c:otherwise>
-		</c:choose>
-		<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
-			<c:choose>
-				<c:when test="">
-					<li class="active"><a href="list.do?pageNum=${i }">${i }</a></li>	
-				</c:when>
-				<c:otherwise>
-					<li><a href="list.do?pageNum=${i }&&list_num=${listNum}">${i }</a></li>
-				</c:otherwise>
-			</c:choose>    
-		</c:forEach>
-		<c:choose>
-			<c:when test="">
-				<li><a href="">&raquo;</a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="disabled"><a class="muted" href="javascript:">&raquo;</a></li>
-			</c:otherwise>
-		</c:choose>
-		</ul>
-	</div>
-	</center>
+		</c:choose>    
+	</c:forEach>
+	<c:choose>
+		<c:when test="${endPageNum lt totalPageCount }">
+			<li><a href="list.do?pageNum=${endPageNum+1 }&&list_num=${listNum}">&raquo;</a></li>
+		</c:when>
+		<c:otherwise>
+			<li class="disabled"><a class="muted" href="javascript:">&raquo;</a></li>
+		</c:otherwise>
+	</c:choose>
+	</ul>
+</div>
+</center>
 <script>
 	$(".qnaTitle").on("click",function(){
 		$(this).next("tr.qnaBox").toggle();
@@ -119,8 +119,6 @@
 			location.href="product/q&a.jsp?num=${dto.num}";
 		}
 	});
-	
-	
 </script>
 </body>
 </html>
