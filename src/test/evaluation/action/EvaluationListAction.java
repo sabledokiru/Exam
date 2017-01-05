@@ -54,6 +54,14 @@ public class EvaluationListAction extends Action{
 		List<EvaluationDto> list = EvaluationDao.getInstance().getList(productNum);
 		request.setAttribute("list", list);
 		request.setAttribute("productNum",productNum);
+		
+		// 현재 페이지 번호
+		request.setAttribute("pageNum", pageNum);
+		request.setAttribute("startPageNum", startPageNum);
+		request.setAttribute("endPageNum", endPageNum);
+		// 전체 페이지 갯수
+		request.setAttribute("totalPageCount", totalPageCount);
+		
 		return new ActionForward("/views/evaluation/evaluation.jsp");
 	}
 }
