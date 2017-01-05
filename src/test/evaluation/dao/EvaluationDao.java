@@ -82,11 +82,11 @@ public class EvaluationDao {
 	}
 	
 	// 전체 상품평을 불러 오는 메소드
-	public List<EvaluationDto> getList(){
+	public List<EvaluationDto> getList(int productNum){
 		SqlSession session = factory.openSession();
 		List<EvaluationDto> list = null;
 		try{
-			list = session.selectList("evaluation.getList");
+			list = session.selectList("evaluation.getList", productNum);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{

@@ -14,6 +14,7 @@ public class EvaluationInsertAction extends Action{
 		// 파라미터로 전송되는 글 제목, 글 내용 읽어오기
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		
 		// 세션에 저장된 id 정보 읽어오기
 		String id = (String)request.getSession().getAttribute("id");
@@ -21,6 +22,7 @@ public class EvaluationInsertAction extends Action{
 		// CafeDto 에 정보 담기
 		EvaluationDto dto = new EvaluationDto();
 		dto.setEvaWriter(id);
+		dto.setProductNum(productNum);
 		dto.setEvaTitle(title);
 		dto.setEvaContent(content);
 		

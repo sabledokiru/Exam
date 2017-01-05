@@ -3,7 +3,7 @@
 <mapper namespace="evaluation">
 	<insert id="insert" parameterType="evaluationDto">
 		INSERT INTO evaluation(evaNum, productNum, evaTitle, evaWriter, evaContent, regdate)
-		VALUES(#{evaNum}, #{productNum}, #{evaTitle}, #{evaWriter}, #{evaContent}, SYSDATE)
+		VALUES(eva_comment_seq.NEXTVAL, #{productNum}, #{evaTitle}, #{evaWriter}, #{evaContent}, SYSDATE)
 	</insert>
 	
 	<update id="update" parameterType="evaluationDto">
@@ -23,9 +23,10 @@
 		WHERE evaNum = #{num}
 	</select>
 	
-	<select id="getList" resultType="evaluationDto">
+	<select id="getList" parameterType="int" resultType="evaluationDto">
 		SELECT evaNum, evaTitle, evaWriter, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
 		FROM evaluation
+		WHERE productNum = #{productNum}
 		ORDER BY regdate DESC
 	</select>
 </mapper>
