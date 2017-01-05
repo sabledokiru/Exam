@@ -129,8 +129,8 @@
 	</div>
 	</center>
 	<div>
-	<c:forEach var="tmp" items="${list2}">
-		<p>${tmp.viewCount}</p>
+	<c:forEach var="tmp" items="${list2}" begin="1" end="5">
+		<div class="imgBox" onclick="detailView(${tmp.productNum})"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"/></div>
 	</c:forEach>
 	</div>
 </body>
