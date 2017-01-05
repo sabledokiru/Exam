@@ -100,4 +100,10 @@
 				  </where>
 	</select>
 	
+	<select id="getRankedViewCount"   resultType="productDto">
+		select * from product p1
+			where 5 > (select count(viewCount) from product p2
+			where p2.viewCount > p1.viewCount)
+			order by viewCount desc
+	</select>
 </mapper>

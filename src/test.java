@@ -5,6 +5,7 @@ import test.product.dto.ProductDto;
 
 public class test {
 	public static void main(String[] args) {
+	
 		List<ProductDto> list = ProductDao.getInstance().getRankedViewCount();
 		
 		for(ProductDto tmp : list){
