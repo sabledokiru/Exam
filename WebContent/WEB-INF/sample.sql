@@ -52,18 +52,18 @@ CREATE sequence QA_seq nocache;
 CREATE sequence QAnswer_seq nocache;
 
 CREATE TABLE QA_writer(
-num number primary key,
-mainquestion varchar2(100),
-detailquestion varchar2(500),
-writer varchar2(50),
-secret varchar2(10),
+writerNum number primary key,
+writerMainquestion varchar2(100),
+writerDetailquestion varchar2(500),
+writerWriter varchar2(50),
+writerSecret varchar2(10),
 regdate date);
 
 CREATE TABLE QA_answer(
-num number primary key,
-writer varchar2(50),
-content varchar2(500),
-ref_num number,
+answerNum number primary key,
+answerWriter varchar2(50),
+answerContent varchar2(500),
+answerRef_num number,
 regdate date);
 
 

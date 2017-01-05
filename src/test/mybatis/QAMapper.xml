@@ -4,73 +4,72 @@
 	<!-- 새 질문 저장하기 -->
 	<insert id="insert" parameterType="qawriterDto">
 		INSERT INTO QA_writer
-		(num, mainquestion, detailquestion, writer, regdate)
+		(wrtierNum, wrtierMainquestion, wrtierDetailquestion, wrtierWriter, regdate)
 		values(QA_seq.NEXTVAL, #{writerMainquestion}, #{writerDetailquestion}, #{writerWriter}, sysdate)
 	</insert>
 	
 	<!-- 질문들 모두 출력하기 -->
 	<select id="getlist" resultType="qawriterDto">
-		SELECT 
-			num, mainquestion, detailquestion, writer, regdate
+		SELECT *
 		FROM QA_writer
 	</select>
 	
 	<!-- 질문 하나만 출력하기 -->
 	<select id="getdata" parameterType="int" resultType="qawriterDto">
 		SELECT 
-			num, mainquestion, detailquestion, writer, regdate
+			wrtierNum, wrtierMainquestion, wrtierDetailquestion, wrtierWriter, regdate
 		FROM QA_writer
-		WHERE num=#{writerNum}
+		WHERE wrtierNum=#{writerNum}
 	</select>
 	
 	<!-- 질문 하나 삭제하기 -->
 	<delete id="delete" parameterType="int">
 		DELETE 
 		FROM QA_writer
-		WHERE num=#{writerNum}		
+		WHERE wrtierNum=#{writerNum}		
 	</delete>
 	
 	<!-- 질문 하나 수정하기 -->
 	<update id="update" parameterType="qawriterDto">
 		UPDATE QA_writer
-		SET mainquestion=#{writerMainquestion}, detailquestion=#{writerDetailquestion}
-		WHERE num=#{writerNum}
+		SET wrtierMainquestion=#{writerMainquestion}, wrtierDetailquestion=#{writerDetailquestion}
+		WHERE wrtierNum=#{writerNum}
 	</update>
 	
 	<!-- 답변글 저장하기 -->
 	<insert id="ainsert" parameterType="qaanswerDto">
 		INSERT INTO QA_answer
-		(num, writer, content, ref_num, regdate)
+		(answerNum, answerWriter, answerContent, answerRefnum, regdate)
 		values( QAnswer_seq.NEXTVAL, "관리자", #(answerContent), #(answerRefnum),  sysdate)
 	</insert>
 	
 	<!-- 답변글 모두 출력하기 -->
 	<select id="agetlist" resultType="qaanswerDto">
 		SELECT
-			num, content, regdate
+			answerNum, answerContent, regdate
 		FROM QA_answer
 	</select>
 	
 	<!-- 답변글 하나만 출력하기 -->
 	<select id="agetdata" parameterType="int" resultType="qaanswerDto">
 		SELECT
-			num, content, regdate
+			answerNum, answerContent, regdate
 		FROM QA_answer
-		WHERE num=#{writerNum}
+		WHERE answerNum=#{writerNum}
 	</select>
 	
 	<!-- 답변글 하나 삭제하기 -->
 	<delete id="adelete" parameterType="int">
 		DELETE 
 		FROM QA_answer
-		WHERE num=#{answerNum}		
+		WHERE answerNum=#{answerNum}		
 	</delete>
 	
 	<!-- 답변글 하나 수정하기 -->
 	<update id="aupdate" parameterType="qaanswerDto">
 		UPDATE QA_answer
-		SET content=#{answerContent}
-		WHERE num=#{answerNum}
+		SET answerContent=#{answerContent}
+		WHERE answerNum=#{answerNum}
 	</update>
 	
 	<select id="getCount" resultType="int">
