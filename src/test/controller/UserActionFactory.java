@@ -102,14 +102,10 @@ public class UserActionFactory {
 			action = new EvaluationCommentDeleteAction();
 		}
 		
-		else if(command.equals("/views/question/insert")){
-			action = new QuestionAInsertAction();
-		}else if(command.equals("/views/question/getlist")){
-			action = new QuestionAGetlistAction();
-		}else if(command.equals("/views/answer/insert")){
-			action = new QAnswerInsertAction();
-		}else if(command.equals("/views/answer/getlist")){
-			action = new QAnswerGetlistAction();
+		
+		
+		else if(command.equals("/views/product/qna_insert")){
+			
 		}
 		return action;
 	}
