@@ -77,6 +77,7 @@
 		</div>
 	</div>
 	<div class="content">${dto.content}</div>
+	<div class="evaluation"></div>
 </div>
 <footer>
 		<jsp:include page="/views/footer.jsp"/>
@@ -84,19 +85,29 @@
 </body>
 </html>
 <script>
-	$("#countUp").click(function(){
-		var count = $("#count").val();
-		count ++;
-		$("#count").val(count);
-		$("#totalPrice").text(count*${dto.price});
-	});
-	$("#countDown").click(function(){
-		var count = $("#count").val();
-		if(count == 1){
-			return;
+$("#countUp").click(function(){
+	var count = $("#count").val();
+	count ++;
+	$("#count").val(count);
+	$("#totalPrice").text(count*${dto.price});
+});
+$("#countDown").click(function(){
+	var count = $("#count").val();
+	if(count == 1){
+		return;
+	}
+	count --;
+	$("#count").val(count);
+	$("#totalPrice").text(count*${dto.price});
+});
+
+$(function(){
+	$.ajax({
+		url:"${pageContext.request.contextPath}/views/evaluation/list.do",
+		method:"GET",
+		success: function(data){
+			$(".evaluation").after(data);
 		}
-		count --;
-		$("#count").val(count);
-		$("#totalPrice").text(count*${dto.price});
 	});
+});
 </script>

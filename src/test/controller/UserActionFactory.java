@@ -101,9 +101,7 @@ public class UserActionFactory {
 		}else if(command.equals("/views/evaluation/comment_delete")){
 			action = new EvaluationCommentDeleteAction();
 		}
-		
-		
-		
+
 		else if(command.equals("/views/product/qna_insert")){
 			
 		}

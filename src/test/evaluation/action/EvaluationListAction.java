@@ -16,6 +16,6 @@ public class EvaluationListAction extends Action{
 		List<EvaluationDto> list = EvaluationDao.getInstance().getList();
 		System.out.println("오류전");
 		request.setAttribute("list", list);
-		return new ActionForward("/views/test.jsp");
+		return new ActionForward("/views/evaluation/evaluation.jsp");
 	}
 }

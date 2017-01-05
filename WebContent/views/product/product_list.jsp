@@ -128,11 +128,11 @@
 		<jsp:include page="/views/footer.jsp"/>
 	</div>
 	</center>
-<%-- 	<div>
+	<div>
 	<c:forEach var="tmp" items="${list2}">
-		<p>${tmp.saveFilenName}</p>
+		<p>${tmp.productNum}</p>
 	</c:forEach>
-	</div>	 --%>
+	</div>
 </body>
 <script>
 	$(".writeBtn").click(function(){
@@ -142,6 +142,5 @@
 	function detailView(data){
 		location.href="${pageContext.request.contextPath}/views/product/product_info.do?productNum="+data;
 	}
-	
 </script>
 </html>
