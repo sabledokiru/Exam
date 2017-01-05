@@ -62,7 +62,7 @@
 	<delete id="adelete" parameterType="int">
 		DELETE 
 		FROM QA_answer
-		WHERE answerNum=#{answerNum}		
+		WHERE answerRef_num=#{answerRef_num}		
 	</delete>
 	
 	<!-- 답변글 하나 수정하기 -->
