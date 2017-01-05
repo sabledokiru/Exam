@@ -10,6 +10,6 @@ public class EvaluationInsertformAction extends Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 
-		return new ActionForward("/views/evaluation/private/insertform.jsp");
+		return new ActionForward("/views/evaluation/private/insertform.jsp",true);
 	}
 }

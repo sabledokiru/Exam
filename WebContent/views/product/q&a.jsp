@@ -32,7 +32,6 @@
 	}
 </style>
 <body>
-<div class="container">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -72,7 +71,7 @@
 		</tbody>
 	</table>
 	
-	<form action="private/qna_insert.do" method="post">
+	<form action="/private/qna_insertform.do" method="post">
 		<button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
 	</form>
 	<br/>
@@ -109,7 +108,6 @@
 		</ul>
 	</div>
 	</center>
-</div>
 <script>
 	$(".qnaTitle").on("click",function(){
 		$(this).next("tr.qnaBox").toggle();
