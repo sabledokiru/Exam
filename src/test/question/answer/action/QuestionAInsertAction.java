@@ -23,7 +23,7 @@ public class QuestionAInsertAction extends Action{
 		
 		//QAWriterDao 객체를 이용해서 insert 시키기
 		QAWriterDao.getInstance().insert(dto);
-		return new ActionForward("/");
+		return new ActionForward("../q&a.jsp");
 	}
 
 }

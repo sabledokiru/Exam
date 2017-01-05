@@ -74,4 +74,11 @@
 		WHERE num=#{num}
 	</update>
 	
+	<select id="getCount" resultType="int">
+		SELETE NVL(MAX(rownum), 0)
+		FROM QA_writer;
+	</select>
+	
+	
+	
 </mapper>

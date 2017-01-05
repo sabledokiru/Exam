@@ -84,6 +84,8 @@ public class QAAnswerDao {
 			session.close();
 		}
 	}
+	
+
 }
 
 

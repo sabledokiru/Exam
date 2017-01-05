@@ -42,20 +42,28 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%--<c:forEach var="" items="">        지금 for문 null이라 주석으로 달아놨음  --%>
+			<%--<c:forEach var="tmp" items="${list}">        지금 for문 null이라 주석으로 달아놨음  --%>
 			<tr class="qnaTitle warning">
-				<td>하나씩 들어가요 여기다가 달러 넣으시면 됩니다</td>
-				<td>개미는뜐뜐</td>
-				<td>2222-10-22</td>
+				<td>${tmp.writerMainquestion }</td>
+				<td>${tmp.writerWriter }</td>
+				<td>${tmp.regdate }</td>
 			</tr>
 			<tr class="qnaBox">
 				<td colspan="3">
-					<div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>여기는 Q&A Content영역 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quo voluptate repellendus quibusdam incidunt sit</div><br/>
+					<div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>${tmp.writerDetailquestion}</div><br/>
 					<div class="adminWrite">
 						<form action="" method="post">
 							<span class="glyphicon glyphicon-text-color"></span>
+							<input type="hidden" value="" />
 							<textarea name="" id="" cols="100" rows="10"></textarea>
-							<button type="submit">등록</button>
+							<c:choose>
+								<c:when test="${id == admin }">
+									<button class="btn btn-default" id="qnaBtn" type="submit">등록</button>
+								</c:when>
+								<c:otherwise>
+									
+								</c:otherwise>
+							</c:choose>
 						</form>
 					</div>
 				</td>
@@ -64,7 +72,7 @@
 		</tbody>
 	</table>
 	
-	<form action="" method="post">
+	<form action="private/qna_insert.do" method="post">
 		<button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
 	</form>
 	<br/>
@@ -106,6 +114,15 @@
 	$(".qnaTitle").on("click",function(){
 		$(this).next("tr.qnaBox").toggle();
 	});
+	
+	$("#qnaBtn").click(function(){
+		var isSend = confirm("등록할래?");
+		if(isSend){
+			location.href="product/q&a.jsp?num=${dto.num}";
+		}
+	});
+	
+	
 </script>
 </body>
 </html>

@@ -84,4 +84,11 @@ public class QAWriterDao {
 			}
 		}
 		
+		public int getCount(){
+			SqlSession session = factory.openSession();
+			int count = session.selectOne("qamapper.getCount");
+			session.close();
+			return count;
+		} 
+		
 }
