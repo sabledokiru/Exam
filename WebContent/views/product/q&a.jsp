@@ -54,32 +54,18 @@
 				<td colspan="3">
 					<div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>${tmp.writerDetailquestion}</div><br/>
 					<div class="adminWrite">
-<<<<<<< HEAD
 						<form action="a_insert.do?writerNum=${tmp.writerNum}" method="post">
-=======
-
-						<form action="insert.do?num=${tmp.writerNum }&" method="post">
-
-						<form action="a_insert.do?num=${writerNum}" method="post">
-
->>>>>>> branch 'master' of https://github.com/lcjltj/Exam.git
 							<span class="glyphicon glyphicon-text-color"></span>
-							<div class="onefuck">
-								<form action="">
-									<button>수정</button>
-								</form>
-								<form action="adelete.do?num=${tmp.writerNum}">
-									<button>삭제</button>
-								</form>
-							</div>
-							<div></div>
-							<input type="hidden" value="" />
 							<c:forEach var="tmp2" items="${list2}">  
 								<c:if test="${tmp.writerNum eq tmp2.answerRef_num}">
-									<p>${tmp2.answerContent}</p>
+									<p>${tmp2.answerContent}
+										<form action="adelete.do?num=${tmp2.answerRef_num }">
+											<button type="submit">삭제</button>
+										</form>								
+									</p>
 								</c:if>
-							</c:forEach>
-							<textarea name="answerContent" id="" cols="100" rows="10">${tmp2.answerContent}</textarea>
+							</c:forEach>	
+							<textarea name="answerContent" id="" cols="100" rows="5"></textarea>
 							<c:choose>
 								<c:when test="${id ne 'admin'}">
 									<button class="btn btn-default" id="qnaBtn" type="submit" disabled="disabled">등록</button>
@@ -92,19 +78,25 @@
 					</div>
 				</td>
 			</tr>
-			
 			</c:forEach>
 		</tbody>
 	</table>
-	
 	<form action="qna_insertform.do" method="post">
 		<button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
 	</form>
+	
 	<br/>
 	<br/>
+	
+	
+	
+	
+	
 <div class="page_display">
 <center>
+
 	<ul class="pagination">
+	
 	<c:choose>
 		<c:when test="${startPageNum ne 1 }">
 			<li><a href="list.do?pageNum=${startPageNum-1 }">&laquo;</a></li>
@@ -113,6 +105,7 @@
 			<li class="disabled"><a class="muted" href="javascript:">&laquo;</a></li>
 		</c:otherwise>
 	</c:choose>
+	
 	<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
 		<c:choose>
 			<c:when test="${i eq pageNum }">

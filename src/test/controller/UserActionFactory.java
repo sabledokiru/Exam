@@ -24,6 +24,7 @@ import test.product.action.ProductDetailAction;
 import test.product.action.ProductInsertAction;
 import test.product.action.ProductInsertformAction;
 import test.product.action.ProductListAction;
+import test.question.answer.action.QAnswerDeleteAction;
 import test.question.answer.action.QAnswerGetlistAction;
 import test.question.answer.action.QAnswerInsertAction;
 import test.question.answer.action.QuestionAGetlistAction;
@@ -121,8 +122,8 @@ public class UserActionFactory {
 			action = new QuestionAGetlistAction();
 		}else if(command.equals("/views/product/a_insert")){
 			action = new QAnswerInsertAction();
-		}else if(command.equals("sdfsdfsdF")){
-			
+		}else if(command.equals("/views/product/adelete")){
+			action = new QAnswerDeleteAction();
 		}
 		return action;
 	}
