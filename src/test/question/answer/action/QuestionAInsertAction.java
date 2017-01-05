@@ -16,8 +16,8 @@ public class QuestionAInsertAction extends Action{
 		//파라미터로 전달되는 내용 읽어오기 
 		
 		//int writerNum = Integer.parseInt(request.getParameter("writerNum"));
-		String b = request.getParameter("writerMainquestion");
-		String c = request.getParameter("writerDetailquestion");
+		String writerMainquestion = request.getParameter("writerMainquestion");
+		String writerDetailquestion = request.getParameter("writerDetailquestion");
 		
 		String id = (String)request.getSession().getAttribute("id");
 		//새댓글 정보를 Dto 에 담는다.
@@ -25,8 +25,8 @@ public class QuestionAInsertAction extends Action{
 		
 		//dto.setWriterNum(writerNum);
 		dto.setWriterWriter(id);
-		dto.setWriterMainquestion(b);
-		dto.setWriterDetailquestion(c);
+		dto.setWriterMainquestion(writerMainquestion);
+		dto.setWriterDetailquestion(writerDetailquestion);
 
 		//QAWriterDao 객체를 이용해서 insert 시키기
 		QAWriterDao.getInstance().insert(dto);

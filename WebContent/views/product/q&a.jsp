@@ -32,7 +32,7 @@
 	}
 </style>
 <body>
-	<table class="table table-hover">
+	<table class="table">
 		<thead>
 			<tr>
 				<th style="font-size:30px"><strong>Q&A 무엇이든 물어보세요</strong></th>
@@ -44,7 +44,7 @@
 			<c:forEach var="tmp" items="${list}">  
 			<tr class="qnaTitle warning">
 				<td>${tmp.writerMainquestion }</td>
-				<td>${tmp.writerWriter } 테스트 <p>${tmp.writerWriter }</p></td>
+				<td>${tmp.writerWriter }</td>
 				<td>${tmp.regdate }</td>
 			</tr>
 			<tr class="qnaBox">
@@ -53,14 +53,15 @@
 					<div class="adminWrite">
 						<form action="" method="post">
 							<span class="glyphicon glyphicon-text-color"></span>
+							<div></div>
 							<input type="hidden" value="" />
 							<textarea name="" id="" cols="100" rows="10"></textarea>
 							<c:choose>
-								<c:when test="${id == admin }">
-									<button class="btn btn-default" id="qnaBtn" type="submit">등록</button>
+								<c:when test="${id ne admin}">
+									<button class="btn btn-default" id="qnaBtn" type="submit" disabled="disabled">등록</button>
 								</c:when>
 								<c:otherwise>
-									
+									<button class="btn btn-default" id="qnaBtn" type="submit">등록</button>
 								</c:otherwise>
 							</c:choose>
 						</form>
