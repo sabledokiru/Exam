@@ -4,17 +4,17 @@ public class QAAnswerDto {
 	private int answerNum;
 	private String answerWriter;
 	private String answerContent;
-	private int answerRefnum;
+	private int answerRef_num;
 	private String regdate;
 	
 	public QAAnswerDto(){}
 
-	public QAAnswerDto(int answerNum, String answerWriter, String answerContent, int answerRefnum, String regdate) {
+	public QAAnswerDto(int answerNum, String answerWriter, String answerContent, int answerRef_num, String regdate) {
 		super();
 		this.answerNum = answerNum;
 		this.answerWriter = answerWriter;
 		this.answerContent = answerContent;
-		this.answerRefnum = answerRefnum;
+		this.answerRef_num = answerRef_num;
 		this.regdate = regdate;
 	}
 
@@ -42,12 +42,12 @@ public class QAAnswerDto {
 		this.answerContent = answerContent;
 	}
 
-	public int getAnswerRefnum() {
-		return answerRefnum;
+	public int getAnswerRef_num() {
+		return answerRef_num;
 	}
 
-	public void setAnswerRefnum(int answerRefnum) {
-		this.answerRefnum = answerRefnum;
+	public void setAnswerRef_num(int answerRef_num) {
+		this.answerRef_num = answerRef_num;
 	}
 
 	public String getRegdate() {
@@ -56,7 +56,8 @@ public class QAAnswerDto {
 
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
-	};
+	}
+
 	
 	
 }

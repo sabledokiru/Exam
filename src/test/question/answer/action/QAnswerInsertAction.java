@@ -12,18 +12,20 @@ public class QAnswerInsertAction extends Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		int writerNum=Integer.parseInt(request.getParameter("writerNum"));
+		
 		//1. 저장할 파라미터값 가지고 오기
-		String content=request.getParameter("content");
-		int ref_num=Integer.parseInt(request.getParameter("ref_num"));
+		String answerContent=request.getParameter("answerContent");
+		int answerRef_num=writerNum;
 			
 		//2. QAAnswerDto 객체 이용해서 dto에 담기
 		QAAnswerDto dto=new QAAnswerDto();
-		dto.setAnswerContent(content);
-		dto.setAnswerRefnum(ref_num);
+		dto.setAnswerContent(answerContent);
+		dto.setAnswerRef_num(answerRef_num);
 		
 		//3. QAAnswerDao 메소드 이용해서 DB에 저장하기
 		QAAnswerDao.getInstance().insert(dto);
-		return new ActionForward("/");
+		return new ActionForward("/views/product/product_list.jsp");
 	}
 
 }

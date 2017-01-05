@@ -51,11 +51,15 @@
 				<td colspan="3">
 					<div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>${tmp.writerDetailquestion}</div><br/>
 					<div class="adminWrite">
+
 						<form action="insert.do?num=${tmp.writerNum }&" method="post">
+
+						<form action="a_insert.do?num=${writerNum}" method="post">
+
 							<span class="glyphicon glyphicon-text-color"></span>
 							<div></div>
 							<input type="hidden" value="" />
-							<textarea name="" id="" cols="100" rows="10"></textarea>
+							<textarea name="answerContent" id="" cols="100" rows="10"></textarea>
 							<c:choose>
 								<c:when test="${id ne admin}">
 									<button class="btn btn-default" id="qnaBtn" type="submit" disabled="disabled">등록</button>
