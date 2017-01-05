@@ -130,7 +130,7 @@
 	</center>
 	<div>
 	<c:forEach var="tmp" items="${list2}">
-		<p>${tmp.productNum}</p>
+		<p>${tmp.Num}</p>
 	</c:forEach>
 	</div>
 </body>
