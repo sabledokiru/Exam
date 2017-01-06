@@ -70,7 +70,7 @@
          		<c:forEach var="replytmp" items="${commentList}">
          			<c:if test="${replytmp.comNum eq tmp.evaNum}">
       				<div class="replyContent" style="border-bottom:1px dotted grey;clear:both;
-      					<c:if test="${replytmp.comComment_group ne 0}">margin-left:70px;</c:if>
+      					<c:if test="${replytmp.comComment_group ne replytmp.comSort_group}">margin-left:70px;</c:if>
       				">
       					
       						<strong>From.${replytmp.comWriter}</strong> ${replytmp.regdate} 

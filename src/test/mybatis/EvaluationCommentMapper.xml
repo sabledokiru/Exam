@@ -29,10 +29,10 @@
 	</delete>
 	
 	<select id="getList" parameterType="int" resultType="evaluationCommentDto">
-		SELECT comNum, comWriter, comContent, comTarget_id, comRef_group, comComment_group, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
+		SELECT comNum, comWriter, comContent, comTarget_id, comRef_group, comComment_group, comSort_group, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
 		FROM evacomment
 		WHERE comRef_group = #{num}
-		ORDER BY comSort_group ASC, comComment_group ASC
+		ORDER BY comComment_group ASC,comSort_group ASC 
 	</select>
 	
 	
