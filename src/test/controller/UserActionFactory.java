@@ -27,6 +27,7 @@ import test.product.action.ProductListAction;
 import test.question.answer.action.QAnswerDeleteAction;
 import test.question.answer.action.QAnswerGetlistAction;
 import test.question.answer.action.QAnswerInsertAction;
+import test.question.answer.action.QAnswerUpdateAction;
 import test.question.answer.action.QuestionAGetlistAction;
 import test.question.answer.action.QuestionAInsertAction;
 import test.question.answer.action.QuestionAInsertFormAction;
@@ -124,6 +125,8 @@ public class UserActionFactory {
 			action = new QAnswerInsertAction();
 		}else if(command.equals("/views/product/adelete")){
 			action = new QAnswerDeleteAction();
+		}else if(command.equals("/views/product/aupdate")){
+			action = new QAnswerUpdateAction();
 		}
 		return action;
 	}

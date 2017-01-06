@@ -63,7 +63,7 @@ public class QAAnswerDao {
 	
 	//답변글 하나 삭제하기
 	public void delete(int num){
-		SqlSession session=factory.openSession();
+		SqlSession session=factory.openSession(true);
 		try{
 			session.delete("qamapper.adelete",num);
 		}catch(Exception e){

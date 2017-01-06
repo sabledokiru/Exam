@@ -59,19 +59,21 @@
                      <c:forEach var="tmp2" items="${list2}">  
                         <c:if test="${tmp.writerNum eq tmp2.answerRef_num}">
                            <p>${tmp2.answerContent}
-                              <form action="adelete.do?num=${tmp2.answerRef_num }">
-                                 <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}'">삭제</button>
-                              </form>                        
+                                 <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}'">삭제</button>                      
                            </p>
+                           <form action="aupdate.do?num=${tmp2.answerRef_num }">
+                              	<button type="button" onclick="location.href='aupdate.do?num=${tmp2.answerRef_num}'">수정</button>
+                              	<textarea name="answerContent" id="" cols="100" rows="5"></textarea>
+                           </form> 
                         </c:if>
                      </c:forEach>   
-                     <textarea name="answerContent" id="" cols="100" rows="5"></textarea>
+                   
                      <c:choose>
                         <c:when test="${id ne 'admin'}">
-                           <button class="btn btn-default" id="qnaBtn" type="submit" disabled="disabled">등록</button>
+                           <button class="btn btn-default qnaBtn" type="submit" disabled="disabled">등록</button>
                         </c:when>
                         <c:otherwise>
-                           <button class="btn btn-default" id="qnaBtn" type="submit">등록</button>
+                           <button class="btn btn-default" type="submit">등록</button>
                         </c:otherwise>
                      </c:choose>
                   </form>
@@ -99,7 +101,7 @@
    
    <c:choose>
       <c:when test="${startPageNum ne 1 }">
-         <li><a href="list.do?pageNum=${startPageNum-1 }">&laquo;</a></li>
+         <li><a href="qna_list.do?pageNum=${startPageNum-1 }">&laquo;</a></li>
       </c:when>
       <c:otherwise>
          <li class="disabled"><a class="muted" href="javascript:">&laquo;</a></li>
@@ -109,16 +111,16 @@
    <c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
       <c:choose>
          <c:when test="${i eq pageNum }">
-            <li class="active"><a href="list.do?pageNum=${i }">${i }</a></li>   
+            <li class="active"><a href="qna_list.do?pageNum=${i }">${i }</a></li>   
          </c:when>
          <c:otherwise>
-            <li><a href="list.do?pageNum=${i }&&list_num=${listNum}">${i }</a></li>
+            <li><a href="qna_list.do?pageNum=${i }&&list_num=${listNum}">${i }</a></li>
          </c:otherwise>
       </c:choose>    
    </c:forEach>
    <c:choose>
       <c:when test="${endPageNum lt totalPageCount }">
-         <li><a href="list.do?pageNum=${endPageNum+1 }&&list_num=${listNum}">&raquo;</a></li>
+         <li><a href="qna_list.do?pageNum=${endPageNum+1 }&&list_num=${listNum}">&raquo;</a></li>
       </c:when>
       <c:otherwise>
          <li class="disabled"><a class="muted" href="javascript:">&raquo;</a></li>
@@ -132,7 +134,7 @@
       $(this).next("tr.qnaBox").toggle();
    });
    
-   $("#qnaBtn").click(function(){
+   $(".qnaBtn").click(function(){
       var isSend = confirm("등록할래?");
       if(isSend){
          location.href="product/q&a.jsp?num=${dto.num}";

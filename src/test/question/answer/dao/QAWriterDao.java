@@ -34,11 +34,11 @@ public class QAWriterDao {
 	}
 	
 	//질문글(Question 글) 모두 출력하기
-	public List<QAWriterDto> getList(){
+	public List<QAWriterDto> getList(QAWriterDto dto){
 		SqlSession session=factory.openSession();
 		List<QAWriterDto> list=null;
 		try{
-			list=session.selectList("qamapper.getlist");
+			list=session.selectList("qamapper.getlist",dto);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{

@@ -16,7 +16,7 @@ public class QAnswerDeleteAction extends Action{
 		//dao에서 delete 실행
 		QAAnswerDao.getInstance().delete(num);
 		//경로 이동
-		return new ActionForward("/views/product/q&a.jsp");
+		return new ActionForward("/views/product/qna_list.do", true);
 	}
 	
 }

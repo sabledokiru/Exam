@@ -8,11 +8,19 @@
 		values(QA_seq.NEXTVAL, #{writerMainquestion}, #{writerDetailquestion}, #{writerWriter}, sysdate)
 	</insert>
 	
-	<!-- 질문들 모두 출력하기 -->
-	<select id="getlist" resultType="qawriterDto">
-		SELECT *
-		FROM QA_writer
-	</select>
+	
+	
+	<select id="getlist" parameterType="qawriterDto" resultType="qawriterDto">
+      SELECT *
+      FROM    
+         (SELECT result1.*, ROWNUM rnum
+         FROM (SELECT writerNum, writerMainquestion, writerDetailquestion, writerWriter, regdate
+              FROM QA_writer
+              ORDER BY writerNum DESC
+              ) result1
+         )
+      WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+   </select>
 	
 	<!-- 질문 하나만 출력하기 -->
 	<select id="getdata" parameterType="int" resultType="qawriterDto">
@@ -69,12 +77,12 @@
 	<update id="aupdate" parameterType="qaanswerDto">
 		UPDATE QA_answer
 		SET answerContent=#{answerContent}
-		WHERE answerNum=#{answerNum}
+		WHERE answerRef_num=#{answerRef_num}
 	</update>
 	
 	<select id="getCount" resultType="int">
-		SELETE NVL(MAX(rownum), 0)
-		FROM QA_writer;
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM QA_writer
 	</select>
 	
 	
