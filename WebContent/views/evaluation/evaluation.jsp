@@ -47,7 +47,7 @@
 </style>
 <div class="container">
    <table class="table table-hover">
-      <p><strong style="font-size:30px">상품평 등록  </strong></p>
+      <p><strong style="font-size:30px">상품평 등록 </strong></p>
       <thead>
          <tr>
          	<th style="width:10%">글 번호</th>
@@ -72,22 +72,24 @@
       				<div class="replyContent" style="border-bottom:1px dotted grey;clear:both;
       				<c:if test="${replytmp.comComment_group ne 0}">margin-left:70px;</c:if>
       				">
-      					<p><strong>From.${replytmp.comWriter}</strong> ${replytmp.regdate} 
-      					<span style="float:right;cursor:pointer;" onclick="replyAction(${replytmp.comNum})">답글 달기</span></p>
-      					<p> <strong><span style="font-color:grey">To.${replytmp.comTarget_id}</span></strong> ${replytmp.comContent}</p>
-	      				<div class="replyBox replyContent${replytmp.comNum}">
-					        <form action="${pageContext.request.contextPath}/views/evaluation/comment_insert.do" method="post">
-								<div class="form-group">
-									<p style="margin-top:10px;font-size:18px"><strong>답글 달기</strong></p>
-									<input type="hidden" name="comNum" value="${tmp.evaNum}" />
-									<input type="hidden" name="ref_group" value="${productNum}"/>
-									<input type="hidden" name="target_id" value="${tmp.evaWriter }"/>
-									<input type="hidden" name="comment_group" value="1"/>
-									<textarea class="form-control" name="content" id="content" style="width:85%; float:left; resize:none;"></textarea>
-								</div>
-							<button class="btn btn-default" type="submit" style="margin-left:5%;margin-bottom:60px;">답글  작성</button>
-							</form>
-						</div>
+      					
+      						<strong>From.${replytmp.comWriter}</strong> ${replytmp.regdate} 
+	      					<span style="float:right;cursor:pointer;" class="showReply">답글 달기</span>
+	      					<p><strong><span style="font-color:grey">To.${replytmp.comTarget_id}</span></strong> ${replytmp.comContent}</p>
+		      				<div class="replyBox replyContent${replytmp.comNum}">
+						        <form action="${pageContext.request.contextPath}/views/evaluation/comment_insert.do" method="post">
+									<div class="form-group">
+										<p style="margin-top:10px;font-size:18px"><strong>답글 달기</strong></p>
+										<input type="hidden" name="comNum" value="${tmp.evaNum}" />
+										<input type="hidden" name="ref_group" value="${productNum}"/>
+										<input type="hidden" name="target_id" value="${tmp.evaWriter }"/>
+										<input type="hidden" name="comment_group" value="1"/>
+										<textarea class="form-control" name="content" id="content" style="width:85%; float:left; resize:none;"></textarea>
+									</div>
+								<button class="btn btn-default" type="submit" style="margin-left:5%;margin-bottom:60px;">답글  작성</button>
+								</form>
+							</div>
+						
       				</div>
       				</c:if>
          		</c:forEach>
@@ -169,7 +171,7 @@
 	$(".write_eval_Btn").click(function(){
 		$(".writeBox").toggle();
 	});
-	function replyAction(data){
-		$(".replyContent"+data).toggle();
-	};
+	$(".showReply").click(function(){
+		$(this).next().next("div.replyBox").toggle();
+	});
 </script>
