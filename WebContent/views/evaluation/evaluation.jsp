@@ -70,8 +70,9 @@
          		<c:forEach var="replytmp" items="${commentList}">
          			<c:if test="${replytmp.comNum eq tmp.evaNum}">
       				<div class="replyContent" style="border-bottom:1px dotted grey;clear:both;
-      					<c:if test="${replytmp.comSort_group ne replytmp.comComment_group}">margin-left:70px;</c:if>
+      					<c:if test="${replytmp.comComment_group ne 0}">margin-left:70px;</c:if>
       				">
+      					
       						<strong>From.${replytmp.comWriter}</strong> ${replytmp.regdate} 
 	      					<span style="float:right;cursor:pointer;" class="showReply">답글 달기</span>
 	      					<p><strong><span style="font-color:grey">To.${replytmp.comTarget_id}</span></strong> ${replytmp.comContent}</p>
@@ -82,7 +83,7 @@
 										<input type="hidden" name="comNum" value="${tmp.evaNum}" />
 										<input type="hidden" name="ref_group" value="${productNum}"/>
 										<input type="hidden" name="target_id" value="${tmp.evaWriter }"/>
-										<input type="hidden" name="comment_group" value="${replytmp.comSort_group}"/>
+										<input type="hidden" name="comment_group" value="1"/>
 										<textarea class="form-control" name="content" id="content" style="width:85%; float:left; resize:none;"></textarea>
 									</div>
 								<button class="btn btn-default" type="submit" style="margin-left:5%;margin-bottom:60px;">답글  작성</button>
@@ -143,10 +144,10 @@
       <c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
          <c:choose>
             <c:when test="">
-               <li class="active"><a href="${pageContext.request.contextPath }/views/product/product_info.do?pageNum=${i }&&productNum=${productNum}">${i }</a></li>   
+               <li class="active"><a href="list.do?pageNum=${i }">${i }</a></li>   
             </c:when>
             <c:otherwise>
-               <li><a href="${pageContext.request.contextPath }/views/product/product_info.do?pageNum=${i }&&productNum=${productNum}">${i }</a></li>
+               <li><a href="list.do?pageNum=${i }&&list_num=${listNum}">${i }</a></li>
             </c:otherwise>
          </c:choose>    
       </c:forEach>
