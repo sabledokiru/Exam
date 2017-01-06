@@ -1,15 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Q&A</title>
-<jsp:include page="/views/resource.jsp"/>
-</head>
 <style>
-
    .qnaBox{
       display:none;
       border:2px solid orange;
@@ -44,7 +36,7 @@
    <table class="table">
       <thead>
          <tr>
-            <th style="font-size:30px"><strong>Q&A 무엇이든 물어보세요</strong></th>
+            <th style="font-size:30px"><strong>Q&A 무엇이든 물어보세요 </strong></th>
             <th><strong>작성자</strong></th>
             <th>등록일</th>
          </tr>
@@ -60,14 +52,14 @@
             <td colspan="3">
                <div class="qnaContent"><span class="glyphicon glyphicon-question-sign "></span>${tmp.writerDetailquestion}</div><br/>
                <div class="adminWrite">
-                  <form action="a_insert.do?writerNum=${tmp.writerNum}" method="post">
+                  <form action="a_insert.do?writerNum=${tmp.writerNum}&productNum=${productNum}" method="post">
                      <span class="glyphicon glyphicon-text-color"></span>
                      <c:forEach var="tmp2" items="${list2}">  
                      	
                         <c:if test="${tmp.writerNum eq tmp2.answerRef_num}">
                            <p>${tmp2.answerContent}
                            <c:if test="${id eq 'admin'}">
-                                       <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}'">삭제</button>
+                                       <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}&productNum=${productNum}'">삭제</button>
                                     </c:if>
                                  <c:set var="num3" value="${tmp2.answerRef_num}"/>   
                     			 <c:set var="con3" value="${tmp2.answerContent}"/>                      
@@ -112,12 +104,10 @@
    
    <button type="submit" class="btn btn-info questionBtn" style="float:right">글쓰기</button>
    
-   <form action="qna_insert.do" method="post">
+   <form action="qna_insert.do?productNum=${productNum}" method="post">
         <div class="questionWrite">
 			<div class="form-group">
 				<input type="hidden" name="writerNum" value="${writerNum}"/>
-				<label class="control-label" for="${id }">작성자</label>
-				<input class="form-control" type="text" id="writerWriter" readOnly value="${id }" /><br/>
 				<label class="control-label" for="writerMainquestion">제목:</label>
 				<input class="form-control" type="text" name="writerMainquestion" id="writerMainquestion"/>
 			</div>
@@ -178,7 +168,7 @@
    $(".qnaBtn").click(function(){
       var isSend = confirm("등록할래?");
       if(isSend){
-         location.href="product/q&a.jsp?num=${dto.num}";
+         location.href="product/q&a.jsp?num=${dto.num}&productNum=${productNum}";
       }
    });
    
@@ -190,11 +180,7 @@
 	     $(".qaUpdateBtn").click(function() {
 	        var content = $(this).parent().find("textarea").val();
 	        var num = $(this).siblings("input").val();
-	        location.href="aupdate.do?num="+num+"&content="+content;
+	        location.href="aupdate.do?num="+num+"&content="+content+"&productNum=${productNum}";
 	              
 	     })
-   
-   
 </script>
-</body>
-</html>

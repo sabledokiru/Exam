@@ -14,6 +14,7 @@ public class QAnswerUpdateAction extends Action{
    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
       //1.수정할 num값 가지고오기
       int answerRef_num=Integer.parseInt(request.getParameter("num"));
+      int productNum = Integer.parseInt(request.getParameter("productNum"));
       //2.수정할 content내용 가지고오기
       String answerContent=request.getParameter("content");
       System.out.println(answerContent);
@@ -28,7 +29,7 @@ public class QAnswerUpdateAction extends Action{
       System.out.println(dto.getAnswerContent());
       System.out.println(dto.getAnswerRef_num());
       //5. redirect 이동
-      return new ActionForward("/", true);
+      return new ActionForward("/views/product/product_info.do?productNum="+productNum, true);
    }
    
 }

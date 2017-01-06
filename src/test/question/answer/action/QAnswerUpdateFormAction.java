@@ -16,12 +16,13 @@ public class QAnswerUpdateFormAction extends Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		//1.가지고올 정보의 파라미터 넘값 가지고 오기
 		int num=Integer.parseInt(request.getParameter("num"));
+		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		//2.가지고온 num파라미터로 dao getdata 출력하기
 		List<QAAnswerDto> dto=QAAnswerDao.getInstance().getdata(num);
 		//3. dto정보를 request에 담기
 		request.setAttribute("dto", dto);
 		//4. 수정할 글의 정보 출력해 주기
-		return new ActionForward("aupdateform.jsp");
+		return new ActionForward("/views/product/product_info.do?productNum="+productNum, true);
 	}
 	
 }

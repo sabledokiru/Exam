@@ -15,6 +15,7 @@ public class QuestionADeleteAction extends Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		//파라미터 num값 받아오기
 		int num=Integer.parseInt(request.getParameter("num"));
+		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		//dao를 통해 delete 메소드 실행
 		QAWriterDao.getInstance().delete(num);
 		
@@ -26,7 +27,7 @@ public class QuestionADeleteAction extends Action{
 			QAAnswerDao.getInstance().delete(ref_num); 
 		}
 		//경로 이동시켜준다.
-		return new ActionForward("/");
+		return new ActionForward("/views/product/product_info.do?productNum="+productNum, true);
 	}
 	
 }

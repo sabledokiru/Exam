@@ -55,6 +55,7 @@ public class QuestionAGetlistAction extends Action{
 				QAWriterDto dto = new QAWriterDto();
 				dto.setStartRowNum(startRowNum);
 				dto.setEndRowNum(endRowNum);
+				int productNum = Integer.parseInt(request.getParameter("num"));
 				
 //				// 1. BoardDao 객체를 이용해서 글 목록을 얻어온다.
 				List<QAWriterDto> list = QAWriterDao.getInstance().getList(dto);
@@ -64,7 +65,7 @@ public class QuestionAGetlistAction extends Action{
 				request.setAttribute("pageNum", pageNum);
 				request.setAttribute("startPageNum", startPageNum);
 				request.setAttribute("endPageNum", endPageNum);
-				
+				request.setAttribute("productNum",productNum);
 				// 전체 페이지의 갯수
 				request.setAttribute("totalPageCount", totalPageCount);
 				

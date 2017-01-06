@@ -19,6 +19,7 @@ public class QuestionAInsertAction extends Action{
 		String writerMainquestion = request.getParameter("writerMainquestion");
 		String writerDetailquestion = request.getParameter("writerDetailquestion");		
 		String id = (String)request.getSession().getAttribute("id");
+		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		//새댓글 정보를 Dto 에 담는다.
 		QAWriterDto dto=new QAWriterDto();
 		
@@ -29,7 +30,7 @@ public class QuestionAInsertAction extends Action{
 
 		//QAWriterDao 객체를 이용해서 insert 시키기
 		QAWriterDao.getInstance().insert(dto);
-		return new ActionForward("/views/product/product_list.jsp");
+		return new ActionForward("/views/product/product_info.do?productNum="+productNum, true);
 	}
 
 }

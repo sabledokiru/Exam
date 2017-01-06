@@ -14,7 +14,7 @@ public class QAnswerInsertAction extends Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		int writerNum=Integer.parseInt(request.getParameter("writerNum"));
-		
+		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		//1. 저장할 파라미터값 가지고 오기
 		String answerContent=request.getParameter("answerContent");
 		int answerRef_num=writerNum;
@@ -26,7 +26,7 @@ public class QAnswerInsertAction extends Action{
 		
 		//3. QAAnswerDao 메소드 이용해서 DB에 저장하기
 		QAAnswerDao.getInstance().insert(dto);
-		return new ActionForward("/views/product/qna_list.do",true);
+		return new ActionForward("/views/product/product_info.do?productNum="+productNum, true);
 	}
 
 }

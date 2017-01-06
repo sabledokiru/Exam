@@ -78,6 +78,7 @@
 	</div>
 	<div class="content">${dto.content}</div>
 	<div class="evaluation"></div>
+	<div class="qa"></div>
 </div>
 <footer>
 		<jsp:include page="/views/footer.jsp"/>
@@ -110,5 +111,14 @@ $(function(){
 			$(".evaluation").after(data);
 		}
 	});
+	
+	$.ajax({	
+		url:"${pageContext.request.contextPath}/views/product/qna_list.do?num=${num}",
+		method:"GET",
+		success: function(data){
+			$(".qa").after(data);
+		}
+	});
 });
+
 </script>
