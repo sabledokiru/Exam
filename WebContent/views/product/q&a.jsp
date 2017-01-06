@@ -15,6 +15,9 @@
       border:2px solid orange;
       height:100%;
    }
+   .questionWrite{
+   	  display:none;
+   }
    
    .qnaContent{
       height: 50%;
@@ -38,7 +41,7 @@
    <table class="table">
       <thead>
          <tr>
-            <th style="font-size:30px"><strong>Q&A 무엇이든 물어보세요 kk</strong></th>
+            <th style="font-size:30px"><strong>Q&A 무엇이든 물어보세요</strong></th>
             <th><strong>작성자</strong></th>
             <th>등록일</th>
          </tr>
@@ -83,16 +86,27 @@
          </c:forEach>
       </tbody>
    </table>
-   <form action="qna_insertform.do" method="post">
-      <button type="submit" class="btn btn-info" style="float:right">글쓰기</button>
-   </form>
    
+   <button type="submit" class="btn btn-info questionBtn" style="float:right">글쓰기</button>
+   
+   <form action="qna_insert.do" method="post">
+        <div class="questionWrite">
+			<div class="form-group">
+				<input type="hidden" name="writerNum" value="${writerNum}"/>
+				<label class="control-label" for="${id }">작성자</label>
+				<input class="form-control" type="text" id="writerWriter" readOnly value="${id }" /><br/>
+				<label class="control-label" for="writerMainquestion">제목:</label>
+				<input class="form-control" type="text" name="writerMainquestion" id="writerMainquestion"/>
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="writerDetailquestion">질문내용:</label>
+				<textarea class="form-control" name="writerDetailquestion" id="writerDetailquestion" cols="20" rows="5"></textarea>
+			</div>
+			<button class="btn btn-default" type="submit">작성</button>
+		</div> 
+   </form>  
    <br/>
    <br/>
-   
-   
-   
-   
    
 <div class="page_display">
 <center>
@@ -134,12 +148,18 @@
       $(this).next("tr.qnaBox").toggle();
    });
    
+   $(".questionBtn").on("click", function(){
+	  $(".questionWrite").toggle();
+   });
+   
    $(".qnaBtn").click(function(){
       var isSend = confirm("등록할래?");
       if(isSend){
          location.href="product/q&a.jsp?num=${dto.num}";
       }
    });
+   
+   
 </script>
 </body>
 </html>
