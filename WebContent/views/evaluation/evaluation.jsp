@@ -68,9 +68,9 @@
          	<td colspan="4"><span>내용 :</span> ${tmp.evaContent}
          		<div style="margin-top:20px;border:1px solid grey;"></div>
          		<c:forEach var="replytmp" items="${commentList}">
-         			<c:if test="${replytmp.comNum eq replytmp.comComment_group}">
+         			<c:if test="${replytmp.comNum eq tmp.evaNum}">
       				<div class="replyContent" style="border-bottom:1px dotted grey;clear:both;
-      				<c:if test="${replytmp.comNum ne replytmp.comComment_group }">margin-left:70px;</c:if>
+      				<c:if test="${replytmp.comComment_group ne 0}">margin-left:70px;</c:if>
       				">
       					<p><strong>From.${replytmp.comWriter}</strong> ${replytmp.regdate} 
       					<span style="float:right;" onclick="replyAction(${replytmp.comNum})">답글 달기</span></p>
@@ -79,8 +79,7 @@
 					        <form action="${pageContext.request.contextPath}/views/evaluation/comment_insert.do" method="post">
 								<div class="form-group">
 									<p style="margin-top:10px;font-size:18px"><strong>답글 달기</strong></p>
-									
-									<input type="hidden " name="comNum" value="{${tmp.evaNum}" />
+									<input type="hidden" name="comNum" value="${tmp.evaNum}" />
 									<input type="hidden" name="ref_group" value="${productNum}"/>
 									<input type="hidden" name="target_id" value="${tmp.evaWriter }"/>
 									<input type="hidden" name="comment_group" value="1"/>

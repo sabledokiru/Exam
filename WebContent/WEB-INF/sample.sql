@@ -33,7 +33,7 @@ regdate DATE
 
 -- 상품평 댓글 테이블
 CREATE TABLE evaComment(
-comNum NUMBER PRIMARY KEY,	-- 덧글의 글 번호
+comNum NUMBER,	-- 덧글의 글 번호
 comWriter VARCHAR2(100),
 comContent VARCHAR2(500),
 comTarget_id VARCHAR2(100),	-- 덧글의 대상이 되는 아이디
