@@ -36,6 +36,9 @@
    .onefuck{
       float:right;
    }
+   .testT{
+      display:none;
+   }
 </style>
 <body>
    <table class="table">
@@ -60,25 +63,39 @@
                   <form action="a_insert.do?writerNum=${tmp.writerNum}" method="post">
                      <span class="glyphicon glyphicon-text-color"></span>
                      <c:forEach var="tmp2" items="${list2}">  
+                     	
                         <c:if test="${tmp.writerNum eq tmp2.answerRef_num}">
                            <p>${tmp2.answerContent}
-                                 <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}'">삭제</button>                      
+                                 <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}'">삭제</button>
+                                 <c:set var="num3" value="${tmp2.answerRef_num}"/>   
+                    			 <c:set var="con3" value="${tmp2.answerContent}"/>                      
                            </p>
-                           <form action="aupdate.do?num=${tmp2.answerRef_num }">
-                              	<button type="button" onclick="location.href='aupdate.do?num=${tmp2.answerRef_num}'">수정</button>
-                              	<textarea name="answerContent" id="" cols="100" rows="5"></textarea>
-                           </form> 
                         </c:if>
                      </c:forEach>   
                    
-                     <c:choose>
-                        <c:when test="${id ne 'admin'}">
-                           <button class="btn btn-default qnaBtn" type="submit" disabled="disabled">등록</button>
-                        </c:when>
-                        <c:otherwise>
-                           <button class="btn btn-default" type="submit">등록</button>
-                        </c:otherwise>
-                     </c:choose>
+                     <!-- <p>${tmp3}</p> for문안에 있는 값을 밖으로 빼올 수 있다. -->
+                        <c:choose>
+                           <c:when test="${num3 ne tmp.writerNum}">
+                              <textarea name="answerContent" id="" cols="100" rows="5" value=""></textarea>
+                              <c:choose>
+                                 <c:when test="${id ne 'admin'}">
+                                    <button class="btn btn-default" id="qnaBtn" type="submit" disabled="disabled">등록</button>
+                                 </c:when>
+                                 <c:otherwise>
+                                    <button class="btn btn-default" id="qnaBtn" type="submit">등록</button>
+                                 </c:otherwise>
+                              </c:choose>
+                           </c:when>
+                           <c:otherwise>
+                              <div>
+                              <button  type="button" class="btn btn-default answerBtn" >수정</button>
+                                 <textarea class="testT" name="answerContent" cols="100" rows="5" value="">${con3}</textarea>
+                                 <input type="hidden" value="${num3}" />
+                                 <button class="qaUpdateBtn" type="button">수정확인</button>
+                              </div>
+                         </c:otherwise>
+                      </c:choose>
+
                   </form>
                </div>
             </td>
@@ -158,6 +175,18 @@
          location.href="product/q&a.jsp?num=${dto.num}";
       }
    });
+   
+   $(".answerBtn").on("click",function(){
+	      $(this).next("textarea.testT").toggle();
+	      
+	   });
+	   
+	     $(".qaUpdateBtn").click(function() {
+	        var content = $(this).parent().find("textarea").val();
+	        var num = $(this).siblings("input").val();
+	        location.href="aupdate.do?num="+num+"&content="+content;
+	              
+	     })
    
    
 </script>
