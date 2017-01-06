@@ -90,12 +90,14 @@
                            </c:when>
                            <c:otherwise>
                               <div>
-                              <c:if test="${id eq 'admin'}">
+                                 <c:if test="${id eq 'admin'}">
                                     <button  type="button" class="btn btn-default answerBtn" >수정</button>
                                  </c:if>
                                  <textarea class="testT" name="answerContent" cols="100" rows="5" value="">${con3}</textarea>
                                  <input type="hidden" value="${num3}" />
-                                 <button class="qaUpdateBtn" type="button">수정확인</button>
+                                 <c:if test="${id eq 'admin'}">
+                                 	<button class="qaUpdateBtn" type="button">수정확인</button>
+                                 </c:if>
                               </div>
                          </c:otherwise>
                       </c:choose>
