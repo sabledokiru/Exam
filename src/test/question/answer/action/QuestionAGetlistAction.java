@@ -69,7 +69,8 @@ public class QuestionAGetlistAction extends Action{
 				request.setAttribute("totalPageCount", totalPageCount);
 				
 				
-
+				
+				
 		//1. 목록을 얻어온다.
 		List<QAWriterDto> result_list = QAWriterDao.getInstance().getList(dto);
 		List<QAAnswerDto> result_list2 = QAAnswerDao.getInstance().getList();

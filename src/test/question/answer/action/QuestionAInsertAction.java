@@ -17,8 +17,7 @@ public class QuestionAInsertAction extends Action{
 		
 		//int writerNum = Integer.parseInt(request.getParameter("writerNum"));
 		String writerMainquestion = request.getParameter("writerMainquestion");
-		String writerDetailquestion = request.getParameter("writerDetailquestion");
-		
+		String writerDetailquestion = request.getParameter("writerDetailquestion");		
 		String id = (String)request.getSession().getAttribute("id");
 		//새댓글 정보를 Dto 에 담는다.
 		QAWriterDto dto=new QAWriterDto();
