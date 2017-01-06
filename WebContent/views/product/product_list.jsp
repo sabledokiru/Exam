@@ -23,13 +23,16 @@
 	}
 	img{
 		width:100%;
+		height:100%;
 	}
 	.imgBox{
 		width:300px;
+		height:225px;
 		background-color:#cecece;
+		cursor: pointer;
 	}
 	.productName{
-		font-size:20px;
+		font-size:17px;
 		clear:left;
 	}
 	.search_form form{
@@ -42,6 +45,7 @@
 	.contentBox{
 		float:left;
 		width:33%;
+		height:350px;
 		margin-top:50px;	
 	}
 	.price{
@@ -58,6 +62,9 @@
 		float:right;
 		margin-right:80px;
 	}
+	.rangkImgBox{
+		cursor: pointer;
+	}
 </style>
 <jsp:include page="/views/resource.jsp"/>
 </head>
@@ -73,7 +80,6 @@
 				<div>등록일 ${tmp.regdate}</div>
 				<div>조회수 ${tmp.viewCount }</div>
 				<div class="price"><strong>가격 :<span><fmt:formatNumber value="${tmp.price}" type="number"/>원</span></strong></div>
-
 			</div>			
 		</c:forEach>
 	</div>
@@ -129,26 +135,30 @@
 	</div>
 	</center>
 	<div>
-	<c:forEach var="tmp" items="${list2}" begin="0" end="4">
-		<div class="imgBox" onclick="detailView(${tmp.productNum})"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"/></div>
-		<div class="productName"><strong>상품명: (${tmp.brand}) ${tmp.productName } </strong></div>
-		<div class="price"><strong>가격 :<span><fmt:formatNumber value="${tmp.price}" type="number"/>원</span></strong></div>
-	</c:forEach>
-	</div>
-	
-	<div>
-		<c:forEach var="tmp" items="${recentNums}" begin="0" end="3">
-			${tmp }
+<style>
+ .rangkImgBox{
+ 	width:130px;
+ 	height:130px;
+ }
+ .rankBox{
+ 	position:fixed;
+ 	top:160px;
+ 	right:180px;
+ }
+</style>	
+</body>
+	<div class="rankBox">
+		<c:set var="num" value="0"/>
+		<c:forEach var="tmp" items="${list2}" begin="0" end="4">
+			<div class="rangkImgBox" onclick="detailView(${tmp.productNum})"><img src="${pageContext.request.contextPath }/upload/${tmp.saveFileName}"/></div>
+			<div class="productName"><strong style="font-size:14px">[${num+1}] ${tmp.productName } </strong></div>
+			<c:set var="num" value="${num+1}"/>
 		</c:forEach>
 	</div>
-	
-	
-</body>
 <script>
 	$(".writeBtn").click(function(){
 		location.href="${pageContext.request.contextPath}/views/product/private/insertform.do";
 	});
-	
 	function detailView(data){
 		location.href="${pageContext.request.contextPath}/views/product/product_info.do?productNum="+data;
 	}

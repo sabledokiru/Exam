@@ -82,7 +82,6 @@
 <footer>
 		<jsp:include page="/views/footer.jsp"/>
 </footer>
-<p>하이 ${num}</p>
 </body>
 </html>
 

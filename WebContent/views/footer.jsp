@@ -3,6 +3,7 @@
 <style>
 	.bottom_box{
 		float:left;
+		bottom:0;
 		width:100%;
 		margin-top:80px;
 	}

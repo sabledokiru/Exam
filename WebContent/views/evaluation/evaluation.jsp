@@ -60,7 +60,7 @@
          <c:forEach var="tmp" items="${list}">
          <tr class="qnaTitle warning">
          	<td>${tmp.evaNum}</td>
-            <td class="viewContent" onclick="showcontent(${tmp.evaNum})">${tmp.evaTitle }</td>
+            <td class="viewContent" style="cursor:pointer" onclick="showcontent(${tmp.evaNum})">${tmp.evaTitle }</td>
             <td>${tmp.evaWriter }</td>
             <td>${tmp.regdate }</td>
          </tr>
@@ -73,7 +73,7 @@
       				<c:if test="${replytmp.comComment_group ne 0}">margin-left:70px;</c:if>
       				">
       					<p><strong>From.${replytmp.comWriter}</strong> ${replytmp.regdate} 
-      					<span style="float:right;" onclick="replyAction(${replytmp.comNum})">답글 달기</span></p>
+      					<span style="float:right;cursor:pointer;" onclick="replyAction(${replytmp.comNum})">답글 달기</span></p>
       					<p> <strong><span style="font-color:grey">To.${replytmp.comTarget_id}</span></strong> ${replytmp.comContent}</p>
 	      				<div class="replyBox replyContent${replytmp.comNum}">
 					        <form action="${pageContext.request.contextPath}/views/evaluation/comment_insert.do" method="post">
