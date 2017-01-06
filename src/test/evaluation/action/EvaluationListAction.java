@@ -5,9 +5,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.crypto.provider.RSACipher;
+
 import test.controller.Action;
 import test.controller.ActionForward;
+import test.evaluation.dao.EvaluationCommentDao;
 import test.evaluation.dao.EvaluationDao;
+import test.evaluation.dto.EvaluationCommentDto;
 import test.evaluation.dto.EvaluationDto;
 
 public class EvaluationListAction extends Action{
@@ -51,10 +55,16 @@ public class EvaluationListAction extends Action{
 		dto.setEndRowNum(endRowNum);
 		
 		int productNum = Integer.parseInt(request.getParameter("num"));
+
 		List<EvaluationDto> list = EvaluationDao.getInstance().getList(productNum);
-		request.setAttribute("list", list);
-		request.setAttribute("productNum",productNum);
+		List<EvaluationCommentDto> commentList = EvaluationCommentDao.getInstance().getList(productNum);
+		System.out.println(productNum);
 		
+		System.out.println(productNum);
+		request.setAttribute("list", list);
+		
+		request.setAttribute("productNum",productNum);
+		request.setAttribute("commentList",commentList);
 		// 현재 페이지 번호
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("startPageNum", startPageNum);

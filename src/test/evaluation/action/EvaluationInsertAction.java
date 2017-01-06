@@ -29,6 +29,6 @@ public class EvaluationInsertAction extends Action{
 		// CafeDao 객체를 이용해서 DB에 저장하기
 		EvaluationDao.getInstance().insert(dto);
 		
-		return new ActionForward("/evaluation/list.do", true);
+		return new ActionForward("/views/product/product_info.do?productNum="+productNum, true);
 	}
 }

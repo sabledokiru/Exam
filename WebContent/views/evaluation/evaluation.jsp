@@ -34,16 +34,20 @@
    .replyAtag:ACTIVE, .replyAtag:HOVER , .replyAtag:AFTER , .replyAtag:FOCUS{
 		font-color:red;
    }
-   .writeBox{
-   	display:none;
-   }
+ 
    .contentTR{
    	display:none;
+   }
+   .replyBox{
+   	display:none;
+   }
+   .writeBox{
+		display:none;
    }
 </style>
 <div class="container">
    <table class="table table-hover">
-      <p><strong style="font-size:30px">상품평 등록</strong></p>
+      <p><strong style="font-size:30px">상품평 등록  </strong></p>
       <thead>
          <tr>
          	<th style="width:10%">글 번호</th>
@@ -61,14 +65,44 @@
             <td>${tmp.regdate }</td>
          </tr>
          <tr class="contentTR showContent${tmp.evaNum}">
-         	<td colspan="4"><span>내용 :</span> ${tmp.evaContent} <a class="replyAtag">답글 달기</a>
-         		<div>
-			        <form action="${pageContext.request.contextPath}/views/evaluation/insert.do" method="post">
-						<div class="form-group">
-							<p  style="margin-top:10px;font-size:18px"><strong>댓글 달기</strong></p>
-							<textarea class="form-control" name="content" id="content" style="width:85%"></textarea>
+         	<td colspan="4"><span>내용 :</span> ${tmp.evaContent}
+         		<div style="margin-top:20px;border:1px solid grey;"></div>
+         		<c:forEach var="replytmp" items="${commentList}">
+         			<c:if test="${replytmp.comNum eq replytmp.comComment_group}">
+      				<div class="replyContent" style="border-bottom:1px dotted grey;clear:both;
+      				<c:if test="${replytmp.comNum ne replytmp.comComment_group }">margin-left:70px;</c:if>
+      				">
+      					<p><strong>From.${replytmp.comWriter}</strong> ${replytmp.regdate} 
+      					<span style="float:right;" onclick="replyAction(${replytmp.comNum})">답글 달기</span></p>
+      					<p> <strong><span style="font-color:grey">To.${replytmp.comTarget_id}</span></strong> ${replytmp.comContent}</p>
+	      				<div class="replyBox replyContent${replytmp.comNum}">
+					        <form action="${pageContext.request.contextPath}/views/evaluation/comment_insert.do" method="post">
+								<div class="form-group">
+									<p style="margin-top:10px;font-size:18px"><strong>답글 달기</strong></p>
+									
+									<input type="hidden " name="comNum" value="{${tmp.evaNum}" />
+									<input type="hidden" name="ref_group" value="${productNum}"/>
+									<input type="hidden" name="target_id" value="${tmp.evaWriter }"/>
+									<input type="hidden" name="comment_group" value="1"/>
+									<textarea class="form-control" name="content" id="content" style="width:85%; float:left; resize:none;"></textarea>
+								</div>
+							<button class="btn btn-default" type="submit" style="margin-left:5%;margin-bottom:60px;">답글  작성</button>
+							</form>
 						</div>
-						<button class="btn btn-default" type="submit">작성</button>
+      				</div>
+      				</c:if>
+         		</c:forEach>
+         		<div>
+			        <form action="${pageContext.request.contextPath}/views/evaluation/comment_insert.do" method="post">
+						<div class="form-group">
+							<p style="margin-top:10px;font-size:18px"><strong>댓글 달기</strong></p>
+							<input type="hidden" name="comNum" value="${tmp.evaNum}" />
+							<input type="hidden" name="ref_group" value="${productNum}"/>
+							<input type="hidden" name="target_id" value="${tmp.evaWriter }"/>
+							<input type="hidden" name="comment_group" value="0"/>
+							<textarea class="form-control" name="content" id="content" style="width:85%; float:left; resize:none;"></textarea>
+						</div>
+							<button class="btn btn-default" type="submit" style="margin-left:5%;margin-bottom:20px;">댓글  작성</button>
 					</form>
 				</div>
          	</td>
@@ -86,6 +120,7 @@
 			<input type="hidden" name="productNum" value="${productNum}"/>
 			<label class="control-label" for="title">제목:</label>
 			<input class="form-control" type="text" name="title" id="title"/>
+		</div>
 		<div class="form-group">
 			<label class="control-label" for="writerDetailquestion">후기:</label>
 			<textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
@@ -131,7 +166,11 @@
 	function showcontent(data){
 		$(".showContent"+data).toggle();
 	};
+	
 	$(".write_eval_Btn").click(function(){
 		$(".writeBox").toggle();
 	});
+	function replyAction(data){
+		$(".replyContent"+data).toggle();
+	};
 </script>
