@@ -11,6 +11,7 @@
    	  display:none;
    }
    
+   하이욤
    .qnaContent{
       height: 50%;
    }
