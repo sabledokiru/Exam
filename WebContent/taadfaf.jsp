@@ -9,6 +9,14 @@
 </head>
 <body>
 adfadfafzz
+<<<<<<< HEAD
+adflkajdf
+adfkajd
+fadkfja
+dlkadjfalkdfj
+adfkdsjfads
+f
+=======
 adfdaskfjadl;fkjdaf
 dkfjasd
 fadsfj
@@ -21,5 +29,6 @@ dfkajd
 fakdlfjad
 fklajsf
 
+>>>>>>> branch 'Test' of https://github.com/lcjltj/Exam.git
 </body>
 </html>
