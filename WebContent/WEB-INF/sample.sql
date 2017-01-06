@@ -39,12 +39,15 @@ comContent VARCHAR2(500),
 comTarget_id VARCHAR2(100),	-- 덧글의 대상이 되는 아이디
 comRef_group NUMBER,	-- 덧글 그룹(원 글의 num과 같음)
 comComment_group NUMBER,	-- 덧글 내에서의 그룹
+comSort_group NUMBER,
 regdate DATE
 );
 
 -- 상품평 시퀀스
 CREATE SEQUENCE eva_comment_seq NOCACHE;
 
+-- 정렬 시퀀스
+CREATE SEQUENCE sort_comment_seq NOCACHE;
 
 -- 큐엔에이 테이블 and 시퀀스
 CREATE sequence QA_seq nocache;

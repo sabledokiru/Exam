@@ -27,7 +27,7 @@
 		SELECT comNum, comWriter, comContent, comTarget_id, comRef_group, comComment_group, TO_CHAR(regdate, 'YYYY"/"MM"/"DD" "HH24":"MI') AS regdate
 		FROM evacomment
 		WHERE comRef_group = #{num}
-		ORDER BY comComment_group ASC, comNum ASC
+		ORDER BY regdate asc
 	</select>
 	
 	
