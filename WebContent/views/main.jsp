@@ -10,7 +10,7 @@
 </head>
 <body>
 <jsp:include page="/views/catalog.jsp"/>
-
+<jsp:include page="/views/open.jsp"/>
 <jsp:include page="/views/footer.jsp"/>
 </body>
 </html>
