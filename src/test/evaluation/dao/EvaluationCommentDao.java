@@ -85,4 +85,18 @@ public class EvaluationCommentDao {
 		}
 		return num;
 	}
+	
+	// 새 댓글의 글 번호(sequence) 값을 얻어내서 리턴해주는 메소드
+	public int getSortSequence(){
+		SqlSession session = factory.openSession();
+		int num = 0;
+		try{
+			num = session.selectOne("evaluationComment.getSortSequence");
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			session.close();
+		}
+		return num;
+	}
 }
