@@ -66,7 +66,9 @@
                      	
                         <c:if test="${tmp.writerNum eq tmp2.answerRef_num}">
                            <p>${tmp2.answerContent}
-                                 <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}'">삭제</button>
+                           <c:if test="${id eq 'admin'}">
+                                       <button type="button" onclick="location.href='adelete.do?num=${tmp2.answerRef_num}'">삭제</button>
+                                    </c:if>
                                  <c:set var="num3" value="${tmp2.answerRef_num}"/>   
                     			 <c:set var="con3" value="${tmp2.answerContent}"/>                      
                            </p>
@@ -88,7 +90,9 @@
                            </c:when>
                            <c:otherwise>
                               <div>
-                              <button  type="button" class="btn btn-default answerBtn" >수정</button>
+                              <c:if test="${id eq 'admin'}">
+                                    <button  type="button" class="btn btn-default answerBtn" >수정</button>
+                                 </c:if>
                                  <textarea class="testT" name="answerContent" cols="100" rows="5" value="">${con3}</textarea>
                                  <input type="hidden" value="${num3}" />
                                  <button class="qaUpdateBtn" type="button">수정확인</button>
@@ -132,7 +136,7 @@
    
    <c:choose>
       <c:when test="${startPageNum ne 1 }">
-         <li><a href="qna_list.do?pageNum=${startPageNum-1 }">&laquo;</a></li>
+         <li><a href="${pageContext.request.contextPath }/views/product/qna_list.do?pageNum=${startPageNum-1 }">&laquo;</a></li>
       </c:when>
       <c:otherwise>
          <li class="disabled"><a class="muted" href="javascript:">&laquo;</a></li>
@@ -142,16 +146,16 @@
    <c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
       <c:choose>
          <c:when test="${i eq pageNum }">
-            <li class="active"><a href="qna_list.do?pageNum=${i }">${i }</a></li>   
+            <li class="active"><a href="${pageContext.request.contextPath }/views/product/qna_list.do?pageNum=${i }">${i }</a></li>   
          </c:when>
          <c:otherwise>
-            <li><a href="qna_list.do?pageNum=${i }&&list_num=${listNum}">${i }</a></li>
+            <li><a href="${pageContext.request.contextPath }/views/product/qna_list.do?pageNum=${i }&&list_num=${listNum}">${i }</a></li>
          </c:otherwise>
       </c:choose>    
    </c:forEach>
    <c:choose>
       <c:when test="${endPageNum lt totalPageCount }">
-         <li><a href="qna_list.do?pageNum=${endPageNum+1 }&&list_num=${listNum}">&raquo;</a></li>
+         <li><a href="${pageContext.request.contextPath }/views/product/qna_list.do?pageNum=${endPageNum+1 }&&list_num=${listNum}">&raquo;</a></li>
       </c:when>
       <c:otherwise>
          <li class="disabled"><a class="muted" href="javascript:">&raquo;</a></li>
