@@ -9,11 +9,21 @@
 </head>
 <body>
 adfadfafzz
+<<<<<<< HEAD
 adflkajdf
 adfkajd
 fadkfja
 dlkadjfalkdfj
 adfkdsjfads
 f
+=======
+adfdaskfjadl;fkjdaf
+dkfjasd
+fadsfj
+adf
+adfad
+fd
+
+>>>>>>> branch 'Test' of https://github.com/lcjltj/Exam.git
 </body>
 </html>
