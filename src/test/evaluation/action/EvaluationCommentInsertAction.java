@@ -20,7 +20,7 @@ public class EvaluationCommentInsertAction extends Action{
       String content = request.getParameter("content");
       int comment_group = Integer.parseInt(request.getParameter("comment_group"));
       int comSort_group = EvaluationCommentDao.getInstance().getSortSequence();
-      
+      System.out.println(comment_group);
       EvaluationCommentDto dto = new EvaluationCommentDto();
       dto.setComNum(comNum);
       dto.setComWriter(writer);
