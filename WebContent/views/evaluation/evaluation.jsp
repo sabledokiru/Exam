@@ -4,14 +4,13 @@
 <style>
    .qnaBox{
       display:none;
-      border:2px solid orange;
       height:100%;
    }
    .qnaContent{
       height: 50%;
    }
    .adminWrite{
-      border-top:1px solid;
+     
    }
    .glyphicon-question-sign{
       font-size:25px;
